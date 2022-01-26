@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+.logo{
+transform: translate(-50%,0%);
+margin-left: 45%;
+
+
+}
+.row{
+margin-top: 20px;
+
+}
+.fas{
+  transform: translate(-50%,0%);
+  margin-left: 50%;
+  margin-top: 2%;
+  color: white;
+}
+
+
