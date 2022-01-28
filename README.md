@@ -1,4 +1,4 @@
-#PROBLEM STATEMENT: 
+# PROBLEM STATEMENT: 
 
 As an International student it is considerably difficult to get settled in a foreign country and the struggles start from the moment we land. Figuring out the mode of transport from the airport to the university, finding accomodation, maintaining F1 status, looking for a part time, managing workload, knowledge about RTS bus service, etc. are some of the many problems faced. Also the seniors wishing to sub-lease apartments, selling stuffs, etc. don't find a proper platform to connect to the incoming students.
 
