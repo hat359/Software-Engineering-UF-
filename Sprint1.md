@@ -12,7 +12,9 @@ This application is designed to be an informative platform for the international
 
 # Framework and tools
 Front-End: React
+
 Back-End: GoLang
+
 Database: MySQL
 
 
