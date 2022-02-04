@@ -1,61 +1,38 @@
 import React, { useState } from 'react';
-import {
-  MDBNavbar,
-  MDBContainer,
-  MDBIcon,
-  MDBNavbarNav,
-  MDBNavbarItem,
-  MDBNavbarLink,
-  MDBNavbarToggler,
-  MDBNavbarBrand,
-  MDBCollapse
-} from 'mdb-react-ui-kit';
+
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+
 
 export default function Nav() {
-  const [showNavColor, setShowNavColor] = useState(false);
-  const [showNavColorSecond, setShowNavColorSecond] = useState(false);
-  const [showNavColorThird, setShowNavColorThird] = useState(false);
+  
 
-  return (
-    <>
-    <MDBNavbar expand='lg' dark bgColor='primary'>
-      <MDBContainer fluid>
-        <MDBNavbarBrand href='/'>Navbar</MDBNavbarBrand>
-        <MDBNavbarToggler
-          type='button'
-          data-target='#navbarColor02'
-          aria-controls='navbarColor02'
-          aria-expanded='false'
-          aria-label='Toggle navigation'
-          onClick={() => setShowNavColor(!showNavColor)}
-        >
-          <MDBIcon icon='bars' fas />
-        </MDBNavbarToggler>
-        <MDBCollapse show={showNavColor} navbar>
-          <MDBNavbarNav className='me-auto mb-2 mb-lg-0'>
-            <MDBNavbarItem className='active'>
-              <MDBNavbarLink aria-current='page' href='#'>
-                Home
-              </MDBNavbarLink>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
-              <MDBNavbarLink href='#'>Features</MDBNavbarLink>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
-              <MDBNavbarLink href='#'>Pricing</MDBNavbarLink>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
-              <MDBNavbarLink href='#'>About</MDBNavbarLink>
-            </MDBNavbarItem>
-          </MDBNavbarNav>
-        </MDBCollapse>
-      </MDBContainer>
-    </MDBNavbar>
-
-    <br />
-
-    
-    
-    </>
-  );
-}
+    return (
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static" >
+          <Toolbar>
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              sx={{ mr: 2 }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              InfoGator
+            </Typography>
+            <Button color="inherit">Login</Button>
+          </Toolbar>
+        </AppBar>
+      </Box>
+    );
+  }
+  
+ 

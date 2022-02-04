@@ -13,8 +13,42 @@ code {
 }
 
 .card{
-  transform: translate(-50%,0%);
-margin-left: 50%;
-background-color: lightblue;
+
+background-color: dodgerblue;
 
 }
+
+a{
+  text-decoration: none;
+}
+.heading{
+font-size: 40px;
+
+text-align: center;
+
+
+
+}
+
+#video{
+z-index: -1;
+display: block;
+  width: 100%;
+  position: absolute;
+  height: 90vh;
+  object-fit: cover;
+}
+
+.landing{
+margin-top: 30vh;
+
+}
+
+.signin-img{
+height:100vh;
+display:block;
+width: 60vw;
+
+
+}
+

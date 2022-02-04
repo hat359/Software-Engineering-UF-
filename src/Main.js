@@ -1,8 +1,14 @@
 
 import Nav from './Nav'
 import Logo from './Logo.tsx'
-import {Card,Button} from 'react-bootstrap'
+import FlightRoundedIcon from '@mui/icons-material/FlightRounded';
 
+import {Grid,Card,Container} from '@mui/material'
+
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { CardActionArea } from '@mui/material';
 
 function Main(){
 
@@ -15,84 +21,133 @@ function Main(){
              {<Nav/>}
              <div class="logo">
              {<Logo/>}</div>
+                <Container maxWidth="lg">
+                <Grid container spacing={3}>
+  <Grid item xs={4} >
 
-              <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                      <a href={`/travel`}>
-                    <Card style={{ width: '18rem' }}>
-                    <i class="fas fa-route fa-7x"></i>
-  <Card.Body>
-    <Card.Title>Card Title</Card.Title>
+
+
+    <a href="/travel">
+    <Card sx={{ maxWidth: 345 }} class="card">
+      <CardActionArea> 
+      <i class="fas fa-plane fa-5x"></i>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div" color="white">
+            Travel
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+  </a>
+
     
-  </Card.Body>
-</Card>
-</a>
-
-
-                    </div>
-                    <div class="col-md-4">
-                    <Card style={{ width: '18rem' }} className="card">
-                    <i class="fas fa-home fa-7x" ></i>
-  <Card.Body>
-    <Card.Title>Card Title</Card.Title>
-    
-  </Card.Body>
-</Card>
-
-
-                    </div>
-                    <div class="col-md-4">
-                    <Card style={{ width: '18rem' }}>
-                    <i class="fas fa-user-friends fa-7x"></i>
-  <Card.Body >
-    <Card.Title>Card Title</Card.Title>
-    
-  </Card.Body>
-</Card>
-
-
-                    </div>
-                    
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                    <Card style={{ width: '18rem' }}>
-                    <i class="fas fa-donate fa-7x"></i>
-  <Card.Body>
-    <Card.Title>Card Title</Card.Title>
-    
-  </Card.Body>
-</Card>
-
-
-                    </div>
-                    <div class="col-md-4">
-                    <Card style={{ width: '18rem' }} className="card">
-                    <i class="fas fa-book fa-7x"></i>
+  </Grid>
+  <Grid item xs={4}>
+  <Card sx={{ maxWidth: 345 }} class="card">
+      <CardActionArea> 
+      <i class="fas fa-home fa-5x "></i>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div" color="white">
+            Housing
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
   
-  <Card.Body>
-    <Card.Title>Card Title</Card.Title>
-    
-  </Card.Body>
-</Card>
 
-
-                    </div>
-                    <div class="col-md-4">
-                    <Card style={{ width: '18rem' }}>
+  </Grid>
+  <Grid item xs={4}>
+  <Card sx={{ maxWidth: 345 }} class="card">
+      <CardActionArea> 
+      <i class="fas fa-user-friends fa-5x"></i>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div" color="white">
+            Connect
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
   
-  <Card.Body>
-    <Card.Title>Card Title</Card.Title>
     
-  </Card.Body>
-</Card>
+  </Grid>
+  
+</Grid>
+<br/>
+<Grid container spacing={3} >
+  <Grid item xs={4}>
 
 
-                    </div>
-                    
-                </div>
-              </div>
+
+
+    <Card sx={{ maxWidth: 345 }} class="card">
+      <CardActionArea> 
+      <i class="fas fa-plane fa-5x"></i>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div" color="white">
+            Travel
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+  
+
+    
+  </Grid>
+  <Grid item xs={4}>
+  <Card sx={{ maxWidth: 345 }} class="card">
+      <CardActionArea> 
+      <i class="fas fa-plane fa-5x"></i>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div" color="white">
+            Travel
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+  
+
+  </Grid>
+  <Grid item xs={4}>
+  <Card sx={{ maxWidth: 345 }} class="card">
+      <CardActionArea> 
+      <i class="fas fa-plane fa-5x"></i>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div" color="white">
+            Travel
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+  
+    
+  </Grid>
+  
+</Grid>
+
+
+
+
+                </Container>
+
+
 
               </div>
 

@@ -50,8 +50,13 @@ margin-top: 20px;
 .fas{
   transform: translate(-50%,0%);
   margin-left: 50%;
-  margin-top: 2%;
+  margin-top: 10%;
   color: white;
+}
+
+.licon{
+color: #01579b;
+
 }
 
 
