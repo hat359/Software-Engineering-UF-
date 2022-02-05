@@ -16,6 +16,7 @@ func main() {
 	router.HandleFunc("/category", createCategory).Methods("POST")
 	router.HandleFunc("/category/{id}", getOneCategory).Methods("GET")
 	router.HandleFunc("/travel/faq", createQuestion).Methods("POST")
+	router.HandleFunc("/travel/faq/{id}", getOneQuestion).Methods("GET")
 	log.Fatal(http.ListenAndServe(":8080", router))
 }
 
@@ -61,6 +62,16 @@ func createQuestion(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusCreated)
 
 	json.NewEncoder(w).Encode(questions)
+}
+
+func getOneQuestion(w http.ResponseWriter, r *http.Request) {
+	questionID := mux.Vars(r)["id"]
+
+	for _, singleEvent := range questions {
+		if singleEvent.ID == questionID {
+			json.NewEncoder(w).Encode(singleEvent)
+		}
+	}
 }
 
 type category struct {
