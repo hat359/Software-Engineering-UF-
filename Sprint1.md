@@ -32,4 +32,5 @@ Database: MySQL
 
 # YouTube Link
 1. Backend (Demo on Postman) - https://youtu.be/3jstXwKhXhE 
+2. Frondend Demo - https://youtu.be/bqUaIiwusqE
 
