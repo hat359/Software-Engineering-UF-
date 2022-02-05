@@ -18,7 +18,7 @@ Back-End: GoLang
 Database: MySQL
 
 
-# Target for the sprint
+# Targets accomplished for the sprint
 1. Prepare GitHub project repository.
 2. Insert ReadMe file for project description
 3. Set up tools and frameworks used for application development. This includes setting up React for front-end developers and GoLang for back-end developers.
@@ -28,9 +28,6 @@ Database: MySQL
 
 
 # Sprint1 deliverables
-
-
-# YouTube Link
 1. Backend (Demo on Postman) - https://youtu.be/3jstXwKhXhE 
-2. Frondend Demo - https://youtu.be/bqUaIiwusqE
+2. Frontend Demo - https://youtu.be/bqUaIiwusqE
 
