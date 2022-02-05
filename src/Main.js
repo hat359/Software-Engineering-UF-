@@ -84,7 +84,7 @@ function Main(){
 <br/>
 <Grid container spacing={3} >
   <Grid item xs={4}>
-
+<a href={'/Finance'}>
 
 
 
@@ -93,7 +93,7 @@ function Main(){
       <i class="fas fa-plane fa-5x"></i>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div" color="white">
-            Travel
+            Finance
           </Typography>
           <Typography variant="body2" color="text.secondary">
             
@@ -101,11 +101,12 @@ function Main(){
         </CardContent>
       </CardActionArea>
     </Card>
-  
+  </a>
 
     
   </Grid>
   <Grid item xs={4}>
+     <a href={'/Academics'}>
   <Card sx={{ maxWidth: 345 }} class="card">
       <CardActionArea> 
       <i class="fas fa-plane fa-5x"></i>
@@ -119,6 +120,7 @@ function Main(){
         </CardContent>
       </CardActionArea>
     </Card>
+</a>
   
 
   </Grid>
@@ -128,7 +130,7 @@ function Main(){
       <i class="fas fa-plane fa-5x"></i>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div" color="white">
-            Travel
+            Other
           </Typography>
           <Typography variant="body2" color="text.secondary">
             
