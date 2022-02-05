@@ -112,7 +112,7 @@ function Main(){
       <i class="fas fa-plane fa-5x"></i>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div" color="white">
-            Travel
+            Academics
           </Typography>
           <Typography variant="body2" color="text.secondary">
             
