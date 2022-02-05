@@ -1,4 +1,5 @@
 import React from 'react';
+import Nav from '../Nav'
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -12,16 +13,11 @@ import Box from '@mui/material/Box';
 import { positions } from '@mui/system';
 import { makeStyles } from '@mui/styles';
 
-/*const useStyles = makeStyles({
-gridcontainer: {
-  paddingLeft: '50px',
-  paddingRight: '20px'
-},
-});*/
 
 export default function Finance() {
   return (
     <div>
+        {<Nav/>}
       <Typography component="div">
       <Box sx={{ textAlign: 'center', m: 1, fontSize: 32}}>Finances</Box>
       <Box sx={{ textAlign: 'center', m: 1, fontStyle: 'italic'}}>Appropriate information right at your disposal</Box>
