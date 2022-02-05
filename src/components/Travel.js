@@ -1,14 +1,15 @@
 import React, {useState} from 'react'
 import Nav from '../Nav'
-import {Grid,Card,Container} from '@mui/material'
-
+import {Grid,Card,Container,Paper,TextField,Button} from '@mui/material'
+import Footer from '../rep-components/Footer'
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import Table from '../rep-components/Table'
 import Modal from '../rep-components/Modal'
-import plane from '../paperplane.png'
+
+import SendIcon from '@mui/icons-material/Send';
 function Travel(){
   const [tf, settf] = useState(false);
 const handleclick=()=>{
@@ -78,9 +79,31 @@ return(
 </Grid>
 
 <Table/>
-<Modal/>
-</Container>
 
+<Paper align="center" sx={{marginTop:'50px'}} variant="outlined"> 
+<TextField sx={{marginLeft:'50px',marginTop:'50px',width:'75%'}} id="outlined-basic" label="Question" variant="outlined" />
+<br/> 
+<Grid  container>
+  <Grid  item xs={8}>
+<TextField sx={{marginTop:'50px', width:'55%',paddingBottom:'50px'}}
+          id="outlined-multiline-static"
+          label="Description"
+          multiline
+          rows={4}
+          defaultValue="-"
+        />
+ </Grid>
+ <Grid align="left" item xs={2}>
+ <Button sx={{marginTop:'50%'}} variant="contained" endIcon={<SendIcon />}>
+  Post
+</Button>
+ </Grid>
+ 
+</Grid>
+
+</Paper>
+</Container>
+<Footer/>
 
 </div>
 

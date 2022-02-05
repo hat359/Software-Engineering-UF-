@@ -82,65 +82,7 @@ function Main(){
   
 </Grid>
 <br/>
-<Grid container spacing={3} >
-  <Grid item xs={4}>
 
-
-
-
-    <Card sx={{ maxWidth: 345 }} class="card">
-      <CardActionArea> 
-      <i class="fas fa-plane fa-5x"></i>
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div" color="white">
-            Travel
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-  
-
-    
-  </Grid>
-  <Grid item xs={4}>
-  <Card sx={{ maxWidth: 345 }} class="card">
-      <CardActionArea> 
-      <i class="fas fa-plane fa-5x"></i>
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div" color="white">
-            Travel
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-  
-
-  </Grid>
-  <Grid item xs={4}>
-  <Card sx={{ maxWidth: 345 }} class="card">
-      <CardActionArea> 
-      <i class="fas fa-plane fa-5x"></i>
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div" color="white">
-            Travel
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-  
-    
-  </Grid>
-  
-</Grid>
 
 
 

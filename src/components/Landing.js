@@ -2,7 +2,7 @@ import React from 'react'
 import Nav from '../Nav'
 import vid from '../video-uf.mp4'
 import {Button,Grid,Container,Typography,Box,Divider,Link} from '@mui/material'
-
+import Footer from '../rep-components/Footer'
 export default function Landing(){
 return(
 <div>
@@ -103,18 +103,7 @@ return(
 
   </Grid>
  </Container>
- <Box
-      sx={{
-        width: 1,
-        height: 200,
-        backgroundColor:'#bbdefb',   
-        marginTop:'30vh',
-        zIndex:-1
-        
-      }}
-       
-
-    />
+ <Footer/>
 
 
         
