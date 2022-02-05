@@ -22,7 +22,7 @@ Database: MySQL
 1. Prepare GitHub project repository.
 2. Insert ReadMe file for project description
 3. Set up tools and frameworks used for application development. This includes setting up React for front-end developers and GoLang for back-end developers.
-4. Develop UI for home page, landing page, and first functionality of finance.
+4. Develop UI for home page, landing page, and first functionality of travel.
 5. Build API to fetch category selection for landing page and travel help page along with appointment scheduling.
 6. Report API tests on Postman.
 
