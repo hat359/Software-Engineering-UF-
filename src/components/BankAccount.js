@@ -1,4 +1,5 @@
 import React from 'react';
+import Nav from '../Nav'
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -27,7 +28,9 @@ export default function FormDialog() {
   };
 
   return (
-    
+    <div>
+
+    {<Nav/>}
     <div style={{ padding: 100 }}>
       <Grid item xs={12} sm={6} md={4}>
       <Card sx={{ maxWidth: 345 }}>
@@ -67,6 +70,7 @@ export default function FormDialog() {
         </DialogActions>
       </Dialog>
       
+    </div>
     </div>
   );
 }
