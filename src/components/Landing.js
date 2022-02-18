@@ -40,7 +40,7 @@ return(
      <br/>
   <Grid container  >
       <Grid item xs={6}>
-      <Box sx={{ fontWeight: 'bold', m: 1,fontSize: 'h3.fontSize' }}>Finance </Box>
+      <Box sx={{ fontWeight: 'bold',marginTop:5,fontSize: 'h3.fontSize' }}>Finance </Box>
        <Typography variant="body1" >
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
         blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur,
@@ -50,7 +50,7 @@ return(
 
 
       </Grid>
-      <Grid item xs={6}>
+      <Grid align="center" item xs={6}>
        
       
       <i class="fas fa-piggy-bank fa-9x licon"></i>
@@ -62,14 +62,14 @@ return(
   
   <br/><br/><br/><br/><br/><br/><Divider /><br/>
   <Grid container >
-      <Grid item xs={6}>
+      <Grid align="center"  item xs={6}>
        
       
       <i class="fas fa-plane-departure fa-9x licon"></i>
 
       </Grid>
       <Grid item xs={6}>
-      <Box sx={{ fontWeight: 'bold', m: 1,fontSize: 'h3.fontSize' }}>Travel</Box>
+      <Box sx={{ fontWeight: 'bold',marginTop:5,fontSize: 'h3.fontSize' }}>Travel</Box>
        <Typography variant="body1" gutterBottom>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
         blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur,
@@ -85,8 +85,8 @@ return(
 
   <Grid container >
       <Grid item xs={6}>
-      <Box sx={{ fontWeight: 'bold', m: 1,fontSize: 'h3.fontSize' }}>Academics</Box>
-       <Typography variant="body1" gutterBottom>
+      <Box sx={{ fontWeight: 'bold',marginTop:5,fontSize: 'h3.fontSize' }}>Academics</Box>
+       <Typography sx={{paddingRight:'20px'}} variant="body3" gutterBottom>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
         blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur,
         neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum
@@ -95,7 +95,7 @@ return(
 
 
       </Grid>
-      <Grid item xs={6}>
+      <Grid align="center"  item xs={6}>
       
       <i class="fas fa-graduation-cap fa-9x licon"></i>
 

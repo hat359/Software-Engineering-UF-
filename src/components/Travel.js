@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
+import React, {useState,useEffect} from 'react'
 import Nav from '../Nav'
-import {Grid,Card,Container,Paper,TextField,Button} from '@mui/material'
+import {Grid,Card,Container,Paper,TextField,Button,Box} from '@mui/material'
 import Footer from '../rep-components/Footer'
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -8,16 +8,29 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import Table from '../rep-components/Table'
 import Modal from '../rep-components/Modal'
+import axios from 'axios'
 
 import SendIcon from '@mui/icons-material/Send';
 function Travel(){
   const [tf, settf] = useState(false);
 const handleclick=()=>{
 
+  
+
+
 
 
 }
 
+useEffect(()=>{
+axios.get("http://localhost:8000/api/travel").then(
+  response=>{
+    console.log(response.data)
+  }
+)
+
+
+})
 return(
 <div>
  {<Nav/>}
@@ -79,7 +92,7 @@ return(
 </Grid>
 
 <Table/>
-
+<Box sx={{ paddingTop:'50px', fontWeight: 'bold', m: 1,fontSize: 'h4.fontSize' }}>Ask a Question</Box>
 <Paper align="center" sx={{marginTop:'50px'}} variant="outlined"> 
 <TextField sx={{marginLeft:'50px',marginTop:'50px',width:'75%'}} id="outlined-basic" label="Question" variant="outlined" />
 <br/> 

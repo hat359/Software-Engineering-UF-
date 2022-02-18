@@ -1,0 +1,54 @@
+{
+	"folders": [
+		{
+			"name": "New folder",
+			"path": "c:\\Users\\Lenovo\\Desktop\\New folder"
+		},
+		{
+			"name": "sporti",
+			"path": "c:\\Users\\Lenovo\\Desktop\\web dev\\sporti"
+		},
+		{
+			"name": "payment",
+			"path": "c:\\Users\\Lenovo\\Desktop\\payment"
+		},
+		{
+			"name": "sporti-superadmin-master",
+			"path": "c:\\Users\\Lenovo\\Desktop\\sporti-superadmin-master"
+		},
+		{
+			"name": "MeaVita-main",
+			"path": "c:\\Users\\Lenovo\\Desktop\\MeaVita-main"
+		},
+		{
+			"name": "CLASS ASSN 1",
+			"path": "c:\\Users\\Lenovo\\Desktop\\web dev\\CLASS ASSN 1"
+		},
+		{
+			"path": "c:\\Users\\Lenovo\\Desktop\\web dev\\CLASS ASSN 1\\jquery1"
+		},
+		{
+			"path": "c:\\Users\\Lenovo\\Desktop\\web dev\\CLASS ASSN 1\\jquery2"
+		},
+		{
+			"path": "c:\\Users\\Lenovo\\Desktop\\web dev\\Bodydn"
+		},
+		{
+			"path": "c:\\Users\\Lenovo\\Desktop\\movie"
+		},
+		{
+			"path": "c:\\Users\\Lenovo\\Desktop\\R"
+		},
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "mte2",
+		"files.associations": {
+			"iostream": "cpp",
+			"stdlib.h": "c",
+			"stdio.h": "c"
+		}
+	}
+}

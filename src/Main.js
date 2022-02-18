@@ -2,7 +2,7 @@
 import Nav from './Nav'
 import Logo from './Logo.tsx'
 import FlightRoundedIcon from '@mui/icons-material/FlightRounded';
-
+import Footer from './rep-components/Footer'
 import {Grid,Card,Container} from '@mui/material'
 
 import CardContent from '@mui/material/CardContent';
@@ -28,7 +28,7 @@ function Main(){
 
 
     <a href="/travel">
-    <Card sx={{ maxWidth: 345 }} class="card">
+    <Card align="center" sx={{ maxWidth: 345 }} class="card">
       <CardActionArea> 
       <i class="fas fa-plane fa-5x"></i>
         <CardContent>
@@ -46,12 +46,12 @@ function Main(){
     
   </Grid>
   <Grid item xs={4}>
-  <Card sx={{ maxWidth: 345 }} class="card">
+  <a href="/academics"><Card  align="center"sx={{ maxWidth: 345 }} class="card">
       <CardActionArea> 
-      <i class="fas fa-home fa-5x "></i>
+      <i class="fas fa-university fa-5x"></i>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div" color="white">
-            Housing
+            Academics
           </Typography>
           <Typography variant="body2" color="text.secondary">
             
@@ -59,16 +59,17 @@ function Main(){
         </CardContent>
       </CardActionArea>
     </Card>
-  
+  </a>
 
   </Grid>
   <Grid item xs={4}>
-  <Card sx={{ maxWidth: 345 }} class="card">
+    <a href="/finance">
+  <Card  align="center" sx={{ maxWidth: 345 }} class="card">
       <CardActionArea> 
-      <i class="fas fa-user-friends fa-5x"></i>
+      <i class="fas fa-money-check-edit-alt fa-5x"></i>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div" color="white">
-            Connect
+            Finance
           </Typography>
           <Typography variant="body2" color="text.secondary">
             
@@ -76,7 +77,7 @@ function Main(){
         </CardContent>
       </CardActionArea>
     </Card>
-  
+  </a>
     
   </Grid>
   
@@ -89,7 +90,7 @@ function Main(){
 
 
                 </Container>
-
+{<Footer/>}
 
 
               </div>

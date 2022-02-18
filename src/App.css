@@ -48,8 +48,7 @@ margin-top: 20px;
 
 }
 .fas{
-  transform: translate(-50%,0%);
-  margin-left: 50%;
+
   margin-top: 10%;
   color: white;
 }
@@ -58,5 +57,13 @@ margin-top: 20px;
 color: #01579b;
 
 }
+.footer-img img{
+height:40px;
 
 
+}
+
+.fab{
+margin: 20px;
+
+}
