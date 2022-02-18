@@ -24,13 +24,13 @@ export default function Finance() {
     <div style={{ padding: 200 }} >
     <Grid container spacing = {4}>
       <Grid item xs={12} sm={6} md={4}>
-      <Card sx={{ maxWidth: 345 }}>
-      <CardContent>
-        <AccountBalanceIcon sx={{ fontSize: 80 }} color="primary"/>
-        <Typography gutterBottom variant="h5" component="div">
+      <Card class="card" sx={{ maxWidth: 345 }}>
+      <CardContent align="center">
+        <AccountBalanceIcon sx={{ fontSize: 80,color:"white" }}/>
+        <Typography gutterBottom variant="h5" component="div" color="common.white">
           Bank Account
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" color="common.white" >
         Open your bank account with a preferred bank.
         </Typography>
       </CardContent>
@@ -42,13 +42,13 @@ export default function Finance() {
     </Card>
     </Grid>
       <Grid item xs={12} sm={6} md={4}>
-      <Card sx={{ maxWidth: 345 }}>
-      <CardContent>
-        <HealthAndSafetyIcon sx={{ fontSize: 80 }} color="primary"/>
-        <Typography gutterBottom variant="h5" component="div">
+      <Card sx={{ maxWidth: 345 }} class="card">
+      <CardContent align="center">
+        <HealthAndSafetyIcon sx={{ fontSize: 80,color:"white"}} />
+        <Typography gutterBottom variant="h5" component="div" color="common.white">
           Health insurance
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" color="common.white">
         Get yourself a suitable health insurance. Be fully covered and save money. 
 
         </Typography>
@@ -61,13 +61,13 @@ export default function Finance() {
     </Card>
     </Grid>
       <Grid item xs={12} sm={6} md={4}>
-      <Card sx={{ maxWidth: 345 }}>
-      <CardContent>
-        <CreditScoreIcon sx={{ fontSize: 80 }} color="primary"/>
-        <Typography gutterBottom variant="h5" component="div">
+      <Card sx={{ maxWidth: 345 }} class="card">
+      <CardContent align="center">
+        <CreditScoreIcon sx={{ fontSize: 80, color: "white" }}/>
+        <Typography gutterBottom variant="h5" component="div" color="common.white">
           Financial Aid
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" color="common.white">
         Studying shouldn’t be a financial burden. Find help to fund your education.
         </Typography>
       </CardContent>

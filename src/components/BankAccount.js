@@ -1,5 +1,6 @@
 import React from 'react';
 import Nav from '../Nav'
+import {Container} from "@mui/material"
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -13,8 +14,8 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import ContactSupportIcon from '@mui/icons-material/ContactSupport';
-
-
+import Carousel from '../rep-components/carousel'
+import wellsfargo from '../wellsfargo.png'
 
 export default function FormDialog() {
   const [open, setOpen] = React.useState(false);
@@ -31,46 +32,22 @@ export default function FormDialog() {
     <div>
 
     {<Nav/>}
-    <div style={{ padding: 100 }}>
-      <Grid item xs={12} sm={6} md={4}>
-      <Card sx={{ maxWidth: 345 }}>
-      <CardContent>
-      <ContactSupportIcon sx={{ fontSize: 80 }} color="primary"/>
-      <Typography variant="body2" color="text.secondary">
-      Get connected to the bank
-      </Typography>
-      </CardContent>
-      <CardActions>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Contact
-      </Button>
-      </CardActions>
-      </Card>
-      </Grid>
-      <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Contact Details</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            Please enter your contact details so that we can connect you with the bank.
-          </DialogContentText>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Email Address"
-            type="email"
-            fullWidth
-            variant="standard"
-          />
-        </DialogContent>
-        <DialogActions>
-          
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Submit</Button>
-        </DialogActions>
-      </Dialog>
+    {<Carousel/>}
+    <Container maxWidth="lg">
+       <Grid container>
+         
+           <Grid item xs={6} class="bank">
+              <img src={wellsfargo}/>
+           </Grid>
+           <Grid item xs={4}>
+              fuf
+           </Grid>
+        </Grid>
+       
       
-    </div>
+      </Container>
+
+
     </div>
   );
 }
