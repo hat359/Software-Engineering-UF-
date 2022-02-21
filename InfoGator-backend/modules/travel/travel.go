@@ -1,18 +1,19 @@
 package travel
 
 import (
+	"database/sql"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+
+	"log"
 	"net/http"
 
-	"github.com/gofiber/fiber/v2"
+	"github.com/go-sql-driver/mysql"
 	"github.com/gorilla/mux"
 )
 
-func Travelinfo(c *fiber.Ctx) error {
-	return c.SendString("Success!")
-}
+var db *sql.DB
 
 type question struct {
 	ID             string `json:"ID"`
@@ -40,8 +41,59 @@ var questions = allQuestions{
 	},
 }
 
+func extractQuestionsFromDatabase() ([]question, error) {
+
+	// ,,,,,,,,
+	cfg := mysql.Config{
+		User:   "root",
+		Passwd: "macnuj21",
+		Net:    "tcp",
+		Addr:   "127.0.0.1:3306",
+		DBName: "InfoGator",
+	}
+	// Get a database handle.
+	var err error
+	db, err = sql.Open("mysql", cfg.FormatDSN())
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	pingErr := db.Ping()
+	if pingErr != nil {
+		log.Fatal(pingErr)
+	}
+
+	// ,,,,,,,,,,
+
+	rows, err := db.Query("SELECT * FROM travel_faq")
+	if err != nil {
+		return nil, fmt.Errorf("extracting questions: %v", err)
+	}
+	defer rows.Close()
+
+	// Loop through rows, using Scan to assign column data to struct fields.
+	for rows.Next() {
+		var qt question
+		if err := rows.Scan(&qt.ID, &qt.Question, &qt.PostedByUserId); err != nil {
+			return nil,
+				fmt.Errorf("extracting question : %v", err)
+		}
+		questions = append(questions, qt)
+	}
+	if err := rows.Err(); err != nil {
+		return nil,
+			fmt.Errorf("extracting questions : %v", err)
+	}
+
+	return questions, nil
+}
+
 func CreateQuestion(w http.ResponseWriter, r *http.Request) {
 	var newQuestion question
+	questions, err := extractQuestionsFromDatabase()
+	if err != nil {
+		log.Fatal(err)
+	}
 	reqBody, err := ioutil.ReadAll(r.Body)
 	if err != nil {
 		fmt.Fprintf(w, "Kindly enter data with the event title and description only in order to update")
