@@ -1,14 +1,15 @@
 
 
 
-import * as React from 'react';
-import Table from '@mui/material/Table';
+import React,{useState} from 'react';
+import {Table,Button} from '@mui/material';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import Answermodal from './Answermodal'
 
 function createData(name, calories, fat) {
   return { name, calories, fat};
@@ -23,34 +24,46 @@ const rows = [
 ];
 
 export default function BasicTable() {
+
+  const [state,setstate]=useState(false)
+function handle(){
+
+  setstate(true)
+}
+
+
   return (
+    <div>
+   
     <TableContainer sx={{marginTop:'100px'}} component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell sx={{fontWeight:600}}>Questions</TableCell>
             <TableCell sx={{fontWeight:600}} align="right">Author</TableCell>
+           
             <TableCell sx={{fontWeight:600}} align="right">Date</TableCell>
             
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <TableRow
+            <TableRow id="cell"
               key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              sx={{ '&:last-child td, &:last-child th': { border: 0, } }}
             >
               <TableCell component="th" scope="row">
-                {row.name}
+                {row.name} 
               </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
+              <TableCell>{<Answermodal/>}</TableCell>
+              <TableCell align="right">{row.calories} </TableCell>
               <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+              
             </TableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
+    </div>
   );
 }
