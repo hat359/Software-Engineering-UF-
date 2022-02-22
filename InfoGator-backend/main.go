@@ -17,6 +17,8 @@ var db *sql.DB
 
 func main() {
 
+	// ..... Database Connection
+
 	// Capture connection properties.
 	cfg := mysql.Config{
 		User:   "root",
@@ -38,11 +40,14 @@ func main() {
 	}
 	fmt.Println("Connected!")
 
+	// .....
+
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/", homeLink)
-	router.HandleFunc("/category", category.CreateCategory).Methods("POST")
+	router.HandleFunc("/category", category.CreateCategory).Methods("GET")
 	router.HandleFunc("/category/{id}", category.GetOneCategory).Methods("GET")
-	router.HandleFunc("/travel/faq", travel.CreateQuestion).Methods("POST")
+	router.HandleFunc("/travel/faq", travel.CreateQuestion).Methods("GET")
+	router.HandleFunc("/travel/faq/question", travel.AddQuestion).Methods("POST")
 	router.HandleFunc("/travel/faq/{id}", travel.GetOneQuestion).Methods("GET")
 	log.Fatal(http.ListenAndServe(":8080", router))
 }

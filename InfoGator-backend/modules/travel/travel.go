@@ -41,9 +41,8 @@ var questions = allQuestions{
 	},
 }
 
-func extractQuestionsFromDatabase() ([]question, error) {
-
-	// ,,,,,,,,
+func connectDB() {
+	// ........ Making Database Connection
 	cfg := mysql.Config{
 		User:   "root",
 		Passwd: "macnuj21",
@@ -63,7 +62,12 @@ func extractQuestionsFromDatabase() ([]question, error) {
 		log.Fatal(pingErr)
 	}
 
-	// ,,,,,,,,,,
+	// ........
+}
+
+func extractQuestionsFromDatabase() ([]question, error) {
+
+	connectDB()
 
 	rows, err := db.Query("SELECT * FROM travel_faq")
 	if err != nil {
@@ -88,6 +92,21 @@ func extractQuestionsFromDatabase() ([]question, error) {
 	return questions, nil
 }
 
+// addQuestion adds the specified question to the database,
+// returning the question ID of the new entry
+func addQuestionToDatabase(ques question) (int64, error) {
+	connectDB()
+	result, err := db.Exec("INSERT INTO travel_faq VALUES (?, ?, ?)", ques.ID, ques.Question, ques.PostedByUserId)
+	if err != nil {
+		return 0, fmt.Errorf("addQuestion: %v", err)
+	}
+	id, err := result.LastInsertId()
+	if err != nil {
+		return 0, fmt.Errorf("addQuesion: %v", err)
+	}
+	return id, nil
+}
+
 func CreateQuestion(w http.ResponseWriter, r *http.Request) {
 	var newQuestion question
 	questions, err := extractQuestionsFromDatabase()
@@ -104,6 +123,17 @@ func CreateQuestion(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusCreated)
 
 	json.NewEncoder(w).Encode(questions)
+}
+
+func AddQuestion(w http.ResponseWriter, r *http.Request) {
+	requestBody, _ := ioutil.ReadAll(r.Body)
+	var quest question
+	json.Unmarshal(requestBody, &quest)
+	fmt.Printf(quest.Question)
+	addQuestionToDatabase(quest)
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusCreated)
+	json.NewEncoder(w).Encode(quest)
 }
 
 func GetOneQuestion(w http.ResponseWriter, r *http.Request) {
