@@ -2,39 +2,32 @@ import React from 'react';
 import Carousel from 'react-material-ui-carousel'
 import { Paper, Button } from '@mui/material'
 
-export default function Example(props)
-{
-    var items = [
-        {
-            name: "Random Name #1",
-            description: "Probably the most random thing you have ever seen!"
-        },
-        {
-            name: "Random Name #2",
-            description: "Hello World!"
-        }
-    ]
 
-    return (
-        <Carousel>
-            {
-                items.map( (item, i) => <Item key={i} item={item} /> )
-            }
-        </Carousel>
+export default function Carousal(props)
+{
+
+    return(
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="" class="d-block w-100" alt="..."/>
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="..."/>
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="..."/>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
     )
 }
-
-function Item(props)
-{
-    return (
-        <Paper>
-            <h2>{props.item.name}</h2>
-            <p>{props.item.description}</p>
-
-            <Button className="CheckButton">
-                Check it out!
-            </Button>
-        </Paper>
-    )
-}
-

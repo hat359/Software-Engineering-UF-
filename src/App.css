@@ -68,7 +68,19 @@ margin: 20px;
 
 }
 
+
 .bank img{
-width: 10%;
+height: 80% !important;
+
+
+}
+.bank{
+width:500px;
+height:500px;
+
+}
+
+#cell{
+cursor: pointer;
 
 }

@@ -15,6 +15,7 @@ code {
 .card{
 
 background-color: dodgerblue;
+border-radius: 2%;
 
 }
 
@@ -52,3 +53,7 @@ width: 60vw;
 
 }
 
+.carousel-item img{
+height:100vh
+
+}
