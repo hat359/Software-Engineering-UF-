@@ -45,11 +45,17 @@ func extractQuestionsFromDatabase() ([]question, error) {
 
 	// ,,,,,,,,
 	cfg := mysql.Config{
-		User:   "root",
-		Passwd: "macnuj21",
+		// User:   "root",
+		// Passwd: "macnuj21",
+		// Net:    "tcp",
+		// Addr:   "127.0.0.1:3306",
+		// DBName: "InfoGator",
+		User:   "bc8bfc8b34ccc4",
+		Passwd: "6b67f937",
 		Net:    "tcp",
-		Addr:   "127.0.0.1:3306",
-		DBName: "InfoGator",
+		Addr:   "us-cdbr-east-03.cleardb.com",
+		DBName: "heroku_daabc0ba752f575",
+		AllowNativePasswords:true,
 	}
 	// Get a database handle.
 	var err error

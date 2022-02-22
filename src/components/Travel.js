@@ -13,21 +13,47 @@ import axios from 'axios'
 import SendIcon from '@mui/icons-material/Send';
 function Travel() {
   const [tf, settf] = useState(false);
+  const [ques,setques]=useState("")
+  const [desc,setdesc]=useState("")
+  const variable={
+    ID:"q1",
+  Question:ques,
+  PostedByUserId:"name"
+
+  }
+
   const handleclick = () => {
 
+ }
+  const handeldesc=(event)=>{
+    setdesc(event.target.value)
+
+  }
+  
+
+  const handelques=(event)=>{
+    setques(event.target.value)
+  }
+
+  const handelpost=()=>{
+    axios.post("http://localhost:8080/travel/faq",variable)
+    .then(response=>{
+      console.log(response.data)
+    }).catch(err=>{
 
 
-
-
+   
+      
+      })
 
   }
 
   useEffect(() => {
-    axios.get("http://localhost:8080/travel/faq").then(
-      response => {
-        console.log(response.data)
-      }
-    )
+    // axios.get("http://localhost:8080/travel/faq").then(
+    //   response => {
+    //     console.log(response.data)
+    //   }
+    // )
 
 
   })
@@ -94,7 +120,7 @@ function Travel() {
         <Table />
         <Box sx={{ paddingTop: '50px', fontWeight: 'bold', m: 1, fontSize: 'h4.fontSize' }}>Ask a Question</Box>
         <Paper align="center" sx={{ marginTop: '50px' }} variant="outlined">
-          <TextField sx={{ marginLeft: '50px', marginTop: '50px', width: '75%' }} id="outlined-basic" label="Question" variant="outlined" />
+          <TextField sx={{ marginLeft: '50px', marginTop: '50px', width: '75%' }} name="ques" value={ques} onChange={handelques} id="outlined-basic" label="Question" variant="outlined" />
           <br />
           <Grid container>
             <Grid item xs={8}>
@@ -104,10 +130,14 @@ function Travel() {
                 multiline
                 rows={4}
                 defaultValue="-"
+                value={desc}
+                name={desc}
+                onChange={handeldesc}
+
               />
             </Grid>
             <Grid align="left" item xs={2}>
-              <Button sx={{ marginTop: '50%' }} variant="contained" endIcon={<SendIcon />}>
+              <Button sx={{ marginTop: '50%' }} variant="contained" onClick={handelpost} endIcon={<SendIcon />}>
                 Post
               </Button>
             </Grid>
