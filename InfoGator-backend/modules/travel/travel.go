@@ -21,6 +21,13 @@ type question struct {
 	PostedByUserId string `json:"PostedByUserId"`
 }
 
+type answer struct {
+	AnswerID       string `json:"AnswerID"`
+	QuestionID     string `json:"QuestionID"`
+	Answer         string `json:"Answer"`
+	AnswerByUserId string `json:"AnswerByUserId"`
+}
+
 type allQuestions []question
 
 var questions = allQuestions{
@@ -41,20 +48,24 @@ var questions = allQuestions{
 	},
 }
 
+type allAnswers []answer
+
+var answers = allAnswers{}
+
 func connectDB() {
 	// ........ Making Database Connection
 	cfg := mysql.Config{
 		User:   "root",
-		Passwd: "root",
+		Passwd: "macnuj21",
 		Net:    "tcp",
-		Addr:   "localhost:3306",
+		Addr:   "127.0.0.1:3306",
 		DBName: "InfoGator",
 		// User:   "bc8bfc8b34ccc4",
 		// Passwd: "6b67f937",
 		// Net:    "tcp",
 		// Addr:   "us-cdbr-east-03.cleardb.com",
 		// DBName: "heroku_daabc0ba752f575",
-		 AllowNativePasswords:true,
+		AllowNativePasswords: true,
 	}
 	// Get a database handle.
 	var err error
@@ -90,7 +101,6 @@ func extractQuestionsFromDatabase() ([]question, error) {
 		}
 		questions = append(questions, qt)
 	}
-	
 
 	if err := rows.Err(); err != nil {
 		return nil,
@@ -98,7 +108,7 @@ func extractQuestionsFromDatabase() ([]question, error) {
 	}
 	db.Close()
 	return questions, nil
-	
+
 }
 
 // addQuestion adds the specified question to the database,
@@ -156,4 +166,61 @@ func GetOneQuestion(w http.ResponseWriter, r *http.Request) {
 			json.NewEncoder(w).Encode(singleEvent)
 		}
 	}
+}
+
+func extractAnswersFromDatabase(id string) ([]answer, error) {
+
+	connectDB()
+
+	rows, err := db.Query("SELECT * FROM travel_faq_answers WHERE QuestionID = ?", id)
+	if err != nil {
+		return nil, fmt.Errorf("extracting answers: %v", err)
+	}
+	defer rows.Close()
+
+	// Loop through rows, using Scan to assign column data to struct fields.
+	for rows.Next() {
+		var ans answer
+		if err := rows.Scan(&ans.AnswerID, &ans.QuestionID, &ans.Answer, &ans.AnswerByUserId); err != nil {
+			return nil,
+				fmt.Errorf("extracting answers : %v", err)
+		}
+		answers = append(answers, ans)
+	}
+
+	if err := rows.Err(); err != nil {
+		return nil,
+			fmt.Errorf("extracting answers : %v", err)
+	}
+	db.Close()
+	return answers, nil
+
+}
+
+func GetAnswers(w http.ResponseWriter, r *http.Request) {
+	questionId := mux.Vars(r)["questionId"]
+
+	answers = allAnswers{}
+
+	var newAnswer answer
+	answers, err := extractAnswersFromDatabase(questionId)
+	if err != nil {
+		log.Fatal(err)
+	}
+	reqBody, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		fmt.Fprintf(w, "Kindly enter data with the event title and description only in order to update")
+	}
+
+	json.Unmarshal(reqBody, &newAnswer)
+	answers = append(answers, newAnswer)
+	w.WriteHeader(http.StatusCreated)
+
+	json.NewEncoder(w).Encode(answers)
+
+	// for _, singleEvent := range answers {
+	// 	if singleEvent.ID == answerID {
+	// 		json.NewEncoder(w).Encode(singleEvent)
+	// 	}
+	// }
 }
