@@ -45,10 +45,16 @@ func connectDB() {
 	// ........ Making Database Connection
 	cfg := mysql.Config{
 		User:   "root",
-		Passwd: "macnuj21",
+		Passwd: "root",
 		Net:    "tcp",
-		Addr:   "127.0.0.1:3306",
+		Addr:   "localhost:3306",
 		DBName: "InfoGator",
+		// User:   "bc8bfc8b34ccc4",
+		// Passwd: "6b67f937",
+		// Net:    "tcp",
+		// Addr:   "us-cdbr-east-03.cleardb.com",
+		// DBName: "heroku_daabc0ba752f575",
+		 AllowNativePasswords:true,
 	}
 	// Get a database handle.
 	var err error
@@ -84,12 +90,15 @@ func extractQuestionsFromDatabase() ([]question, error) {
 		}
 		questions = append(questions, qt)
 	}
+	
+
 	if err := rows.Err(); err != nil {
 		return nil,
 			fmt.Errorf("extracting questions : %v", err)
 	}
-
+	db.Close()
 	return questions, nil
+	
 }
 
 // addQuestion adds the specified question to the database,
@@ -104,6 +113,7 @@ func addQuestionToDatabase(ques question) (int64, error) {
 	if err != nil {
 		return 0, fmt.Errorf("addQuesion: %v", err)
 	}
+	db.Close()
 	return id, nil
 }
 
