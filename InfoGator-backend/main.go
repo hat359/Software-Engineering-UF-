@@ -26,13 +26,20 @@ func Cors(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 
+	// ..... Database Connection
+
 	// Capture connection properties.
 	cfg := mysql.Config{
-		User:   "bc8bfc8b34ccc4",
-		Passwd: "6b67f937",
+		// User:   "bc8bfc8b34ccc4",
+		// Passwd: "6b67f937",
+		// Net:    "tcp",
+		// Addr:   "us-cdbr-east-03.cleardb.com",
+		// DBName: "heroku_daabc0ba752f575",
+		User:   "root",
+		Passwd: "root",
 		Net:    "tcp",
-		Addr:   "us-cdbr-east-03.cleardb.com",
-		DBName: "heroku_daabc0ba752f575",
+		Addr:   "localhost:3306",
+		DBName: "InfoGator",
 		AllowNativePasswords:true,
 	}
 	// Get a database handle.
@@ -47,15 +54,16 @@ func main() {
 		log.Fatal(pingErr)
 	}
 	fmt.Println("Connected!")
-	
-  
-  
+
+	// .....
+
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/plm/cors",Cors)
 	router.HandleFunc("/", homeLink)
-	router.HandleFunc("/category", category.CreateCategory).Methods("POST")
+	router.HandleFunc("/category", category.CreateCategory).Methods("GET")
 	router.HandleFunc("/category/{id}", category.GetOneCategory).Methods("GET")
-	router.HandleFunc("/travel/faq", travel.CreateQuestion).Methods("POST")
+	router.HandleFunc("/travel/faq", travel.CreateQuestion).Methods("GET")
+	router.HandleFunc("/travel/faq/question", travel.AddQuestion).Methods("POST")
 	router.HandleFunc("/travel/faq/{id}", travel.GetOneQuestion).Methods("GET")
 
 

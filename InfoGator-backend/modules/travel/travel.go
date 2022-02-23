@@ -41,21 +41,20 @@ var questions = allQuestions{
 	},
 }
 
-func extractQuestionsFromDatabase() ([]question, error) {
-
-	// ,,,,,,,,
+func connectDB() {
+	// ........ Making Database Connection
 	cfg := mysql.Config{
-		// User:   "root",
-		// Passwd: "macnuj21",
-		// Net:    "tcp",
-		// Addr:   "127.0.0.1:3306",
-		// DBName: "InfoGator",
-		User:   "bc8bfc8b34ccc4",
-		Passwd: "6b67f937",
+		User:   "root",
+		Passwd: "root",
 		Net:    "tcp",
-		Addr:   "us-cdbr-east-03.cleardb.com",
-		DBName: "heroku_daabc0ba752f575",
-		AllowNativePasswords:true,
+		Addr:   "localhost:3306",
+		DBName: "InfoGator",
+		// User:   "bc8bfc8b34ccc4",
+		// Passwd: "6b67f937",
+		// Net:    "tcp",
+		// Addr:   "us-cdbr-east-03.cleardb.com",
+		// DBName: "heroku_daabc0ba752f575",
+		 AllowNativePasswords:true,
 	}
 	// Get a database handle.
 	var err error
@@ -69,7 +68,12 @@ func extractQuestionsFromDatabase() ([]question, error) {
 		log.Fatal(pingErr)
 	}
 
-	// ,,,,,,,,,,
+	// ........
+}
+
+func extractQuestionsFromDatabase() ([]question, error) {
+
+	connectDB()
 
 	rows, err := db.Query("SELECT * FROM travel_faq")
 	if err != nil {
@@ -86,12 +90,31 @@ func extractQuestionsFromDatabase() ([]question, error) {
 		}
 		questions = append(questions, qt)
 	}
+	
+
 	if err := rows.Err(); err != nil {
 		return nil,
 			fmt.Errorf("extracting questions : %v", err)
 	}
-
+	db.Close()
 	return questions, nil
+	
+}
+
+// addQuestion adds the specified question to the database,
+// returning the question ID of the new entry
+func addQuestionToDatabase(ques question) (int64, error) {
+	connectDB()
+	result, err := db.Exec("INSERT INTO travel_faq VALUES (?, ?, ?)", ques.ID, ques.Question, ques.PostedByUserId)
+	if err != nil {
+		return 0, fmt.Errorf("addQuestion: %v", err)
+	}
+	id, err := result.LastInsertId()
+	if err != nil {
+		return 0, fmt.Errorf("addQuesion: %v", err)
+	}
+	db.Close()
+	return id, nil
 }
 
 func CreateQuestion(w http.ResponseWriter, r *http.Request) {
@@ -110,6 +133,17 @@ func CreateQuestion(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusCreated)
 
 	json.NewEncoder(w).Encode(questions)
+}
+
+func AddQuestion(w http.ResponseWriter, r *http.Request) {
+	requestBody, _ := ioutil.ReadAll(r.Body)
+	var quest question
+	json.Unmarshal(requestBody, &quest)
+	fmt.Printf(quest.Question)
+	addQuestionToDatabase(quest)
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusCreated)
+	json.NewEncoder(w).Encode(quest)
 }
 
 func GetOneQuestion(w http.ResponseWriter, r *http.Request) {

@@ -15,6 +15,8 @@ function Travel() {
   const [tf, settf] = useState(false);
   const [ques,setques]=useState("")
   const [desc,setdesc]=useState("")
+  const [loadquestions,setquestions]=useState([])
+
   const variable={
     ID:"q1",
   Question:ques,
@@ -36,9 +38,10 @@ function Travel() {
   }
 
   const handelpost=()=>{
-    axios.post("http://localhost:8080/travel/faq",variable)
+    axios.post("http://localhost:8080/travel/faq/question",variable)
     .then(response=>{
       console.log(response.data)
+      
     }).catch(err=>{
 
 
@@ -49,11 +52,11 @@ function Travel() {
   }
 
   useEffect(() => {
-    // axios.get("http://localhost:8080/travel/faq").then(
-    //   response => {
-    //     console.log(response.data)
-    //   }
-    // )
+    axios.get("http://localhost:8080/travel/faq").then(
+      response => {
+        console.log(response.data)
+      }
+    )
 
 
   })
