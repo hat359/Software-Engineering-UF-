@@ -25,7 +25,7 @@ func Cors(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 
-	// ..... Database Connection
+	// ..... Database Connection Check
 
 	// Capture connection properties.
 	cfg := mysql.Config{
@@ -35,11 +35,11 @@ func main() {
 		Addr:   "us-cdbr-east-03.cleardb.com",
 		DBName: "heroku_daabc0ba752f575",
 		// User:   "root",
-		// Passwd: "macnuj21",
+		// Passwd: "",
 		// Net:    "tcp",
 		// Addr:   "127.0.0.1:3306",
 		// DBName: "InfoGator",
-		AllowNativePasswords:true,
+		AllowNativePasswords: true,
 	}
 	// Get a database handle.
 	var err error
