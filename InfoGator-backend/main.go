@@ -25,7 +25,7 @@ func Cors(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 
-	// ..... Database Connection
+	// ..... Database Connection Check
 
 	// Capture connection properties.
 	cfg := mysql.Config{
