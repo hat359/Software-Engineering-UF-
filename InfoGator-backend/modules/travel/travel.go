@@ -107,7 +107,9 @@ func addQuestionToDatabase(ques question) (int64, error) {
 	return id, nil
 }
 
-func CreateQuestion(w http.ResponseWriter, r *http.Request) {
+func GetQuestions(w http.ResponseWriter, r *http.Request) {
+	questions = allQuestions{}
+
 	var newQuestion question
 	questions, err := extractQuestionsFromDatabase()
 	if err != nil {

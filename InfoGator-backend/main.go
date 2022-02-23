@@ -46,7 +46,7 @@ func main() {
 	router.HandleFunc("/", homeLink)
 	router.HandleFunc("/category", category.CreateCategory).Methods("GET")
 	router.HandleFunc("/category/{id}", category.GetOneCategory).Methods("GET")
-	router.HandleFunc("/travel/faq", travel.CreateQuestion).Methods("GET")
+	router.HandleFunc("/travel/faq", travel.GetQuestions).Methods("GET")
 	router.HandleFunc("/travel/faq/question", travel.AddQuestion).Methods("POST")
 	router.HandleFunc("/travel/faq/{id}", travel.GetOneQuestion).Methods("GET")
 	log.Fatal(http.ListenAndServe(":8080", router))
