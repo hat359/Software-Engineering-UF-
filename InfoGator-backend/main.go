@@ -30,16 +30,16 @@ func main() {
 
 	// Capture connection properties.
 	cfg := mysql.Config{
-		// User:   "bc8bfc8b34ccc4",
-		// Passwd: "6b67f937",
-		// Net:    "tcp",
-		// Addr:   "us-cdbr-east-03.cleardb.com",
-		// DBName: "heroku_daabc0ba752f575",
-		User:   "root",
-		Passwd: "root",
+		User:   "bc8bfc8b34ccc4",
+		Passwd: "6b67f937",
 		Net:    "tcp",
-		Addr:   "localhost:3306",
-		DBName: "InfoGator",
+		Addr:   "us-cdbr-east-03.cleardb.com",
+		DBName: "heroku_daabc0ba752f575",
+		// User:   "root",
+		// Passwd: "root",
+		// Net:    "tcp",
+		// Addr:   "localhost:3306",
+		// DBName: "InfoGator",
 		AllowNativePasswords:true,
 	}
 	// Get a database handle.
