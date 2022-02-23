@@ -59,7 +59,10 @@ export default function Modal(props) {
   };
 
   useEffect(()=>{
-  axios.post("")
+  axios.post(`http://localhost:8080/travel/faq/answers/${props.id}`)
+  .then(response=>{
+    console.log(response.data)
+  })
 
   })
 

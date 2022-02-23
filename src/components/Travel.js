@@ -22,9 +22,25 @@ function Travel() {
   const [ques,setques]=useState("")
   const [desc,setdesc]=useState("")
   const [loadquestions,setquestions]=useState([])
+  
+  const allCapsAlpha = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"]; 
+  const allLowerAlpha = [..."abcdefghijklmnopqrstuvwxyz"]; 
+  const allUniqueChars = [..."~!@#$%^&*()_+-=[]\{}|;:'"];
+  const allNumbers = [..."0123456789"];
+  
+  const base = [...allCapsAlpha, ...allNumbers, ...allLowerAlpha, ...allUniqueChars];
+  
+  const generator = (base, len) => {
+     return [...Array(len)]
+       .map(i => base[Math.random()*base.length|0])
+       .join('');
+  };
+  
+  var quesid = generator(base,10)
+
 
   const variable={
-    ID:"q1",
+    ID:quesid,
   Question:ques,
   PostedByUserId:"name"
 
