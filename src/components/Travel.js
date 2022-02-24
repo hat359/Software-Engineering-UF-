@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import Nav from '../Nav'
-import { Grid, Card, Container, Paper, TextField, Button, Box } from '@mui/material'
+import { Grid, Card, Container, Paper, TextField, Button, Box,Table} from '@mui/material'
 import Footer from '../rep-components/Footer'
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
-import Table from '../rep-components/Table'
+import BasicTable from '../rep-components/BasicTable'
 import Modal from '../rep-components/Modal'
 import axios from 'axios'
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+
 
 import SendIcon from '@mui/icons-material/Send';
 function Travel() {
@@ -16,9 +22,25 @@ function Travel() {
   const [ques,setques]=useState("")
   const [desc,setdesc]=useState("")
   const [loadquestions,setquestions]=useState([])
+  
+  const allCapsAlpha = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"]; 
+  const allLowerAlpha = [..."abcdefghijklmnopqrstuvwxyz"]; 
+  const allUniqueChars = [..."~!@#$%^&*()_+-=[]\{}|;:'"];
+  const allNumbers = [..."0123456789"];
+  
+  const base = [...allCapsAlpha, ...allNumbers, ...allLowerAlpha, ...allUniqueChars];
+  
+  const generator = (base, len) => {
+     return [...Array(len)]
+       .map(i => base[Math.random()*base.length|0])
+       .join('');
+  };
+  
+  var quesid = generator(base,10)
+
 
   const variable={
-    ID:"q1",
+    ID:quesid,
   Question:ques,
   PostedByUserId:"name"
 
@@ -54,7 +76,8 @@ function Travel() {
   useEffect(() => {
     axios.get("http://localhost:8080/travel/faq").then(
       response => {
-        console.log(response.data)
+        setquestions(response.data)
+        
       }
     )
 
@@ -119,8 +142,26 @@ function Travel() {
           </Grid>
 
         </Grid>
-
-        <Table />
+        <TableContainer sx={{marginTop:'100px'}} component={Paper}>
+      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell sx={{fontWeight:600}}>Questions</TableCell>
+            <TableCell sx={{fontWeight:600}} align="right">Author</TableCell>
+           
+            <TableCell sx={{fontWeight:600}} align="right">Date</TableCell>
+            
+          </TableRow>
+        </TableHead>
+        
+{ loadquestions.map(item=>(
+              <div>
+              
+            <BasicTable key={item.ID} ques={item.Question}/></div>
+          ))}
+          
+          </Table>
+        </TableContainer>
         <Box sx={{ paddingTop: '50px', fontWeight: 'bold', m: 1, fontSize: 'h4.fontSize' }}>Ask a Question</Box>
         <Paper align="center" sx={{ marginTop: '50px' }} variant="outlined">
           <TextField sx={{ marginLeft: '50px', marginTop: '50px', width: '75%' }} name="ques" value={ques} onChange={handelques} id="outlined-basic" label="Question" variant="outlined" />
