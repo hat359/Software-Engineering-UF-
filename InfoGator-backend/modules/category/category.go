@@ -36,6 +36,8 @@ var categories = allCategories{
 }
 
 func CreateCategory(w http.ResponseWriter, r *http.Request) {
+	categories = allCategories{}
+
 	var newCatgeory category
 	reqBody, err := ioutil.ReadAll(r.Body)
 	if err != nil {

@@ -65,6 +65,7 @@ func main() {
 	router.HandleFunc("/travel/faq/question", travel.AddQuestion).Methods("POST")
 	router.HandleFunc("/travel/faq/{id}", travel.GetOneQuestion).Methods("GET")
 	router.HandleFunc("/travel/faq/answers/{questionId}", travel.GetAnswers).Methods("GET")
+	router.HandleFunc("/travel/faq/answer", travel.AddAnswer).Methods("POST")
 
 	// log.Fatal(http.ListenAndServe(":8080", router))
 	log.Fatal(http.ListenAndServe(":8080", handlers.CORS(handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"}), handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS"}), handlers.AllowedOrigins([]string{"*"}))(router)))

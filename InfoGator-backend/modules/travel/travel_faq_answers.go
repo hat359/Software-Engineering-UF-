@@ -75,3 +75,30 @@ func GetAnswers(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(answers)
 
 }
+
+// addAnswer adds the specified question to the database,
+// returning the answer ID of the new entry
+func addAnswerToDatabase(ans answer) (int64, error) {
+	connectDB()
+	result, err := db.Exec("INSERT INTO travel_faq_answers VALUES (?, ?, ?, ?)", ans.AnswerID, ans.QuestionID, ans.Answer, ans.AnswerByUserId)
+	if err != nil {
+		return 0, fmt.Errorf("addAnswer: %v", err)
+	}
+	id, err := result.LastInsertId()
+	if err != nil {
+		return 0, fmt.Errorf("addAnswer: %v", err)
+	}
+	db.Close()
+	return id, nil
+}
+
+func AddAnswer(w http.ResponseWriter, r *http.Request) {
+	requestBody, _ := ioutil.ReadAll(r.Body)
+	var ans answer
+	json.Unmarshal(requestBody, &ans)
+	fmt.Printf(ans.Answer)
+	addAnswerToDatabase(ans)
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusCreated)
+	json.NewEncoder(w).Encode(ans)
+}
