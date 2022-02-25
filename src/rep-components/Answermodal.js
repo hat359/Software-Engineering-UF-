@@ -8,7 +8,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import Typography from '@mui/material/Typography';
+import {Typography,TextField} from '@mui/material';
 import axios from 'axios'
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -50,55 +50,117 @@ BootstrapDialogTitle.propTypes = {
 
 export default function Modal(props) {
   const [open, setOpen] = React.useState(false);
+  const [answer,setanswer]=useState([])
+  const [ans,setans]=useState("")
+
+  const allCapsAlpha = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"]; 
+  const allLowerAlpha = [..."abcdefghijklmnopqrstuvwxyz"]; 
+  const allUniqueChars = [..."~!@#$%^&*()_+-=[]\{}|;:'"];
+  const allNumbers = [..."0123456789"];
+  
+  const base = [...allCapsAlpha, ...allNumbers, ...allLowerAlpha, ...allUniqueChars];
+  
+  const generator = (base, len) => {
+     return [...Array(len)]
+       .map(i => base[Math.random()*base.length|0])
+       .join('');
+  };
+  
+  var ansid = generator(base,6)
+
+
 
   const handleClickOpen = () => {
     setOpen(true);
+    axios.get(`http://localhost:8080/travel/faq/answers/${props.id}`)
+  .then(response=>{
+    setanswer(response.data)
+  })
   };
   const handleClose = () => {
     setOpen(false);
+    setanswer([])
   };
 
-  useEffect(()=>{
-  axios.post(`http://localhost:8080/travel/faq/answers/${props.id}`)
-  .then(response=>{
-    console.log(response.data)
-  })
+  const handelans=(event)=>{
+    setans(event.target.value)
 
-  })
+  }
+const handelsubmitanswer=()=>{
+const variable={
+  AnswerID:ansid,
+  QuestionID:props.id,
+  Answer:ans,
+  AnswerByUserId:"Admin"
+}
+
+axios.post("http://localhost:8080/travel/faq/answer",variable)
+.then(response=>{
+  console.log(response.data)
+})
+
+}
+  // useEffect(()=>{
+  
+
+  // })
+
+ 
 
   return (
     <div>
       <Button  variant="outlined" onClick={handleClickOpen}>
         View Answers
       </Button>
-      <BootstrapDialog
+      <Dialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
+        maxWidth="lg"
+        fullWidth="true"
+        id="answer"
+
+        scroll="paper"
+        
       >
         <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
-          {props.text}
+          {props.user}
         </BootstrapDialogTitle>
         <DialogContent dividers>
-          <Typography gutterBottom>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-            consectetur ac, vestibulum at eros.
+          <Typography variant="h3" gutterBottom>
+            {props.ques}
           </Typography>
-          <Typography gutterBottom>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+          {answer.map(item=>(
+              <div>
+                <Typography variant="h6">
+                  {item.Answer}
+                </Typography>
+              </div>
+
+          ))}
+          <br/><br/><br/>
+          <Typography variant="h4">
+            Post an Answer 
           </Typography>
-          <Typography gutterBottom>
-            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus
-            magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec
-            ullamcorper nulla non metus auctor fringilla.
-          </Typography>
+          <TextField sx={{ marginTop: '50px', width: '55%', paddingBottom: '50px' }}
+                id="outlined-multiline-static"
+                label="Answer"
+                multiline
+                rows={4}
+                defaultValue="-"
+                value={ans}
+                name={ans}
+                onChange={handelans}
+
+              />
+
+              <Button variant="outlined" onClick={handelsubmitanswer}>Post </Button>
+          
         </DialogContent>
         <DialogActions>
           
         </DialogActions>
-      </BootstrapDialog>
+      </Dialog>
     </div>
   );
 }

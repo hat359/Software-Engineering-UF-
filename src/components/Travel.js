@@ -157,7 +157,7 @@ function Travel() {
 { loadquestions.map(item=>(
               <div>
               
-            <BasicTable key={item.ID} ques={item.Question}/></div>
+            <BasicTable key={item.ID} id={item.ID} ques={item.Question} user={item.PostedByUserId}/></div>
           ))}
           
           </Table>

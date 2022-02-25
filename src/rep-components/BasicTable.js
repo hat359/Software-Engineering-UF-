@@ -54,14 +54,11 @@ function handle(){
         </TableHead> */}
         <TableBody>
          
-            <TableRow id="cell"
-              
-              
-            >
+            <TableRow >
               <TableCell component="th" scope="row">
                  {props.ques}
               </TableCell>
-              <TableCell>{<Answermodal id={props.key}/>}</TableCell>
+              <TableCell>{<Answermodal id={props.id} user={props.user} ques={props.ques}/>}</TableCell>
               <TableCell align="right">fghgh </TableCell>
               <TableCell align="right">fh</TableCell>
               

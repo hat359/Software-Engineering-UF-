@@ -1,9 +1,24 @@
-import React from 'react'
+import React , {useState,useEffect}from 'react'
 import Nav from '../Nav'
 import vid from '../video-uf.mp4'
 import { Button, Grid, Container, Typography, Box, Divider, Link } from '@mui/material'
 import Footer from '../rep-components/Footer'
+import axios from 'axios'
+
+
 export default function Landing() {
+  const [category,setcategory]=useState([])
+  useEffect(()=>{
+    axios.get("http://localhost:8080/category").then(response=>{
+      
+     console.log(response.data)
+
+
+    })
+
+
+  })
+  
   return (
     <div>
       {<Nav />}
