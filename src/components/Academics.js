@@ -7,9 +7,9 @@ import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import SchoolIcon from '@mui/icons-material/School';
-import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
-import CreditScoreIcon from '@mui/icons-material/CreditScore';
+import CastForEducationIcon from '@mui/icons-material/CastForEducation';
 import Box from '@mui/material/Box';
+import Footer from '../rep-components/Footer'
 
 
 
@@ -24,13 +24,13 @@ export default function Academics() {
     <div style={{ padding: 200 }} >
     <Grid container spacing = {4}>
       <Grid item xs={12} sm={6} md={4}>
-      <Card sx={{ maxWidth: 345 }}>
-      <CardContent>
-        <SchoolIcon sx={{ fontSize: 80 }} color="primary"/>
-        <Typography gutterBottom variant="h5" component="div">
+      <Card sx={{ maxWidth: 345 }} class="card">
+      <CardContent align="center">
+        <SchoolIcon sx={{ fontSize: 80,color:"white"}}/>
+        <Typography gutterBottom variant="h5" component="div" color="common.white">
           Courses help
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" color="common.white">
         Get courses related help from your peers.
         </Typography>
       </CardContent>
@@ -42,11 +42,31 @@ export default function Academics() {
     </Card>
     </Grid>
      
+    <Grid item xs={12} sm={6} md={4}>
+      <Card sx={{ maxWidth: 345 }} class="card">
+      <CardContent align="center">
+        <CastForEducationIcon sx={{ fontSize: 80,color:"white"}} />
+        <Typography gutterBottom variant="h5" component="div" color="common.white">
+          Course resources
+        </Typography>
+        <Typography variant="body2" color="common.white">
+        Access all course related resources easily
+
+        </Typography>
+      </CardContent>
+      <CardActions>
+      
+        <Button size="small" variant="outlined">Know More</Button>
+       
+      </CardActions>
+    </Card>
+    </Grid>
    
     
     
   </Grid>
   </div>
+  <Footer />
   </div>
   
   );
