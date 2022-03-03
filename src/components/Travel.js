@@ -14,6 +14,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import travel from '../travel.jpg'
 
 
 import SendIcon from '@mui/icons-material/Send';
@@ -84,12 +85,14 @@ function Travel() {
 
   })
   return (
-    <div>
+    <div >
       {<Nav />}
-
+      <div className="travel">
+      <img src={travel}/>
+      </div>
       <Container maxWidth="lg">
 
-        <Grid container spacing={2} sx={{ marginTop: 10 }}>
+        <Grid container spacing={2} sx={{ marginTop: "75vh"}}>
           <Grid item xs={4}>
 
 
@@ -143,17 +146,17 @@ function Travel() {
 
         </Grid>
         
-      {/* <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      {/* <Table sx={{ minWidth: 650,marginTop:'10vh' }} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell sx={{fontWeight:600}}>Questions</TableCell>
-            <TableCell sx={{fontWeight:600}} align="right">Author</TableCell>
+            <TableCell sx={{fontWeight:600}} align="right">View Answer</TableCell>
            
-            <TableCell sx={{fontWeight:600}} align="right">Date</TableCell>
+            <TableCell sx={{fontWeight:600}} align="right">User</TableCell>
             
           </TableRow>
         </TableHead> */}
-        <table class="table table-bordered mylistab">
+        <table class="table table-bordered ">
   <thead>
     <tr>
        
@@ -164,15 +167,15 @@ function Travel() {
   </thead>
           
             { loadquestions.map(item=>(
-              <div>
+              
                
-            <BasicTable key={item.ID} id={item.ID} ques={item.Question} user={item.PostedByUserId}/>
+            <BasicTable  id={item.ID} ques={item.Question} user={item.PostedByUserId}/>
             
-            </div>
+            
           ))}
           
-          
           </table>
+          {/* </table> */}
           
 
         

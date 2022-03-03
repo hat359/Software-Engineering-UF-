@@ -8,6 +8,9 @@ import Typography from '@mui/material/Typography';
 import Carousel from '../rep-components/carousel'
 import wellsfargo from '../wellsfargo.png'
 import Footer from "../rep-components/Footer"
+import money from '../money.jpg'
+
+
 export default function BankAccount() {
 
 
@@ -15,11 +18,14 @@ export default function BankAccount() {
     <div>
 
       {<Nav />}
-      {<Carousel />}
+      <div className="fin">
+        <img src={money}/>
+
+        </div>
       <br/><br/>
 
-      <Container maxWidth="lg">
-        <Grid container>
+      <Container  maxWidth="lg">
+        <Grid container sx={{marginTop:"75vh"}}>
 
           <Grid item md={6} className="bank" >
             <img src={wellsfargo} />

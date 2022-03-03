@@ -14,9 +14,7 @@ import Nav from '../../Nav'
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {Snackbar,Alert} from '@mui/material'
-import Bio from './Bio';
-import Courses from './Courses';
-import Username from './Username';
+
 import {BrowserRouter, Route, Routes} from "react-router-dom"
 import { useNavigate } from "react-router-dom";
 function Copyright() {
@@ -34,18 +32,18 @@ function Copyright() {
 
 const steps = ['Bio', 'Courses', 'Username/Password'];
 
-function getStepContent(step: number) {
-  switch (step) {
-    case 0:
-      return <Bio/>;
-    case 1:
-      return <Courses/>;
-    case 2:
-      return <Username/>;
-    default:
-      throw new Error('Wrong input');
-  }
-}
+// function getStepContent(step: number) {
+//   switch (step) {
+//     case 0:
+//       return <Bio/>;
+//     case 1:
+//       return <Courses/>;
+//     case 2:
+//       return <Username/>;
+//     default:
+//       throw new Error('Wrong input');
+//   }
+// }
 
 const theme = createTheme();
 
@@ -92,7 +90,7 @@ export default function Signup(props) {
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
         <Paper elevation={3} variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
           <Typography component="h1" variant="h4" align="center">
-            Register
+            
           </Typography>
           <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
             {steps.map((label) => (
@@ -119,7 +117,7 @@ export default function Signup(props) {
                     onClick={activeStep ==steps.length-1 ? handleClick :handleNext}
                     sx={{ mt: 3, ml: 1 }}
                   >
-                    {activeStep === steps.length - 1 ? 'Register' : 'Next'}
+                    {activeStep === steps.length - 1 ? 'Submit' : 'Next'}
                   </Button>
                   
                 </Box>

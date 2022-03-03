@@ -7,13 +7,13 @@ return(
 <div>
     <Grid container spacing={2}>
     <Grid item xs={12}>
-<TextField fullWidth id="outlined-basic" label="Username*" variant="outlined" />
+<TextField className="username" fullWidth id="outlined-basic" label="Username*" variant="outlined" />
 </Grid>
 </Grid>
 <br/>
 <Grid container spacing={2}>
     <Grid item xs={12}>
-<TextField fullWidth id="outlined-basic" label="Password*" variant="outlined" />
+<TextField className="pass" fullWidth id="outlined-basic" label="Password*" variant="outlined" />
 </Grid>
 </Grid>
 

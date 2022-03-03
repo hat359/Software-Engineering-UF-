@@ -21,8 +21,8 @@ export default function Signin() {
   }}>
       <Box sx={{  m: 1,fontSize: 'h3.fontSize' }} >Signin
       <br/><br/>
-      <TextField sx={{width:'482px'}} id="outlined-basic" label="Email *" variant="outlined" />
-      <TextField sx={{width:'482px'}} id="outlined-basic" label="Password*" variant="outlined" />
+      <TextField sx={{width:'482px'}} className="email" id="outlined-basic" label="Email *" variant="outlined" />
+      <TextField sx={{width:'482px'}} className="pass" id="outlined-basic" label="Password*" variant="outlined" />
       <a href="/"><Button variant="contained"> Signin</Button></a>
       </Box>
       </Paper>

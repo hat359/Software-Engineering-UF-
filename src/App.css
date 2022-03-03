@@ -90,3 +90,32 @@ width:100%;
 
 
 }
+
+.travel img{
+width:100%;
+
+display: block;
+  z-index: -1;
+  position: absolute;
+  height: 65vh;
+  object-fit: cover;
+
+}
+
+.table{
+
+margin-top: 10vh;
+
+
+}
+.fin img{
+
+  width:100%;
+
+  display: block;
+    z-index: -1;
+    position: absolute;
+    height: 65vh;
+    object-fit: cover;
+
+}

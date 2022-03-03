@@ -18,7 +18,7 @@ cy.contains("Travel")
 
 describe('Get started', () => {
     beforeEach(() => {
-      cy.visit("/landing") // I'll talk about custom commands in another post. Stay tuned!
+      cy.visit("/landing") 
     })
   
     it('is redirected to the register page', () => {
@@ -59,9 +59,49 @@ describe('Get started', () => {
         .should('be.visible')
         .type("352-652-7843")
 
-        cy.get("Button").should('be.visible').click()
+        cy.get('#nextbut').click()
 
-      cy.contains('You will receive an email to finish the purchase.')
+        cy.get('.Course1')
         .should('be.visible')
+        .type('HCI')
+
+        cy.get('.Course2')
+        .should('be.visible')
+        .type('SE')
+
+        cy.get('.Course3')
+        .should('be.visible')
+        .type('CN')
+      
+        cy.get('#nextbut').should('be.visible').click()
+
+        cy.get('.username').should('be.visible').type('qrwyt')
+        cy.get('.pass').should('be.visible').type('123456')
+
+        cy.get('#nextbut').should('be.visible').click()
+
+      
+        cy.url()
+        .should('be.equal', 'http://localhost:3000/signin')
+
+
+      })
+  })
+
+
+  describe('signs ',()=>{
+    beforeEach(() => {
+      cy.visit('http://localhost:3000/signin')
     })
+
+    it('signs in correctly',()=>{
+
+      cy.get('.email').should('be.visible').type('abc@xyz.com')
+    cy.get('.pass').should('be.visible').type('123456')
+
+      cy.get('Button').click()
+
+    })
+    
+
   })

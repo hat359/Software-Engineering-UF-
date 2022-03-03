@@ -13,10 +13,12 @@ import Box from '@mui/material/Box';
 
 
 
+
 export default function Finance() {
   return (
     <div>
         {<Nav/>}
+        
       <Typography component="div">
       <Box sx={{ textAlign: 'center', m: 1, fontSize: 32}}>Finances</Box>
       <Box sx={{ textAlign: 'center', m: 1, fontStyle: 'italic'}}>Appropriate information right at your disposal</Box>

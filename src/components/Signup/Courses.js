@@ -7,19 +7,19 @@ return(
 <div>
     <Grid container spacing={2}>
     <Grid item xs={12}>
-<TextField fullWidth id="outlined-basic" label="Course 1" variant="outlined" />
+<TextField fullWidth className="Course1" id="outlined-basic" label="Course 1" variant="outlined" />
 </Grid>
 </Grid>
 <br/>
 <Grid container spacing={2}>
     <Grid item xs={12}>
-<TextField fullWidth id="outlined-basic" label="Course 2" variant="outlined" />
+<TextField className="Course2" fullWidth id="outlined-basic" label="Course 2" variant="outlined" />
 </Grid>
 </Grid>
 <br/>
 <Grid container spacing={2}>
     <Grid item xs={12}>
-<TextField fullWidth id="outlined-basic" label="Course 3" variant="outlined" />
+<TextField className="Course3" fullWidth id="outlined-basic" label="Course 3" variant="outlined" />
 </Grid>
 </Grid>
 

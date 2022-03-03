@@ -39,35 +39,15 @@ function handle(){
 
 
   return (
-    <div>
-   
-    {/* <TableContainer sx={{marginTop:'100px'}} component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell sx={{fontWeight:600}}>Questions</TableCell>
-            <TableCell sx={{fontWeight:600}} align="right">Author</TableCell>
-           
-            <TableCell sx={{fontWeight:600}} align="right">Date</TableCell>
-            
-          </TableRow>
-        </TableHead> */}
+  
         
-{/*          
-        <TableBody>
-              <TableCell >
-                 {props.ques}
-              </TableCell>
-              <TableCell>{<Answermodal id={props.id} user={props.user} ques={props.ques}/>}</TableCell>
-              <TableCell align="right">fghgh </TableCell>
-              <TableCell align="right">fh</TableCell>
-              </TableBody> */}
+         
+        
 
 <tbody>
-    
 
 <td className="tablecon">{props.ques}</td>
-<td className="tablecon"> {<Answermodal id={props.id} user={props.user} ques={props.ques}/>}</td>
+<td className="tablecon">{<Answermodal id={props.id} user={props.user} ques={props.ques}/>}</td>
 <td>{props.user}</td>
 
 
@@ -75,11 +55,7 @@ function handle(){
 
 </tbody>
 
-            
-         
-        
-      {/* </Table>
-    </TableContainer> */}
-    </div>
+
+    
   );
 }
