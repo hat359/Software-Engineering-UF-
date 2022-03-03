@@ -52,19 +52,32 @@ function handle(){
             
           </TableRow>
         </TableHead> */}
+        
+{/*          
         <TableBody>
-         
-            <TableRow >
-              <TableCell component="th" scope="row">
+              <TableCell >
                  {props.ques}
               </TableCell>
               <TableCell>{<Answermodal id={props.id} user={props.user} ques={props.ques}/>}</TableCell>
               <TableCell align="right">fghgh </TableCell>
               <TableCell align="right">fh</TableCell>
-              
-            </TableRow>
+              </TableBody> */}
+
+<tbody>
+    
+
+<td className="tablecon">{props.ques}</td>
+<td className="tablecon"> {<Answermodal id={props.id} user={props.user} ques={props.ques}/>}</td>
+<td>{props.user}</td>
+
+
+
+
+</tbody>
+
+            
          
-        </TableBody>
+        
       {/* </Table>
     </TableContainer> */}
     </div>

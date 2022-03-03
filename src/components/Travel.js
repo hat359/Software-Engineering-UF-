@@ -142,8 +142,8 @@ function Travel() {
           </Grid>
 
         </Grid>
-        <TableContainer sx={{marginTop:'100px'}} component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        
+      {/* <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell sx={{fontWeight:600}}>Questions</TableCell>
@@ -152,16 +152,30 @@ function Travel() {
             <TableCell sx={{fontWeight:600}} align="right">Date</TableCell>
             
           </TableRow>
-        </TableHead>
-        
-{ loadquestions.map(item=>(
+        </TableHead> */}
+        <table class="table table-bordered mylistab">
+  <thead>
+    <tr>
+       
+       <th className="text-center" scope="col">Question</th>
+      <th className="text-center" scope="col">View Answer</th>
+      <th className="text-center" scope="col">User</th>
+    </tr>
+  </thead>
+          
+            { loadquestions.map(item=>(
               <div>
-              
-            <BasicTable key={item.ID} id={item.ID} ques={item.Question} user={item.PostedByUserId}/></div>
+               
+            <BasicTable key={item.ID} id={item.ID} ques={item.Question} user={item.PostedByUserId}/>
+            
+            </div>
           ))}
           
-          </Table>
-        </TableContainer>
+          
+          </table>
+          
+
+        
         <Box sx={{ paddingTop: '50px', fontWeight: 'bold', m: 1, fontSize: 'h4.fontSize' }}>Ask a Question</Box>
         <Paper align="center" sx={{ marginTop: '50px' }} variant="outlined">
           <TextField sx={{ marginLeft: '50px', marginTop: '50px', width: '75%' }} name="ques" value={ques} onChange={handelques} id="outlined-basic" label="Question" variant="outlined" />

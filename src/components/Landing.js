@@ -8,16 +8,16 @@ import axios from 'axios'
 
 export default function Landing() {
   const [category,setcategory]=useState([])
-  useEffect(()=>{
-    axios.get("http://localhost:8080/category").then(response=>{
+  // useEffect(()=>{
+  //   axios.get("http://localhost:8080/category").then(response=>{
       
-     console.log(response.data)
+  //    console.log(response.data)
 
 
-    })
+  //   })
 
 
-  })
+  // })
   
   return (
     <div>
@@ -28,7 +28,7 @@ export default function Landing() {
 
 
       </video>
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" id="container">
         <div class="landing">
           <Typography variant="h2" color="common.white">A one stop solution for International students </Typography><br />
           <a href="/signup"><Button variant="contained" disableElevation>Get Started</Button></a>
