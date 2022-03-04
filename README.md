@@ -7,6 +7,18 @@ We intend to develop a web application in order to aid and assist an incoming in
 # Technology Stack
 1. Frontend: React
 2. Backend: Go
+3. Database: SQLite
+
+# Features
+* Travel
+  * Campus Navigation
+  * Providing travel resources
+* Academics
+  * Course resources 
+  * Course assistance
+* Finance
+  * Financial aid assistance
+  * Feasible banking options
 
 # Team Members
 | Members         | Github ID     |
