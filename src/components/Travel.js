@@ -190,7 +190,7 @@ function Travel() {
                 label="Description"
                 multiline
                 rows={4}
-                defaultValue="-"
+                
                 value={desc}
                 name={desc}
                 onChange={handeldesc}

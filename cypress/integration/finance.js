@@ -10,6 +10,11 @@ describe('Travel',()=>{
        })
 
 
+       it('goes to bank account section',()=>{
+        cy.contains('').click()
+       
+
+       })
 
 
 
