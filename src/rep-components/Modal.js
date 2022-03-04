@@ -60,7 +60,7 @@ export default function Modal(props) {
 
   return (
     <div>
-      <Button sx={{color:'white', fontSize:'20px'}} onClick={handleClickOpen}>
+      <Button class={props.test} sx={{color:'white', fontSize:'20px'}} onClick={handleClickOpen}>
         {props.text}
       </Button>
       <BootstrapDialog

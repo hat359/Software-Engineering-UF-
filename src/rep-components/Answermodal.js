@@ -151,6 +151,7 @@ axios.post("http://localhost:8080/travel/faq/answer",variable)
                 value={ans}
                 name={ans}
                 onChange={handelans}
+                className="anstext"
 
               />
 

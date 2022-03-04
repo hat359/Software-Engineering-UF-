@@ -79,7 +79,7 @@ function Travel() {
       response => {
         setquestions(response.data)
         
-      }
+      },[ques,desc]
     )
 
 
@@ -103,7 +103,7 @@ function Travel() {
 
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div" color="common.white">
-                    <Modal text="Before you Travel" />
+                    <Modal  text="Before you Travel" />
                   </Typography>
 
                 </CardContent>
