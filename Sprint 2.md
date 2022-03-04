@@ -3,10 +3,10 @@
 As part of Sprint 2, you need to continue development you started in Sprint 1 and make sure you achieve at least the following:
 
  
-The backend and frontend are integrated
-You have some tests for the frontend using Cypress + unit tests in the framework you are using
-You have unit tests for the backend
-You have documentation for the backend API developed
+1. The backend and frontend are integrated
+2. You have some tests for the frontend using Cypress + unit tests in the framework you are using
+3. You have unit tests for the backend
+4. You have documentation for the backend API developed
 
 ****
 
@@ -20,6 +20,7 @@ You have documentation for the backend API developed
 6. Unit tests added for react
 7. API Documentation Ready
 
+****
 
 ****Application Progress:
 
@@ -30,7 +31,9 @@ Users are able to view quesions, post questions, view answers, post answers.
 Linked with Backend and connected to Database.
 Real-time implementation can be seen.
 
+****
 
 ****API Documentation Link
 
 https://drive.google.com/file/d/19TQShNmyL9oieVDV0wh7JIh-O8WyCNL3/view?usp=sharing
+
