@@ -23,6 +23,20 @@ func Cors(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("Hello, World!"))
 }
 
+func newRouter() *mux.Router {
+	router := mux.NewRouter().StrictSlash(true)
+	router.HandleFunc("/plm/cors", Cors)
+	router.HandleFunc("/", homeLink)
+	router.HandleFunc("/info-gator-api/category", category.CreateCategory).Methods("GET")
+	router.HandleFunc("/info-gator-api/category/{id}", category.GetOneCategory).Methods("GET")
+	router.HandleFunc("/info-gator-api/travel/faq", travel.GetQuestions).Methods("GET")
+	router.HandleFunc("/info-gator-api/travel/faq/question", travel.AddQuestion).Methods("POST")
+	router.HandleFunc("/info-gator-api/travel/faq/{id}", travel.GetOneQuestion).Methods("GET")
+	router.HandleFunc("/info-gator-api/travel/faq/answers/{questionId}", travel.GetAnswers).Methods("GET")
+	router.HandleFunc("/info-gator-api/travel/faq/answer", travel.AddAnswer).Methods("POST")
+	return router
+}
+
 func main() {
 
 	// ..... Database Connection Check
@@ -56,16 +70,7 @@ func main() {
 
 	// .....
 
-	router := mux.NewRouter().StrictSlash(true)
-	router.HandleFunc("/plm/cors", Cors)
-	router.HandleFunc("/", homeLink)
-	router.HandleFunc("/category", category.CreateCategory).Methods("GET")
-	router.HandleFunc("/category/{id}", category.GetOneCategory).Methods("GET")
-	router.HandleFunc("/travel/faq", travel.GetQuestions).Methods("GET")
-	router.HandleFunc("/travel/faq/question", travel.AddQuestion).Methods("POST")
-	router.HandleFunc("/travel/faq/{id}", travel.GetOneQuestion).Methods("GET")
-	router.HandleFunc("/travel/faq/answers/{questionId}", travel.GetAnswers).Methods("GET")
-	router.HandleFunc("/travel/faq/answer", travel.AddAnswer).Methods("POST")
+	router := newRouter()
 
 	// log.Fatal(http.ListenAndServe(":8080", router))
 	log.Fatal(http.ListenAndServe(":8080", handlers.CORS(handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"}), handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS"}), handlers.AllowedOrigins([]string{"*"}))(router)))
