@@ -35,9 +35,9 @@ export default function Academics() {
         </Typography>
       </CardContent>
       <CardActions>
-        
+      <a href={'/CoursesHelp'}>
         <Button size="small" variant="outlined">Know More</Button>
-       
+       </a>
       </CardActions>
     </Card>
     </Grid>

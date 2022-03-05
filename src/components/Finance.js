@@ -10,6 +10,8 @@ import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
 import CreditScoreIcon from '@mui/icons-material/CreditScore';
 import Box from '@mui/material/Box';
+import Footer from '../rep-components/Footer'
+
 
 
 
@@ -85,6 +87,7 @@ export default function Finance() {
     
   </Grid>
   </div>
+  <Footer />
   </div>
   
   );
