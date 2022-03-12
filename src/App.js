@@ -9,6 +9,7 @@ import Academics from './components/Academics'
 import Signup from './components/Signup/Signup.tsx'
 import Signin from './components/Signin'
 import Landing from './components/Landing'
+import Map from './components/Maps'
 function App() {
   return (
     <BrowserRouter>
@@ -16,6 +17,7 @@ function App() {
  
    <Routes>
    <Route exact path="/" element={<Main/>}/>
+   <Route exact path="/map" element={<Map/>}/>
    <Route  exact path="/travel" element={<Travel/>}/>
    <Route  exact path="/finance" element={<Finance/>}/>
    <Route  exact path="/academics" element={<Academics/>}/>

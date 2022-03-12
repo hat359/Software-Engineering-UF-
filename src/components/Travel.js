@@ -90,9 +90,9 @@ function Travel() {
       <div className="travel">
       <img src={travel}/>
       </div>
-      <Container maxWidth="lg">
+      <Container className="Travel" maxWidth="lg">
 
-        <Grid container spacing={2} sx={{ marginTop: "75vh"}}>
+        <Grid container spacing={2} sx={{ marginTop: "50vh"}}>
           <Grid item xs={4}>
 
 

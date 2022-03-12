@@ -10,6 +10,7 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import {Typography,TextField} from '@mui/material';
 import axios from 'axios'
+import Bk from '../components/bankstep/BankApp'
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
     padding: theme.spacing(2),
@@ -53,21 +54,62 @@ export default function Modal(props) {
   const [answer,setanswer]=useState([])
   const [ans,setans]=useState("")
 
-//   const allCapsAlpha = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"]; 
-//   const allLowerAlpha = [..."abcdefghijklmnopqrstuvwxyz"]; 
-//   const allUniqueChars = [..."~!@#$%^&*()_+-=[]\{}|;:'"];
-//   const allNumbers = [..."0123456789"];
+  // const allCapsAlpha = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"]; 
+  // const allLowerAlpha = [..."abcdefghijklmnopqrstuvwxyz"]; 
+  // const allUniqueChars = [..."~!@#$%^&*()_+-=[]\{}|;:'"];
+  // const allNumbers = [..."0123456789"];
   
+  // const base = [...allCapsAlpha, ...allNumbers, ...allLowerAlpha, ...allUniqueChars];
   
+  // const generator = (base, len) => {
+  //    return [...Array(len)]
+  //      .map(i => base[Math.random()*base.length|0])
+  //      .join('');
+  // };
+  
+  // var ansid = generator(base,6)
 
 
 
+  const handleClickOpen = () => {
+    setOpen(true);
+  //   axios.get(`http://localhost:8080/travel/faq/answers/${props.id}`)
+  // .then(response=>{
+  //   setanswer(response.data)
+  // })
+  };
+  const handleClose = () => {
+    setOpen(false);
+    setanswer([])
+  };
+
+//   const handelans=(event)=>{
+//     setans(event.target.value)
+
+//   }
+// const handelsubmitanswer=()=>{
+// const variable={
+//   AnswerID:ansid,
+//   QuestionID:props.id,
+//   Answer:ans,
+//   AnswerByUserId:"Admin"
+// }
+
+// axios.post("http://localhost:8080/travel/faq/answer",variable)
+// .then(response=>{
+//   console.log(response.data)
+// })
+
+// }
+//   // useEffect(()=>{
   
+
+//   // })
 
  
 
   return (
-    <div>
+    <div align="center">
       <Button  variant="outlined" onClick={handleClickOpen}>
         Book an Appointment
       </Button>
@@ -83,10 +125,10 @@ export default function Modal(props) {
         
       >
         <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
-          Book an appointment
+        
         </BootstrapDialogTitle>
         <DialogContent dividers>
-            
+          {<Bk/>}
           
         </DialogContent>
         <DialogActions>

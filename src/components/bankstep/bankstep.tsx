@@ -14,7 +14,8 @@ import Nav from '../../Nav'
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {Snackbar,Alert} from '@mui/material'
-
+import Bdetails from './Bdetails'
+import Pan from './pancard'
 import {BrowserRouter, Route, Routes} from "react-router-dom"
 import { useNavigate } from "react-router-dom";
 function Copyright() {
@@ -32,18 +33,18 @@ function Copyright() {
 
 const steps = ['Bio', 'Courses', 'Username/Password'];
 
-// function getStepContent(step: number) {
-//   switch (step) {
-//     case 0:
-//       return <Bio/>;
-//     case 1:
-//       return <Courses/>;
-//     case 2:
-//       return <Username/>;
-//     default:
-//       throw new Error('Wrong input');
-//   }
-// }
+function getStepContent(step: number) {
+  switch (step) {
+    case 0:
+      return <Bdetails/>;
+    case 1:
+      return <Pan/>;
+    case 2:
+      return <div>heo</div>;
+    default:
+      throw new Error('Wrong input');
+  }
+}
 
 const theme = createTheme();
 
@@ -85,7 +86,7 @@ export default function Signup(props) {
           borderBottom: (t) => `1px solid ${t.palette.divider}`,
         }}
       >
-        {<Nav/>}
+        
       </AppBar>
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
         <Paper elevation={3} variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>

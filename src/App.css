@@ -24,6 +24,12 @@
   color: white;
 }
 
+body{
+background-color: #191970;
+
+
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -75,7 +81,7 @@ height: 80% !important;
 
 }
 .bank{
-width:500px;
+width:300px !important;
 height:500px;
 
 }
@@ -119,3 +125,15 @@ margin-top: 10vh;
     object-fit: cover;
 
 }
+
+.Bacc{
+background-color: white;
+border-radius: 15px;
+
+}
+
+.Travel{
+  background-color: white;
+  border-radius: 15px;
+  
+  }

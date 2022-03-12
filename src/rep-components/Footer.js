@@ -7,11 +7,13 @@ export default function Footer(){
 return(
 <Box align="center"
       sx={{
-        width: 1,
+        width: 0.99,
         height: 200,
-        backgroundColor:'#bbdefb',   
+        backgroundColor:'black',   
         marginTop:'30vh',
-        zIndex:-1
+        zIndex:-1,
+        borderRadius:'15px',
+        marginLeft:'0.5vw'
         
       }}
        
