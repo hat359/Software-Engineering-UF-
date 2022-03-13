@@ -137,3 +137,22 @@ border-radius: 15px;
   border-radius: 15px;
   
   }
+
+  .lan{
+
+    background-color: white;
+    border-radius: 15px;
+    margin-top: -15vh;
+  }
+
+  .map img{
+
+    width:100%;
+  
+    display: block;
+      z-index: -1;
+      position: absolute;
+      height: 65vh;
+      object-fit: cover;
+  
+  }

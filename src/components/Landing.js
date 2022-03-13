@@ -51,12 +51,12 @@ export default function Landing() {
 
       />
 
-      <Container maxWidth="lg">
+      <Container className="lan" maxWidth="lg">
         <br />
         <Grid container  >
-          <Grid item xs={6}>
-            <Box sx={{ fontWeight: 'bold', marginTop: 5, fontSize: 'h3.fontSize' }}>Finance </Box>
-            <Typography variant="body1" >
+          <Grid item md={6}>
+            <Box sx={{ fontWeight: 'bold', marginTop: 5, fontSize: 'h3.fontSize',paddingLeft:'5vw' }}>Finance </Box>
+            <Typography  sx={{paddingLeft:'5vw'}}variant="body1" >
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
               blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur,
               neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum
@@ -65,7 +65,7 @@ export default function Landing() {
 
 
           </Grid>
-          <Grid align="center" item xs={6}>
+          <Grid align="center" item md={6}>
 
 
             <i class="fas fa-piggy-bank fa-9x licon"></i>
@@ -75,7 +75,7 @@ export default function Landing() {
         </Grid>
 
 
-        <br /><br /><br /><br /><br /><br /><Divider /><br />
+        <br /><br /><br /><br /><Divider /><br />
         <Grid container >
           <Grid align="center" item xs={6}>
 
@@ -84,8 +84,8 @@ export default function Landing() {
 
           </Grid>
           <Grid item xs={6}>
-            <Box sx={{ fontWeight: 'bold', marginTop: 5, fontSize: 'h3.fontSize' }}>Travel</Box>
-            <Typography variant="body1" gutterBottom>
+            <Box sx={{ fontWeight: 'bold', marginTop: 5, fontSize: 'h3.fontSize',paddingLeft:'4vw' }}>Travel</Box>
+            <Typography sx={{paddingRight:'3vw',paddingLeft:'4vw'}}variant="body1" gutterBottom>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
               blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur,
               neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum
@@ -96,12 +96,12 @@ export default function Landing() {
           </Grid>
 
         </Grid>
-        <br /><br /><br /><br /><br /><br /><Divider /><br />
+        <br /><br /><br /><br /><Divider /><br />
 
         <Grid container >
-          <Grid item xs={6}>
-            <Box sx={{ fontWeight: 'bold', marginTop: 5, fontSize: 'h3.fontSize' }}>Academics</Box>
-            <Typography sx={{ paddingRight: '20px' }} variant="body3" gutterBottom>
+          <Grid item md={6}>
+            <Box sx={{ fontWeight: 'bold', marginTop: 5, fontSize: 'h3.fontSize',paddingLeft:'5vw' }}>Academics</Box>
+            <Typography sx={{ paddingLeft:'5vw' }} variant="body1" gutterBottom>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
               blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur,
               neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum
@@ -110,13 +110,14 @@ export default function Landing() {
 
 
           </Grid>
-          <Grid align="center" item xs={6}>
+          <Grid align="center" item md={6}>
 
             <i class="fas fa-graduation-cap fa-9x licon"></i>
 
           </Grid>
 
         </Grid>
+        <br/><br/><br/><br/>
       </Container>
       <Footer />
 

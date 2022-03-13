@@ -64,7 +64,7 @@ export default function App() {
       maxParticles={7500}
       particleOptions={particleOptions}
   
-      backgroundColor="white"
+      backgroundColor="#191970"
     />
   );
 }
