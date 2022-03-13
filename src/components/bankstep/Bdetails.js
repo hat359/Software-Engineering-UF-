@@ -1,16 +1,19 @@
 import React from 'react'
 import { TextField, Grid } from '@mui/material'
+import {useDispatch,useSelector} from 'react-redux'
+import {chfname,chlname} from '../../redux/actions/Bank'
 
 export default function Bio(){
+    const dispatch=useDispatch()
 
 return(
 <div>
     <Grid container spacing={2}>
     <Grid item xs={6}>
-<TextField id="outlined-basic" className="fname" label="First Name *" variant="outlined" />
+<TextField id="outlined-basic" className="fname" label="First Name *" variant="outlined" onChange={(event)=>dispatch(chfname(event.target.value))} />
 </Grid>
 <Grid item xs={6}> 
-<TextField id="outlined-basic" className="lname" label="Last Name *" variant="outlined" />
+<TextField id="outlined-basic" className="lname" label="Last Name *" variant="outlined" onChange={(event)=>dispatch(chlname(event.target.value))} />
 </Grid>
 
 </Grid>
