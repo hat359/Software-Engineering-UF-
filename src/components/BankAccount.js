@@ -1,6 +1,6 @@
 import React from 'react';
 import Nav from '../Nav'
-import { Container, Paper } from "@mui/material"
+import { Container, Paper,Box } from "@mui/material"
 
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
@@ -10,7 +10,15 @@ import wellsfargo from '../wellsfargo.png'
 import Footer from "../rep-components/Footer"
 import money from '../money.jpg'
 import BankModal from '../rep-components/Bankmodal'
+import Stepper from '@mui/material/Stepper';
+import Step from '@mui/material/Step';
+import StepLabel from '@mui/material/StepLabel';
 
+const steps = [
+  'Application Received',
+  'Processing',
+  'Processed',
+];
 
 export default function BankAccount() {
 
@@ -42,6 +50,23 @@ export default function BankAccount() {
       <br/>
         
       <BankModal/>
+
+      <br/>
+      </Container>
+      <br/>
+      <Container  className="Bacc" maxWidth="lg">
+        
+      <br/>
+      <Box sx={{ width: '100%' }}>
+      <Stepper activeStep={1} alternativeLabel>
+        {steps.map((label) => (
+          <Step key={label}>
+            <StepLabel>{label}</StepLabel>
+          </Step>
+        ))}
+      </Stepper>
+    </Box>
+      
 
       <br/>
       </Container>

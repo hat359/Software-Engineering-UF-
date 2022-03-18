@@ -44,7 +44,8 @@ class RateMyProfApi:
         professors = dict()
         num_of_prof = self.get_num_of_professors(self.UniversityId)
         num_of_pages = math.ceil(num_of_prof / 20)
-
+        prof=[]
+        count=0
         for i in range(1, num_of_pages + 1):  # the loop insert all professor into list
             page = requests.get(
                 "http://www.ratemyprofessors.com/filter/professor/?&page="
@@ -57,7 +58,8 @@ class RateMyProfApi:
 
 
             for json_professor in json_response["professors"]:
-                # print(json_professor)
+                count+=1
+                prof.append(json_professor)
                 professor = Professor(
                     json_professor["tid"],
                     json_professor["tFname"],
@@ -69,7 +71,10 @@ class RateMyProfApi:
 
             # for test cases, limit to 2 iterations
             if testing and (i > 1): break
-        print(professors)
+        x=json.dumps(prof)
+        print(len(prof))
+        with open('data.txt ', 'w') as outfile:
+            outfile.write(x)
         return professors
 
     def get_num_of_professors(

@@ -206,7 +206,14 @@ function Travel() {
           </Grid>
 
         </Paper>
+        <br/>
       </Container>
+       <br/>
+      <Container className="Bacc" maxWidth="lg">
+          <br/><br/>
+
+      </Container>
+
       <Footer />
 
     </div>
