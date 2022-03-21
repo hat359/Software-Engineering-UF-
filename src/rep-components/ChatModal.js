@@ -72,7 +72,7 @@ export default function Modal(props) {
 
   const handleClickOpen = () => {
     setOpen(true);
-    axios.get(`http://localhost:8080/info-gator-api/travel/faq/answers/${props.id}`)
+    axios.get(`http://localhost:8080/travel/faq/answers/${props.id}`)
   .then(response=>{
     setanswer(response.data)
   })
@@ -123,7 +123,7 @@ axios.post("http://localhost:8080/travel/faq/answer",variable)
         scroll="paper"
         
       >
-        <BootstrapDialogTitle id="customized-dialog-title" sx={{color:"Red"}} onClose={handleClose}>
+        <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
           {props.user}
         </BootstrapDialogTitle>
         <DialogContent dividers>
@@ -132,16 +132,9 @@ axios.post("http://localhost:8080/travel/faq/answer",variable)
           </Typography>
           {answer.map(item=>(
               <div>
-              <div className="answerbox">
-                <Typography sx={{fontWeight:'700',m:1,color:"green"}}>
-                  {item.AnswerByUserId}
-                </Typography>
-                <Typography sx={{m:1}}variant="h6">
+                <Typography variant="h6">
                   {item.Answer}
                 </Typography>
-                
-              </div>
-              <br/>
               </div>
 
           ))}

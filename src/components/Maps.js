@@ -8,67 +8,59 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import Footer from '../rep-components/Footer'
 
 function Map(props){
-    const [stops,setstops]=useState([])
-    const [loading, setLoading] = useState(true);
+  const [stops,setstops]=useState([])
+  const [library,setlib]=useState([])
+  const [dining,setdining]=useState([])
+  const [loading, setLoading] = useState(true);
+        
+  useEffect(()=>{
+    //   axios.get("https://campusmap.ufl.edu/library/cmapjson/bus_stops.json").then(response=>{
+    //   setstops(response.data)
+    //  })
+      
 
+     const fetchData = async () => {
+      const respbus = await axios.get("https://campusmap.ufl.edu/library/cmapjson/bus_stops.json")
+        
+      
+      const resplib = await axios.get("https://campusmap.ufl.edu/library/cmapjson/library.json")
+
+      const respdin = await axios.get("https://campusmap.ufl.edu/library/cmapjson/dining.json")
+
+
+      setstops(respbus.data)
+      setlib(resplib.data)
+      setdining(respdin.data)
+    };
+
+    fetchData();
+  });
+     
     
-        if(props.dat=="busstops"){
-        
-        axios.get("https://campusmap.ufl.edu/library/cmapjson/bus_stops.json").then(response=>{
-        setstops(response.data)
-        setLoading(false)
-        
-        
-        })
-      }
        
-      if(props.dat=="library"){
-        setstops([])
-        axios.get("https://campusmap.ufl.edu/library/cmapjson/library.json").then(response=>{
-        setstops(response.data)
-        setLoading(false)        
-        
-        
-        })
-      }
-
-      if(props.dat=="dining"){
-        setstops([])
-        axios.get("https://campusmap.ufl.edu/library/cmapjson/dining.json").then(response=>{
-          setstops(response.data)
-          setLoading(false)
-          
-          
-          })
-
-
-      }
-        
-
-    
-        
-        
-        
-        
-
-  if(loading==true) return null 
-
-
-        
-        
-  else return(
+ return(
         <div >
 
 
 
 <GoogleMap defaultZoom={13.5} defaultCenter={{lat:29.643633,lng:-82.354927}}/>
-{  stops.features.map(item=>(
 
-<Marker position={{lat:item.geometry.coordinates[1],lng:item.geometry.coordinates[0]}}/>
+{ props.dat=='d'? null: props.dat=='busstops'?stops.features.map(item=>(
 
-))}
+ <Marker position={{lat:item.geometry.coordinates[1],lng:item.geometry.coordinates[0]}}/>
+
+)):props.dat=="library" ? library.features.map(item=>(
+
+  <Marker position={{lat:item.geometry.coordinates[1],lng:item.geometry.coordinates[0]}}/>
+ 
+ )):props.dat=="dining"?dining.features.map(item=>(
+
+  <Marker position={{lat:item.geometry.coordinates[1],lng:item.geometry.coordinates[0]}}/>
+ 
+ )):null}
 </div>
 
 
@@ -79,11 +71,34 @@ function Map(props){
 const WrappedMap=withScriptjs(withGoogleMap(Map))
 
 export default function Maps(){
-    const [mapdata, setmapdata] = React.useState('busstops');
+    const [mapdata, setmapdata] = React.useState('d');
 
     const handleChange = (event) => {
       setmapdata(event.target.value);
     };
+
+
+
+    
+        
+      
+       
+     
+      //   axios.get("https://campusmap.ufl.edu/library/cmapjson/library.json").then(response=>{
+      //   setlib(response.data)
+           
+      //  })
+        
+       
+      
+
+      //   axios.get("https://campusmap.ufl.edu/library/cmapjson/dining.json").then(response=>{
+      //     setdining(response.data)
+          
+      //  })
+          
+        
+      // })
 
 
 
@@ -103,6 +118,7 @@ return(
           label="Age"
           onChange={handleChange}
         >
+          <MenuItem value="d">Select</MenuItem>
           <MenuItem value="busstops">Bus Stops</MenuItem>
           <MenuItem value="library">Library</MenuItem>
           <MenuItem value="dining">Dining</MenuItem>
@@ -114,12 +130,11 @@ return(
     containerElement={<div style={{height:'100%'}}/>}
     mapElement={<div style={{height:'100%'}}/>}
 /></div>
+
 <br/>
+{<Footer/>}
 </div>
 )
-
-
-
 
 
 }

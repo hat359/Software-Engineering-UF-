@@ -120,7 +120,29 @@ const theme = useTheme();
 
 
             </Grid>
+
+    
           </Grid>
+          <table class="table table-bordered ">
+  <thead>
+    <tr>
+       
+       <th className="text-center" scope="col">Course</th>
+      <th className="text-center" scope="col">Group Chat</th>
+      
+     
+
+    </tr>
+  </thead>
+
+   {/* { loadquestions.map(item=>(
+              
+               
+              <BasicTable  id={item.ID} ques={item.Question} user={item.PostedByUserId}/>
+              
+              
+            ))} */}
+  </table>
         
         
 

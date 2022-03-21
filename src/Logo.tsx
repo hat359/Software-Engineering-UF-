@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Grid, Card, Container } from '@mui/material'
 import ParticleImage, {
   ParticleOptions,
   Vector,
@@ -55,16 +56,18 @@ export default function App() {
   
 
   return (
+    <Container  sx={{m:5}} className="Bacc" maxWidth="lg">
     <ParticleImage
       src={"/gators.png"}
-      height={500}
-      width={1000}
+      height={300}
+      width={500}
       scale={3}
       entropy={10}
       maxParticles={7500}
       particleOptions={particleOptions}
   
-      backgroundColor="#191970"
+      backgroundColor="white"
     />
+    </Container>
   );
 }

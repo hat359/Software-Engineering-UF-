@@ -75,7 +75,7 @@ function Travel() {
   }
 
   useEffect(() => {
-    axios.get("http://localhost:8080/travel/faq").then(
+    axios.get("http://localhost:8080/info-gator-api/travel/faq").then(
       response => {
         setquestions(response.data)
         
