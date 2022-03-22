@@ -10,7 +10,7 @@ import SchoolIcon from '@mui/icons-material/School';
 import CastForEducationIcon from '@mui/icons-material/CastForEducation';
 import Box from '@mui/material/Box';
 import Footer from '../rep-components/Footer'
-import profdat from './profs.json'
+import profdat from './profdat.json'
 import acad from '../academics.jpg'
 import { useTheme } from '@mui/material/styles';
 import OutlinedInput from '@mui/material/OutlinedInput';
@@ -56,7 +56,11 @@ function getStyles(name, personName, theme) {
 export default function Academics() {
 useEffect(()=>{
 
-  console.log(profdat)
+  for(var i=0;i<profdat.length;i++){
+    if(profdat[i].tDept== 'Computer Science'){
+      console.log(profdat[i])
+    }
+  }
 
 
 })
@@ -141,11 +145,15 @@ const theme = useTheme();
               <BasicTable  id={item.ID} ques={item.Question} user={item.PostedByUserId}/>
               
               
-            ))} */}
+            ))} */} 
   </table>
         
         
 
+
+        </Container>
+        <Container className="Bacc" >
+              <br/><br/>
 
         </Container>
 

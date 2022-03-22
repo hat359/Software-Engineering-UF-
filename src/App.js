@@ -10,6 +10,8 @@ import Signup from './components/Signup/Signup.tsx'
 import Signin from './components/Signin'
 import Landing from './components/Landing'
 import Map from './components/Maps'
+import Profs from './components/Profrating' 
+
 function App() {
   return (
     <BrowserRouter>
@@ -25,6 +27,7 @@ function App() {
    <Route  exact path="/signup" element={<Signup/>}/>
    <Route  exact path="/signin" element={<Signin/>}/>
    <Route  exact path="/landing" element={<Landing/>}/>
+   <Route  exact path="/academics/profs" element={<Profs/>}/>
 
   
    

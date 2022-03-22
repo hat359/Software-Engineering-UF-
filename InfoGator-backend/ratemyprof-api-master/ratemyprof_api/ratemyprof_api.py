@@ -73,7 +73,7 @@ class RateMyProfApi:
             if testing and (i > 1): break
         x=json.dumps(prof)
         print(len(prof))
-        with open('data.txt ', 'w') as outfile:
+        with open('data.json ', 'w') as outfile:
             outfile.write(x)
         return professors
 
