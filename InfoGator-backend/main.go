@@ -2,6 +2,7 @@ package main
 
 import (
 	"InfoGator/modules/category"
+	"InfoGator/modules/finance"
 	"InfoGator/modules/travel"
 	"database/sql"
 
@@ -24,16 +25,24 @@ func Cors(w http.ResponseWriter, r *http.Request) {
 }
 
 func newRouter() *mux.Router {
+
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/plm/cors", Cors)
 	router.HandleFunc("/", homeLink)
+
 	router.HandleFunc("/info-gator-api/category", category.CreateCategory).Methods("GET")
 	router.HandleFunc("/info-gator-api/category/{id}", category.GetOneCategory).Methods("GET")
+
 	router.HandleFunc("/info-gator-api/travel/faq", travel.GetQuestions).Methods("GET")
 	router.HandleFunc("/info-gator-api/travel/faq/question", travel.AddQuestion).Methods("POST")
 	router.HandleFunc("/info-gator-api/travel/faq/{id}", travel.GetOneQuestion).Methods("GET")
 	router.HandleFunc("/info-gator-api/travel/faq/answers/{questionId}", travel.GetAnswers).Methods("GET")
 	router.HandleFunc("/info-gator-api/travel/faq/answer", travel.AddAnswer).Methods("POST")
+
+	router.HandleFunc("/info-gator-api/finance/appointment", finance.GetAppointments).Methods("GET")
+	router.HandleFunc("/info-gator-api/finance/appointment/app", finance.AddAppointment).Methods("POST")
+	router.HandleFunc("/info-gator-api/finance/appointment/{id}", finance.GetOneAppointment).Methods("GET")
+
 	return router
 }
 
@@ -73,8 +82,8 @@ func main() {
 	router := newRouter()
 
 	// log.Fatal(http.ListenAndServe(":8080", router))
-	log.Fatal(http.ListenAndServe(":8080", handlers.CORS(handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"}), 
-	handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS"}), handlers.AllowedOrigins([]string{"*"}))(router)))
+	log.Fatal(http.ListenAndServe(":8080", handlers.CORS(handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"}),
+		handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS"}), handlers.AllowedOrigins([]string{"*"}))(router)))
 }
 
 func homeLink(w http.ResponseWriter, r *http.Request) {

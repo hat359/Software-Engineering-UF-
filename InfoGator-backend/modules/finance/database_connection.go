@@ -1,4 +1,4 @@
-package travel
+package finance
 
 import (
 	"database/sql"
