@@ -6,6 +6,7 @@ import Proftable from '../rep-components/Proftable'
 export default function Profrating(){
     const [pdat,setpdat]=useState([])
     const [sub,setsub]=useState('')
+    
     const [curr,setcurr]=useState(0)
     const [next,setnext]=useState(20)
     const [searching,setsearching]=useState(false)
@@ -49,6 +50,7 @@ function handelNext(){
 
 function handelSubmit(){
     setsearching(true)
+    if(profname==''){
     var x=[]
     for(var i=0;i<profdat.length;i++){
         if(profdat[i].tDept==course){
@@ -57,6 +59,23 @@ function handelSubmit(){
 
 
 }
+    }else if(course==''){
+        var fname=profname.split(" ")[0]
+        var lname=profname.split(" ")[1]
+        var x=[]
+        for(var i=0;i<profdat.length;i++){
+            if(profdat[i].tFname==fname){
+            x.push(profdat[i])
+            }
+            else if(profdat[i].tLname==fname){
+                x.push(profdat[i])
+
+            }
+    
+    
+    }
+
+    }
 
 setpdat(x)
 setsearching(false)
@@ -91,7 +110,7 @@ return(
         <Container align="center"className="Bacc">
         <div>
         <TextField id="outlined-basic" name="course" label="Course" variant="outlined" onChange={handelChange} /> {'\u00A0'}{'\u00A0'}
-<TextField id="filled-basic" label="Prof Name" name="prof" variant="outlined" />{'\u00A0'}{'\u00A0'}
+<TextField id="filled-basic" label="Prof Name" name="prof" variant="outlined" onChange={handelChange} />{'\u00A0'}{'\u00A0'}
 <TextField id="standard-basic" label="Standard" variant="outlined" /> {'\u00A0'}{'\u00A0'}
 <Button variant="contained" onClick={handelSubmit}>Search</Button>
 <table class="table table-bordered ">
@@ -122,6 +141,7 @@ return(
         </div>
         <Button variant='contained' onClick={handelprev}>Prev</Button>
         <Button variant='contained' onClick={handelNext}>Next</Button>
+        <Typography>{curr}-{next}</Typography>
 
         </Container>
 
