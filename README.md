@@ -21,9 +21,9 @@ We intend to develop a web application in order to aid and assist an incoming in
   * Feasible banking options
 
 # Team Members
-| Members         | Github ID     |
-| -------------   | ------------- |
-| Akshita Sharma  | Akshita1890   |
-| Anuj Tayal      | anuj-t21      |
-| Ayati Maitra    | AyatiMaitra   |
-| Harsh Athavale  | hat359        |
+| Members                 | Github ID     |
+| --------------------    | ------------- |
+| Akshita Sharma(Frontend)| Akshita1890   |
+| Anuj Tayal (Backend)    | anuj-t21      |
+| Ayati Maitra (Backend)  | AyatiMaitra   |
+| Harsh Athavale(Frontend)| hat359        |
