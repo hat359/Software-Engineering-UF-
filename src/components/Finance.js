@@ -11,21 +11,29 @@ import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
 import CreditScoreIcon from '@mui/icons-material/CreditScore';
 import Box from '@mui/material/Box';
 import Footer from '../rep-components/Footer'
+import { blue } from '@mui/material/colors';
+import { styled } from '@mui/material/styles';
 
 
-
+const ColorButton = styled(Button)(({ theme }) => ({
+  color: theme.palette.getContrastText(blue[700]),
+  backgroundColor: blue[700],
+  '&:hover': {
+    backgroundColor: blue[900],
+  },
+}));
 
 
 export default function Finance() {
   return (
     <div>
         {<Nav/>}
-        
+       
       <Typography component="div">
-      <Box sx={{ textAlign: 'center', m: 1, fontSize: 32, color:"white"}}>Finances</Box>
+      <Box sx={{ textAlign: 'center', m: 1, fontSize: 42, color:"white"}}>Finances</Box>
       <Box sx={{ textAlign: 'center', m: 1, fontStyle: 'italic', color:"white"}}>Appropriate information right at your disposal</Box>
     </Typography>
-    <div style={{ padding: 200 }} >
+    <div style={{ padding: 80 }} >
     <Grid container spacing = {4}>
       <Grid item xs={12} sm={6} md={4}>
       <Card class="card" sx={{ maxWidth: 345 }}>
@@ -35,12 +43,12 @@ export default function Finance() {
           Bank Account
         </Typography>
         <Typography variant="body2" color="common.white" >
-        Open your bank account with a preferred bank.
+        Open your bank account with a preferred bank conveniently.
         </Typography>
       </CardContent>
-      <CardActions>
+      <CardActions sx={{ justifyContent: "center" }}>
       <a href={'/BankAccount'}>
-        <Button size="small" variant="outlined">Know More</Button>
+        <ColorButton size="small" variant="contained" >Know More</ColorButton>
       </a>
       </CardActions>
     </Card>
@@ -57,9 +65,9 @@ export default function Finance() {
 
         </Typography>
       </CardContent>
-      <CardActions>
+      <CardActions sx={{ justifyContent: "center" }}>
       <a href={'/HealthInsurance'}>
-        <Button size="small" variant="outlined">Know More</Button>
+        <ColorButton size="small" variant="contained">Know More</ColorButton>
        </a>
       </CardActions>
     </Card>
@@ -75,9 +83,9 @@ export default function Finance() {
         Studying shouldn’t be a financial burden. Find help to fund your education.
         </Typography>
       </CardContent>
-      <CardActions>
+      <CardActions sx={{ justifyContent: "center" }}>
       <a href={'/FinancialAid'}>
-        <Button size="small" variant="outlined">Know More</Button>
+        <ColorButton size="small" variant="contained">Know More</ColorButton>
        </a>
       </CardActions>
     </Card>

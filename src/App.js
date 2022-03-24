@@ -6,6 +6,7 @@ import Travel from './components/Travel'
 import Finance from './components/Finance'
 import BankAccount from './components/BankAccount'
 import FinancialAid from './components/FinancialAid'
+import HealthInsurance from './components/HealthInsurance'
 import Academics from './components/Academics'
 import Signup from './components/Signup/Signup.tsx'
 import Signin from './components/Signin'
@@ -26,6 +27,7 @@ function App() {
    <Route  exact path="/academics" element={<Academics/>}/>
    <Route  exact path="/BankAccount" element={<BankAccount/>}/>
    <Route  exact path="/FinancialAid" element={<FinancialAid/>}/>
+   <Route  exact path="/HealthInsurance" element={<HealthInsurance/>}/>
    <Route  exact path="/signup" element={<Signup/>}/>
    <Route  exact path="/signin" element={<Signin/>}/>
    <Route  exact path="/landing" element={<Landing/>}/>
