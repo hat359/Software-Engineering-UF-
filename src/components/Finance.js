@@ -22,8 +22,8 @@ export default function Finance() {
         {<Nav/>}
         
       <Typography component="div">
-      <Box sx={{ textAlign: 'center', m: 1, fontSize: 32}}>Finances</Box>
-      <Box sx={{ textAlign: 'center', m: 1, fontStyle: 'italic'}}>Appropriate information right at your disposal</Box>
+      <Box sx={{ textAlign: 'center', m: 1, fontSize: 32, color:"white"}}>Finances</Box>
+      <Box sx={{ textAlign: 'center', m: 1, fontStyle: 'italic', color:"white"}}>Appropriate information right at your disposal</Box>
     </Typography>
     <div style={{ padding: 200 }} >
     <Grid container spacing = {4}>
@@ -58,9 +58,9 @@ export default function Finance() {
         </Typography>
       </CardContent>
       <CardActions>
-      
+      <a href={'/HealthInsurance'}>
         <Button size="small" variant="outlined">Know More</Button>
-       
+       </a>
       </CardActions>
     </Card>
     </Grid>
@@ -76,9 +76,9 @@ export default function Finance() {
         </Typography>
       </CardContent>
       <CardActions>
-        
+      <a href={'/FinancialAid'}>
         <Button size="small" variant="outlined">Know More</Button>
-       
+       </a>
       </CardActions>
     </Card>
     </Grid>
