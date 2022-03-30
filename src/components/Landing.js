@@ -8,6 +8,7 @@ import axios from 'axios'
 
 export default function Landing() {
   const [category,setcategory]=useState([])
+  
   // useEffect(()=>{
   //   axios.get("http://localhost:8080/category").then(response=>{
       

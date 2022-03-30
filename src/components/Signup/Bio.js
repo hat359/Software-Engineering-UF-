@@ -1,7 +1,7 @@
 import React from 'react'
 import { TextField, Grid } from '@mui/material'
 import {useDispatch,useSelector} from 'react-redux'
-import {chfname,chlname,regfname,reglname,regaddress,regemail,regcontact,regzip} from '../../redux/actions/Bank'
+import {chfname,chlname,regfname,reglname,regaddress,regemail,regcontact,regzip} from '../../redux/actions/Form'
 
 export default function Bio(){
     const dispatch=useDispatch()

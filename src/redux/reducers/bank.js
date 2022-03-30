@@ -27,7 +27,83 @@ const BlnameReducer = (state='',action)=>{
     
     }
 
-    const RegfnameReducer = (state='',action)=>{
+    const BemailReducer = (state='',action)=>{
+        switch(action.type){
+            case 'EMAIL':
+                state=action.payload
+                return state
+            default:
+                return state
+        
+            }       
+        
+        
+        }
+
+        const BaddressReducer = (state='',action)=>{
+            switch(action.type){
+                case 'ADDRESS':
+                    state=action.payload
+                    return state
+                default:
+                    return state
+            
+                }       
+            
+            
+            }
+
+            const BpassportReducer = (state='',action)=>{
+                switch(action.type){
+                    case 'PASSPORT':
+                        state=action.payload
+                        return state
+                    default:
+                        return state
+                
+                    }       
+                
+                
+                }
+
+                const BufidReducer = (state='',action)=>{
+                    switch(action.type){
+                        case 'UFID':
+                            state=action.payload
+                            return state
+                        default:
+                            return state
+                    
+                        }       
+                    
+                    
+                    }
+                    const BzipReducer = (state='',action)=>{
+                        switch(action.type){
+                            case 'ZIP':
+                                state=action.payload
+                                return state
+                            default:
+                                return state
+                        
+                            }       
+                        
+                        
+                        }
+                        const BcontactReducer = (state='',action)=>{
+                            switch(action.type){
+                                case 'CONTACT':
+                                    state=action.payload
+                                    return state
+                                default:
+                                    return state
+                            
+                                }       
+                            
+                            
+                            }
+
+const RegfnameReducer = (state='',action)=>{
         switch(action.type){
             case 'RFNAME':
                 state=action.payload
@@ -39,7 +115,7 @@ const BlnameReducer = (state='',action)=>{
         
         
         } 
-        const ReglnameReducer = (state='',action)=>{
+const ReglnameReducer = (state='',action)=>{
             switch(action.type){
                 case 'RLNAME':
                     state=action.payload
@@ -132,8 +208,15 @@ const BlnameReducer = (state='',action)=>{
 
 
     const BankReducer = combineReducers({
-        fname:BfnameReducer,
-        lname:BlnameReducer,
+        bafname:BfnameReducer,
+        balname:BlnameReducer,
+        baemail:BemailReducer,
+        baaddress:BaddressReducer,
+        bapassport:BpassportReducer,
+        baufid:BufidReducer,
+        bazip:BzipReducer,
+        bacontact:BcontactReducer,
+
         regfname:RegfnameReducer,
         reglname:ReglnameReducer,
         regemail:RegemailReducer,

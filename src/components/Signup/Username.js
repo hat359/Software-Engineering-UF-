@@ -1,6 +1,6 @@
 import React from 'react'
 import { TextField, Grid } from '@mui/material'
-import {reguname,regpass} from '../../redux/actions/Bank'
+import {reguname,regpass} from '../../redux/actions/Form'
 import {useDispatch,useSelector} from 'react-redux'
 
 

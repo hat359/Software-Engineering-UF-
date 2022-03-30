@@ -18,7 +18,12 @@ import Bdetails from './Bdetails'
 import Pan from './pancard'
 import {BrowserRouter, Route, Routes} from "react-router-dom"
 import { useNavigate } from "react-router-dom";
+import {useSelector} from 'react-redux'
+import axios from 'axios'
+
 function Copyright() {
+
+
   return (
     <Typography variant="body2" color="text.secondary" align="center">
       {'Copyright © '}
@@ -49,6 +54,20 @@ function getStepContent(step: number) {
 const theme = createTheme();
 
 export default function Signup(props) {
+  const fname=useSelector(state=>state.Form.bafname)
+  const lname=useSelector(state=>state.Form.balname)
+  const email=useSelector(state=>state.Form.baemail)
+  const address=useSelector(state=>state.Form.baaddress)
+  const passport=useSelector(state=>state.Form.bapassport)
+  const ufid=useSelector(state=>state.Form.baufid)
+  const zip=useSelector(state=>state.Form.bazip)
+  const contact=useSelector(state=>state.Form.bacontact)
+
+
+
+  
+
+
   let navigate = useNavigate()
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -68,9 +87,23 @@ export default function Signup(props) {
   
   const handleClick = () => {
     setOpen(true);
-    setTimeout(() => {
-      navigate('/signin')
-    }, 2000);
+   const variable={
+  ID :'a1',        
+	FirstName:fname,     
+	LastName :lname,      
+	Email :email,         
+	Address :address,       
+	PassportNumber:passport,
+UFID : ufid,          
+	ZipCode:zip,       
+	Contact : contact,       
+	Status:"scheduled"   
+    }
+    axios.post("http://localhost:8080/info-gator-api/finance/appointment/app",variable).
+    then(response=>{
+
+
+    })
    
   };
 

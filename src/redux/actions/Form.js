@@ -13,6 +13,50 @@ export const chlname=(val)=>{
      payload:val
     }
 }
+export const chemail=(val)=>{
+
+    return{
+     type:'EMAIL',
+     payload:val
+    }
+}
+
+export const chaddress=(val)=>{
+
+    return{
+     type:'ADDRESS',
+     payload:val
+    }
+}
+export const chpassport=(val)=>{
+
+    return{
+     type:'PASSPORT',
+     payload:val
+    }
+}
+export const chufid=(val)=>{
+
+    return{
+     type:'UFID',
+     payload:val
+    }
+}
+export const chzip=(val)=>{
+
+    return{
+     type:'ZIP',
+     payload:val
+    }
+}
+export const chcontact=(val)=>{
+
+    return{
+     type:'CONTACT',
+     payload:val
+    }
+}
+
 
 export const regfname=(val)=>{
 

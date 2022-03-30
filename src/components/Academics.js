@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react';
 import Nav from '../Nav'
-import{Card,Container} from '@mui/material';
+import{Card,Container,Paper,TextField} from '@mui/material';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
@@ -18,6 +18,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import SendIcon from '@mui/icons-material/Send';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -64,6 +65,12 @@ useEffect(()=>{
 
 
 })
+
+function handelpost(){
+
+
+
+}
 const theme = useTheme();
   const [personName, setPersonName] = React.useState([]);
 
@@ -148,6 +155,31 @@ const theme = useTheme();
             ))} */} 
   </table>
         
+  <Box sx={{ paddingTop: '50px', fontWeight: 'bold', m: 1, fontSize: 'h4.fontSize' }}>Ask a Question</Box>
+        <Paper align="center" sx={{ marginTop: '50px' }} variant="outlined">
+          <TextField sx={{ marginLeft: '50px', marginTop: '50px', width: '75%' }} name="ques"  id="outlined-basic" label="Question" variant="outlined" />
+          <br />
+          <Grid container>
+            <Grid item xs={8}>
+              <TextField sx={{ marginTop: '50px', width: '55%', paddingBottom: '50px' }}
+                id="outlined-multiline-static"
+                label="Description"
+                multiline
+                rows={4}
+                
+                
+
+              />
+            </Grid>
+            <Grid align="left" item xs={2}>
+              <Button sx={{ marginTop: '50%' }} variant="contained" onClick={handelpost} endIcon={<SendIcon />}>
+                Post
+              </Button>
+            </Grid>
+
+          </Grid>
+
+        </Paper>
         
 
 
