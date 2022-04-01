@@ -22,6 +22,21 @@ type resolver struct {
 	targetStack [][]*ast.Ident
 }
 
+func (r *resolver) resolve(ident *ast.Ident, collectUnresolved bool) {
+	for s := r.topScope; s != nil; s = s.Outer {
+		if obj := s.Lookup(ident.Name); obj != nil {
+			if debugResolve {
+				r.trace("resolved %v:%s to %v", ident.Pos(), ident.Name, obj)
+			}
+			assert(obj.Name != "", "obj with no name")
+			if _, ok := obj.Decl.(*ast.Ident); !ok {
+				ident.Obj = obj
+			}
+			return
+		}
+	}
+}
+
 func (r *resolver) Visit(node ast.Node) ast.Visitor {
 	if debugResolve && node != nil {
 		r.trace("node %T@%v", node, node.Pos())
