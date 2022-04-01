@@ -98,12 +98,12 @@ const theme = useTheme();
         Select a course to join a group
       </Typography>
       <br/>
-        <Grid container sx={{marginTop:"0vh"}}>
+        <Grid container id="contain" sx={{marginTop:"0vh"}}>
         
 
       
-      <Grid item md={6} >
-      <FormControl sx={{ m: 1, width: 400 }}>
+      <Grid item id="item" md={6} >
+      <FormControl id="form" sx={{ m: 1, width: 400 }}>
         <InputLabel id="demo-multiple-name-label">Name</InputLabel>
         <Select
           labelId="demo-multiple-name-label"
@@ -126,8 +126,8 @@ const theme = useTheme();
         </Select>
       </FormControl>
             </Grid>
-            <Grid item md={6}>
-              <Button sx={{marginTop:'2vh'}} variant='outlined'>Join</Button>
+            <Grid item id="bitem" md={6}>
+              <Button sx={{marginTop:'2vh'}} variant='outlined' id="jbutton">Join</Button>
 
 
             </Grid>
