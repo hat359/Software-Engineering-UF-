@@ -26,6 +26,9 @@ func (r *resolver) resolve(ident *ast.Ident, collectUnresolved bool) {
 	if ident.Obj != nil {
 		panic(r.sprintf("%v: identifier %s already declared or resolved", ident.Pos(), ident.Name))
 	}
+	if ident.Name == "_" {
+		return
+	}
 	for s := r.topScope; s != nil; s = s.Outer {
 		if obj := s.Lookup(ident.Name); obj != nil {
 			if debugResolve {
