@@ -65,22 +65,29 @@ func NewService(ctx context.Context, opts ...option.ClientOption) (*Service, err
 	return s, nil
 }
 
-func NewProjectsLocationsDatasetsService(s *Service) *ProjectsLocationsDatasetsService {
-	rs := &ProjectsLocationsDatasetsService{s: s}
-	rs.ConsentStores = NewProjectsLocationsDatasetsConsentStoresService(s)
-	rs.DicomStores = NewProjectsLocationsDatasetsDicomStoresService(s)
-	rs.FhirStores = NewProjectsLocationsDatasetsFhirStoresService(s)
-	rs.Hl7V2Stores = NewProjectsLocationsDatasetsHl7V2StoresService(s)
-	rs.Operations = NewProjectsLocationsDatasetsOperationsService(s)
+func New(client *http.Client) (*Service, error) {
+	if client == nil {
+		return nil, errors.New("client is nil")
+	}
+	s := &Service{client: client, BasePath: basePath}
+	s.Projects = NewProjectsService(s)
+	return s, nil
+}
+
+func NewProjectsService(s *Service) *ProjectsService {
+	rs := &ProjectsService{s: s}
+	rs.Locations = NewProjectsLocationsService(s)
 	return rs
 }
 
-func NewProjectsLocationsDatasetsConsentStoresService(s *Service) *ProjectsLocationsDatasetsConsentStoresService {
-	rs := &ProjectsLocationsDatasetsConsentStoresService{s: s}
-	rs.AttributeDefinitions = NewProjectsLocationsDatasetsConsentStoresAttributeDefinitionsService(s)
-	rs.ConsentArtifacts = NewProjectsLocationsDatasetsConsentStoresConsentArtifactsService(s)
-	rs.Consents = NewProjectsLocationsDatasetsConsentStoresConsentsService(s)
-	rs.UserDataMappings = NewProjectsLocationsDatasetsConsentStoresUserDataMappingsService(s)
+func NewProjectsLocationsService(s *Service) *ProjectsLocationsService {
+	rs := &ProjectsLocationsService{s: s}
+	rs.Datasets = NewProjectsLocationsDatasetsService(s)
+	rs.Services = NewProjectsLocationsServicesService(s)
 	return rs
 }
+
+
+
+
 
