@@ -1,7 +1,7 @@
-package travel_test
+package finance_test
 
 import (
-	"InfoGator/modules/travel"
+	"InfoGator/modules/finance"
 
 	"net/http"
 	"net/http/httptest"
@@ -18,13 +18,13 @@ func TestHandler(t *testing.T) {
 
 	recorder := httptest.NewRecorder()
 
-	hf := http.HandlerFunc(travel.GetQuestions)
+	hf := http.HandlerFunc(finance.GetAppointments)
 
 	hf.ServeHTTP(recorder, req)
 
 	// Check the status code is what we expect.
 	if status := recorder.Code; status != http.StatusOK {
-		t.Errorf("Get Questions returned wrong status code: got %v want %v",
+		t.Errorf("Get Appointments returned wrong status code: got %v want %v",
 			status, http.StatusOK)
 	}
 
@@ -43,31 +43,13 @@ func TestHandler(t *testing.T) {
 
 	recorder2 := httptest.NewRecorder()
 
-	hf2 := http.HandlerFunc(travel.GetAnswers)
+	hf2 := http.HandlerFunc(finance.GetOneAppointment)
 
 	hf2.ServeHTTP(recorder2, req2)
 
 	// Check the status code is what we expect.
 	if status := recorder2.Code; status != http.StatusOK {
-		t.Errorf("Get Answers returned wrong status code: got %v want %v",
-			status, http.StatusOK)
-	}
-
-	req3, err3 := http.NewRequest("GET", "", nil)
-
-	if err3 != nil {
-		t.Fatal(err3)
-	}
-
-	recorder3 := httptest.NewRecorder()
-
-	hf3 := http.HandlerFunc(travel.GetOneQuestion)
-
-	hf3.ServeHTTP(recorder3, req3)
-
-	// Check the status code is what we expect.
-	if status := recorder3.Code; status != http.StatusOK {
-		t.Errorf("Get One Question returned wrong status code: got %v want %v",
+		t.Errorf("Get One Appointment returned wrong status code: got %v want %v",
 			status, http.StatusOK)
 	}
 }
