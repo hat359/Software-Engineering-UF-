@@ -32,10 +32,10 @@ return(
     <br/>
     <Grid container spacing={2}>
     <Grid item xs={6}>
-<TextField id="outlined-basic" className="fname" label="Passport Number" variant="outlined" onChange={(event)=>dispatch(chpassport(event.target.value))} />
+<TextField id="outlined-basic" className="passport" label="Passport Number" variant="outlined" onChange={(event)=>dispatch(chpassport(event.target.value))} />
 </Grid>
 <Grid item xs={6}> 
-<TextField id="outlined-basic" className="lname" label="UFID" variant="outlined"onChange={(event)=>dispatch(chufid(event.target.value))} />
+<TextField id="outlined-basic" className="ufid" label="UFID" variant="outlined"onChange={(event)=>dispatch(chufid(event.target.value))} />
 </Grid>
 
 </Grid>

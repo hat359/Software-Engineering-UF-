@@ -34,9 +34,9 @@ export default function BankAccount() {
       <br/><br/>
 
       <Container  className="Bacc" maxWidth="lg">
-        <Grid container sx={{marginTop:"50vh"}}>
+        <Grid container id="contain" sx={{marginTop:"50vh"}}>
 
-          <Grid sx={{marginTop:"10vh"}} item md={4} className="bank" >
+          <Grid sx={{marginTop:"10vh"}} item id="item" md={4} className="bank" >
             <img src={wellsfargo} />
           </Grid>
 
@@ -49,7 +49,7 @@ export default function BankAccount() {
         </Grid>
       <br/>
         
-      <BankModal/>
+      <BankModal />
 
       <br/>
       </Container>
