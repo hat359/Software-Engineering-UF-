@@ -125,7 +125,7 @@ return(
         </Select>
       </FormControl>
     </Box>
-<div style={{width:'80vw',height:'80vh',marginLeft:'10vw',marginTop:'55vh'}}><WrappedMap dat={mapdata} googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyDqZ-yKISjABUPFR9IoijYebPdZEtAp-js`}
+<div id="map" style={{width:'80vw',height:'80vh',marginLeft:'10vw',marginTop:'55vh'}}><WrappedMap dat={mapdata} googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyDqZ-yKISjABUPFR9IoijYebPdZEtAp-js`}
     loadingElement={<div style={{height:'100%'}}/>}
     containerElement={<div style={{height:'100%'}}/>}
     mapElement={<div style={{height:'100%'}}/>}

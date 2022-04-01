@@ -18,7 +18,7 @@
 //     })
 
 
-describe('Bank',()=>{
+describe('Academics',()=>{
   beforeEach(() => {
       cy.visit("/academics") 
     })
