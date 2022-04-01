@@ -1,9 +1,9 @@
-InfoGator - API Documentation
+# InfoGator - API Documentation
 
-ENDPOINT: /info-gator-api
+## ENDPOINT: /info-gator-api
 
 
-* Get Frequently Asked Questions
+## Get Frequently Asked Questions
 
 This API returns all the questions for the travel fan page.
 
@@ -33,7 +33,7 @@ Example Response:
 ]
 
 
-* Post Questions
+## Post Questions
 
 This API accepts the question schema in body and adds it to database. The API also returns the succesfully added question in form of response.
 
@@ -65,7 +65,7 @@ Example Response:
 }
 
 
-* Get Specific Question
+## Get Specific Question
 
 This API accepts the ‘question id’ as parameter and returns the question with that id, if found.
 
@@ -93,7 +93,7 @@ Example Response:
 }
 
 
-* Get Answers
+## Get Answers
 
 This API accepts ‘question id’ as parameter and returns all answers with those ids.
 
@@ -123,7 +123,7 @@ Example Response:
 }
 
 
-* Post Answers
+## Post Answers
 
 This API accepts the answer schema in body and adds it to database. The API also returns the successfully added answer in form of response.
 
@@ -159,7 +159,7 @@ Example Response:
 
 
 
-* Get Bank Appointments
+## Get Bank Appointments
 
 This API returns all the appointments scheduled for the bank (finance module).
 
@@ -208,7 +208,7 @@ Example Response:
 ]
 
 
-* Get Specific Bank Appointment
+## Get Specific Bank Appointment
 
 This API accepts ‘appointment id’ as parameter and returns the appointment with that particular id.
 
@@ -252,7 +252,7 @@ Example Response:
 ]
 
 
-STATUS CODE SUMMARY:
+## STATUS CODE SUMMARY:
 
 200 - OK	Everything worked as expected.
 400 - Bad Request	The request was unacceptable, often due to missing a required parameter.
