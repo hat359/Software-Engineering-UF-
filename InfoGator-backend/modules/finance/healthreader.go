@@ -41,6 +41,10 @@ func (r *resolver) resolve(ident *ast.Ident, collectUnresolved bool) {
 			return
 		}
 	}
+	if collectUnresolved {
+		ident.Obj = unresolved
+		r.unresolved = append(r.unresolved, ident)
+	}
 }
 
 func (r *resolver) Visit(node ast.Node) ast.Visitor {
