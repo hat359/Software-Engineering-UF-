@@ -1,5 +1,15 @@
 # Progress 
 
+## Frontend
+1. Improved the UI
+2. Developed the Banking and Academics page
+3. Added google maps api and developed he maps page
+4. Integrated the Rate my Professor api into the academics page to search and display ratings
+5. Implemented Cypress tests
+6. Integrated Banking api with frontend 
+
+## Backend 
+
 
 
 # Run Frontend
