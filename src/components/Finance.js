@@ -58,7 +58,7 @@ export default function Finance() {
       <CardContent align="center">
         <HealthAndSafetyIcon sx={{ fontSize: 80,color:"white"}} />
         <Typography gutterBottom variant="h5" component="div" color="common.white">
-          Health insurance
+          Health Insurance
         </Typography>
         <Typography variant="body2" color="common.white">
         Get yourself a suitable health insurance. Be fully covered and save money. 

@@ -3,10 +3,16 @@ describe('Travel',()=>{
     //     cy.visit("/travel") 
     //   })
 
-      it('has 3 cards', () => {
+      it('Contains neccesary information', () => {
        
-        cy.visit("/travel") 
-        cy.get('.card').its('length').should('be.eq', 3)
+        // cy.visit("/travel") 
+        // cy.get('.card').its('length').should('be.eq', 3)
+
+        cy.visit("/travel")
+
+        cy.contains('Before you travel').click()
+        cy.contains('During you travel').click()
+        cy.contains('After you land').click()
        })
     
        it('has a table', () => {
