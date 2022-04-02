@@ -25,8 +25,7 @@ describe('Health Insurance',()=>{
 
 
         cy.contains('Determining the right health insurance')
-        cy.contains('GatorGradCare')
-        .click()
+        cy.contains('GatorGradCare').click()
         cy.contains('University Insurance').click()
         cy.contains('Private Insurance').click()
 
