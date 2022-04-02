@@ -8,8 +8,13 @@
 5. Implemented Cypress tests
 6. Integrated Banking api with frontend 
 
-## Backend 
-
+## Backend
+1. More APIs Developed.
+2. API Testing implemented.
+3. API Documentation Updated.
+4. Database(MySQL) Documentation Created.
+5. Tested APIs on Postman.
+6. Code Structured.
 
 
 # Run Frontend
