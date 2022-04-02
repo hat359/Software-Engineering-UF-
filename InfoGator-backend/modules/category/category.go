@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -58,4 +59,53 @@ func GetOneCategory(w http.ResponseWriter, r *http.Request) {
 			json.NewEncoder(w).Encode(singleEvent)
 		}
 	}
+}
+
+func extractCategoriesFromDatabase() ([]category, error) {
+
+	connectDB()
+
+	rows, err := db.Query("SELECT * FROM finance_appointment")
+	if err != nil {
+		return nil, fmt.Errorf("extracting appointments: %v", err)
+	}
+	defer rows.Close()
+
+	// Loop through rows, using Scan to assign column data to struct fields.
+	for rows.Next() {
+		var ct category
+		if err := rows.Scan(&ct.ID, &ct.Title, &ct.Description); err != nil {
+			return nil,
+				fmt.Errorf("extracting appointments : %v", err)
+		}
+		categories = append(categories, ct)
+	}
+
+	if err := rows.Err(); err != nil {
+		return nil,
+			fmt.Errorf("extracting appointments : %v", err)
+	}
+	db.Close()
+	return categories, nil
+
+}
+
+func GetCategory(w http.ResponseWriter, r *http.Request) {
+	// appointments = allAppointment{}
+
+	var newCategory category
+	categories, err := extractCategoriesFromDatabase()
+	if err != nil {
+		log.Fatal(err)
+	}
+	reqBody, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		fmt.Fprintf(w, "Kindly enter data with the event title and description only in order to update")
+	}
+
+	json.Unmarshal(reqBody, &newCategory)
+	categories = append(categories, newCategory)
+	w.WriteHeader(http.StatusCreated)
+
+	json.NewEncoder(w).Encode(categories)
 }

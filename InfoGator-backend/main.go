@@ -32,6 +32,7 @@ func newRouter() *mux.Router {
 
 	router.HandleFunc("/info-gator-api/category", category.CreateCategory).Methods("GET")
 	router.HandleFunc("/info-gator-api/category/{id}", category.GetOneCategory).Methods("GET")
+	router.HandleFunc("/info-gator-api/category/all", category.GetCategory).Methods("GET")
 
 	router.HandleFunc("/info-gator-api/travel/faq", travel.GetQuestions).Methods("GET")
 	router.HandleFunc("/info-gator-api/travel/faq/question", travel.AddQuestion).Methods("POST")
