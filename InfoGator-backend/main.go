@@ -1,6 +1,7 @@
 package main
 
 import (
+	"InfoGator/modules/academics"
 	"InfoGator/modules/category"
 	"InfoGator/modules/finance"
 	"InfoGator/modules/travel"
@@ -43,6 +44,8 @@ func newRouter() *mux.Router {
 	router.HandleFunc("/info-gator-api/finance/appointment", finance.GetAppointments).Methods("GET")
 	router.HandleFunc("/info-gator-api/finance/appointment/app", finance.AddAppointment).Methods("POST")
 	router.HandleFunc("/info-gator-api/finance/appointment/{id}", finance.GetOneAppointment).Methods("GET")
+
+	router.HandleFunc("/info-gator-api/academics/courses", academics.GetCourses).Methods("GET")
 
 	return router
 }
