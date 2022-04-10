@@ -98,7 +98,7 @@ function Travel() {
 
 
 
-            <Card align="center" sx={{ maxWidth: 345 }} class="card" onClick={handleclick}>
+            <Card align="center" sx={{ maxWidth: 345 }} class="tcard" onClick={handleclick}>
               <CardActionArea>
 
                 <CardContent>
@@ -114,7 +114,7 @@ function Travel() {
 
           </Grid>
           <Grid item xs={4}>
-            <Card align="center" sx={{ maxWidth: 345 }} class="card">
+            <Card align="center" sx={{ maxWidth: 345 }} class="tcard">
               <CardActionArea>
 
                 <CardContent>
@@ -128,7 +128,7 @@ function Travel() {
 
           </Grid>
           <Grid item xs={4}>
-            <Card align="center" sx={{ maxWidth: 345 }} class="card">
+            <Card align="center" sx={{ maxWidth: 345 }} class="tcard">
               <CardActionArea>
 
                 <CardContent>

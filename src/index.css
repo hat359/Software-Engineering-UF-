@@ -11,11 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.tcard{
 
+  background-color: dodgerblue;
+  border-radius: 2%;
+
+}
 .card{
 
 background-color: dodgerblue;
 border-radius: 2%;
+height:200px;
 
 }
 

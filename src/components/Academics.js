@@ -180,12 +180,12 @@ const theme = useTheme();
           </Grid>
 
         </Paper>
-        
+        <br/>
 
 
-        </Container>
+        </Container><br/>
         <Container className="Bacc" >
-              <br/><br/>
+        <i class="fas fa-stars fa-5x"  style={{color:'gold'}}> </i> <a href="/academics/profs"><i>Check Profesor Ratings</i></a>
 
         </Container>
 
