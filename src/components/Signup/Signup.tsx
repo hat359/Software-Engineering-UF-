@@ -19,6 +19,8 @@ import Courses from './Courses';
 import Username from './Username';
 import {BrowserRouter, Route, Routes} from "react-router-dom"
 import { useNavigate } from "react-router-dom";
+import axios from 'axios'
+import {useDispatch,useSelector} from 'react-redux'
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
@@ -66,8 +68,37 @@ export default function Signup(props) {
     setOpen(false);
   };
   
+  function makeid(length) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * 
+ charactersLength));
+   }
+   return result;
+}
+const userid = makeid(6)
+    const username = useSelector(state=>state.Form.reguname)
+    const password = useSelector(state=>state.Form.regpass)
+
+
   const handleClick = () => {
     setOpen(true);
+    
+    const variable={
+      UserID:  userid, 
+	Username :username,
+  Password :password 
+
+    }
+
+    axios.post('http://localhost:8080/info-gator-api/users/add',variable).then(response=>{
+      console.log('added')
+    }).catch((err)=>{
+      console.log(err)
+    })
+
     setTimeout(() => {
       navigate('/signin')
     }, 2000);

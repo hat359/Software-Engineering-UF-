@@ -44,11 +44,11 @@ function handle(){
          
         
 
-<tbody>
+<tbody >
 
-<td className="tablecon">{props.ques}</td>
-<td className="tablecon">{<Answermodal id={props.id} user={props.user} ques={props.ques}/>}</td>
-<td>{props.user}</td>
+<td className="tablecon" style={{marginLeft:'50px'}}>{props.ques}</td>
+<td align="center"  className="tablecon">{<Answermodal id={props.id} user={props.user} ques={props.ques}/>}</td>
+<td align="center" >{props.user}</td>
 
 
 

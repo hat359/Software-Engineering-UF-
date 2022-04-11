@@ -66,7 +66,7 @@ func main() {
 		Addr:   "us-cdbr-east-03.cleardb.com",
 		DBName: "heroku_daabc0ba752f575",
 		// User:   "root",
-		// Passwd: "",
+		// Passwd: "root",
 		// Net:    "tcp",
 		// Addr:   "127.0.0.1:3306",
 		// DBName: "InfoGator",

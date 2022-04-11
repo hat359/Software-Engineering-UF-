@@ -88,6 +88,7 @@ func GetUsers(w http.ResponseWriter, r *http.Request) {
 	reqBody, err := ioutil.ReadAll(r.Body)
 	if err != nil {
 		fmt.Fprintf(w, "Kindly enter data with the user details only")
+		
 	}
 
 	json.Unmarshal(reqBody, &newUser)

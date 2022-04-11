@@ -43,7 +43,7 @@ function Travel() {
   const variable={
     ID:quesid,
   Question:ques,
-  PostedByUserId:"name"
+  PostedByUserId:window.localStorage.getItem('username')
 
   }
 
@@ -156,6 +156,7 @@ function Travel() {
             
           </TableRow>
         </TableHead> */}
+        <Container>
         <table class="table table-bordered ">
   <thead>
     <tr>
@@ -178,7 +179,7 @@ function Travel() {
           {/* </table> */}
           
 
-        
+          </Container>
         <Box sx={{ paddingTop: '50px', fontWeight: 'bold', m: 1, fontSize: 'h4.fontSize' }}>Ask a Question</Box>
         <Paper align="center" sx={{ marginTop: '50px' }} variant="outlined">
           <TextField sx={{ marginLeft: '50px', marginTop: '50px', width: '75%' }} name="ques" value={ques} onChange={handelques} id="outlined-basic" label="Question" variant="outlined" />

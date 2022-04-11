@@ -7,12 +7,19 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-
+import { useNavigate } from "react-router-dom";
 
 export default function Nav() {
   
+const navigate=useNavigate()
+const username=window.localStorage.getItem('username')
+function logout(){
+  window.localStorage.removeItem('username')
+  window.localStorage.removeItem('username')
+  navigate('/landing')
+}    
 
-    return (
+return (
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static" >
           <Toolbar>
@@ -26,9 +33,10 @@ export default function Nav() {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              InfoGator
+            <a style={{decoration:'none',color:'white'}}href="/">InfoGator</a>
             </Typography>
-            <Button color="inherit">Login</Button>
+            
+            {username?<><Button color="inherit">{username}</Button><Button onClick={logout}color="inherit">Logout</Button></>:<Button onClick={()=>{navigate('/signin')}}color="inherit">Login</Button>}
           </Toolbar>
         </AppBar>
       </Box>
