@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React,{useEffect,useState} from 'react';
 import Nav from '../Nav'
 import{Card,Container,Paper,TextField} from '@mui/material';
 import CardActions from '@mui/material/CardActions';
@@ -19,7 +19,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import SendIcon from '@mui/icons-material/Send';
-
+import axios from 'axios';
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -55,13 +55,19 @@ function getStyles(name, personName, theme) {
 
 
 export default function Academics() {
+const [courses,setCourses]=useState([])
+
 useEffect(()=>{
 
-  for(var i=0;i<profdat.length;i++){
-    if(profdat[i].tDept== 'Computer Science'){
-      console.log(profdat[i])
-    }
-  }
+axios.get('http://localhost:8080/info-gator-api/academics/courses').then(response=>{
+
+setCourses(response.data)
+
+})
+
+  
+
+
 
 
 })
@@ -114,13 +120,13 @@ const theme = useTheme();
           input={<OutlinedInput label="Name" />}
           MenuProps={MenuProps}
         >
-          {names.map((name) => (
+          {courses.map((item) => (
             <MenuItem
-              key={name}
-              value={name}
-              style={getStyles(name, personName, theme)}
+              key={item.ID}
+              value={item.Name}
+              
             >
-              {name}
+              {item.Name}
             </MenuItem>
           ))}
         </Select>
