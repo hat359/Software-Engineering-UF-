@@ -6,41 +6,60 @@ import mapimg from '../maps.jpg'
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
+import {FormControl,Container} from '@mui/material';
 import Select from '@mui/material/Select';
 import Footer from '../rep-components/Footer'
 
 function Map(props){
-  const [stops,setstops]=useState([])
-  const [library,setlib]=useState([])
-  const [dining,setdining]=useState([])
+
+
   const [loading, setLoading] = useState(true);
         
-  useEffect(()=>{
-    //   axios.get("https://campusmap.ufl.edu/library/cmapjson/bus_stops.json").then(response=>{
-    //   setstops(response.data)
-    //  })
+
+
+  // useEffect(()=>{
+    
+  //     axios.get("https://campusmap.ufl.edu/library/cmapjson/bus_stops.json").then(response=>{
+  //     setstops(response.data.features)
+     
+  //    })
+
+   
+
+  //    axios.get("https://campusmap.ufl.edu/library/cmapjson/dining.json").then(response=>{
+  //     setdining(response.data.features)
+     
+  //    })
       
 
-     const fetchData = async () => {
-      const respbus = await axios.get("https://campusmap.ufl.edu/library/cmapjson/bus_stops.json")
+    //  const fetchData = async () => {
+    //   const respbus = await axios.get("https://campusmap.ufl.edu/library/cmapjson/bus_stops.json")
         
       
-      const resplib = await axios.get("https://campusmap.ufl.edu/library/cmapjson/library.json")
+    //   // const resplib = await axios.get("https://campusmap.ufl.edu/library/cmapjson/library.json")
 
-      const respdin = await axios.get("https://campusmap.ufl.edu/library/cmapjson/dining.json")
+    //   // const respdin = await axios.get("https://campusmap.ufl.edu/library/cmapjson/dining.json")
 
 
-      setstops(respbus.data)
-      setlib(resplib.data)
-      setdining(respdin.data)
-    };
+    //   setstops(respbus.data)
+    //   // setlib(resplib.data)
+    //   // setdining(respdin.data)
+    // };
 
-    fetchData();
-  });
+    // fetchData();
+  // });
+
+  // useEffect(()=>{
+  //   axios.get("https://campusmap.ufl.edu/library/cmapjson/library.json").then(response=>{
+  //     setlib(response.data.features)
      
+  //    })
+
+  // })
+     
+// if(stops.length==0)return null
     
-       
+// else       
  return(
         <div >
 
@@ -48,11 +67,16 @@ function Map(props){
 
 <GoogleMap defaultZoom={13.5} defaultCenter={{lat:29.643633,lng:-82.354927}}/>
 
-{ props.dat=='d'? null: props.dat=='busstops'?stops.features.map(item=>(
-
+ { props.markdat.map(item=>(
+   <div>
+  
  <Marker position={{lat:item.geometry.coordinates[1],lng:item.geometry.coordinates[0]}}/>
+</div>
+))}
 
-)):props.dat=="library" ? library.features.map(item=>(
+
+{/*
+:props.dat=="library" ? library.features.map(item=>(
 
   <Marker position={{lat:item.geometry.coordinates[1],lng:item.geometry.coordinates[0]}}/>
  
@@ -60,7 +84,7 @@ function Map(props){
 
   <Marker position={{lat:item.geometry.coordinates[1],lng:item.geometry.coordinates[0]}}/>
  
- )):null}
+ )):null} */}
 </div>
 
 
@@ -72,13 +96,39 @@ const WrappedMap=withScriptjs(withGoogleMap(Map))
 
 export default function Maps(){
     const [mapdata, setmapdata] = React.useState('d');
-
+    const [stops,setstops]=useState([])
+    const [library,setlib]=useState([])
+    const [dining,setdining]=useState([])
     const handleChange = (event) => {
       setmapdata(event.target.value);
+      if(event.target.value=='busstops'){
+        axios.get("https://campusmap.ufl.edu/library/cmapjson/bus_stops.json").then(response=>{
+          setstops(response.data.features)
+         
+         })
+
+      }else if(event.target.value=='dining'){
+        setstops([])
+         axios.get("https://campusmap.ufl.edu/library/cmapjson/dining.json").then(response=>{
+      setstops(response.data.features)
+     
+     })
+      }
+
+
     };
+   
+    useEffect(()=>{
+    
+     
 
+   
 
-
+    //  axios.get("https://campusmap.ufl.edu/library/cmapjson/dining.json").then(response=>{
+    //   setdining(response.data.features)
+     
+    //  })
+    })
     
         
       
@@ -106,9 +156,12 @@ export default function Maps(){
 return(
 
 <div className='map'>
+
     {<Nav/>}
     <img src={mapimg}/>
+    <Container className="Bacc" sx={{marginTop:'30vh'}}>
     <Box sx={{ minWidth: 120 }}>
+      <br/>
       <FormControl maxWidth="lg">
         <InputLabel id="demo-simple-select-label">Age</InputLabel>
         <Select
@@ -125,13 +178,15 @@ return(
         </Select>
       </FormControl>
     </Box>
-<div id="map" style={{width:'80vw',height:'80vh',marginLeft:'10vw',marginTop:'55vh'}}><WrappedMap dat={mapdata} googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyDqZ-yKISjABUPFR9IoijYebPdZEtAp-js`}
+    <br/>
+<div id="map" style={{width:'75vw',height:'80vh'}}><WrappedMap dat={mapdata} markdat={stops} googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyDqZ-yKISjABUPFR9IoijYebPdZEtAp-js`}
     loadingElement={<div style={{height:'100%'}}/>}
     containerElement={<div style={{height:'100%'}}/>}
     mapElement={<div style={{height:'100%'}}/>}
 /></div>
 
 <br/>
+</Container>
 {<Footer/>}
 </div>
 )

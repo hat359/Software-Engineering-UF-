@@ -56,8 +56,9 @@ export default function App() {
   
 
   return (
-    <Container  sx={{m:5}} className="Bacc" maxWidth="lg">
-    <ParticleImage
+    <Container align="center" sx={{m:5}} className="Bacc" maxWidth="lg">
+      <div className="particle">
+    <ParticleImage 
       src={"/gators.png"}
       height={300}
       width={500}
@@ -65,9 +66,9 @@ export default function App() {
       entropy={10}
       maxParticles={7500}
       particleOptions={particleOptions}
-  
+    
       backgroundColor="white"
-    />
+    /></div>
     </Container>
   );
 }

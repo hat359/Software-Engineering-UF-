@@ -36,16 +36,16 @@ function Copyright() {
   );
 }
 
-const steps = ['Bio', 'Courses', 'Username/Password'];
+const steps = ['Details', 'Book Appointment'];
 
 function getStepContent(step: number) {
   switch (step) {
     case 0:
       return <Bdetails/>;
+    // case 1:
+    //   return <Pan/>;
     case 1:
-      return <Pan/>;
-    case 2:
-      return <div>heo</div>;
+      return <div></div>;
     default:
       throw new Error('Wrong input');
   }

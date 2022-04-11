@@ -36,7 +36,7 @@ export default function Finance() {
     <div style={{ padding: 80 }} >
     <Grid container spacing = {4}>
       <Grid item xs={12} sm={6} md={4}>
-      <Card class="card" sx={{ maxWidth: 345 }}>
+      <a href={'/BankAccount'}><Card class="card" sx={{ maxWidth: 345 }}>
       <CardContent align="center">
         <AccountBalanceIcon sx={{ fontSize: 80,color:"white" }}/>
         <Typography gutterBottom variant="h5" component="div" color="common.white">
@@ -47,14 +47,14 @@ export default function Finance() {
         </Typography>
       </CardContent>
       <CardActions sx={{ justifyContent: "center" }}>
-      <a href={'/BankAccount'}>
-        <ColorButton size="small" variant="contained" >Know More</ColorButton>
-      </a>
+      
+        {/* <ColorButton size="small" variant="contained" >Know More</ColorButton> */}
+     
       </CardActions>
-    </Card>
+    </Card> </a>
     </Grid>
       <Grid item xs={12} sm={6} md={4}>
-      <Card sx={{ maxWidth: 345 }} class="card">
+      <a href={'/HealthInsurance'}><Card sx={{ maxWidth: 345 }} class="card">
       <CardContent align="center">
         <HealthAndSafetyIcon sx={{ fontSize: 80,color:"white"}} />
         <Typography gutterBottom variant="h5" component="div" color="common.white">
@@ -66,14 +66,14 @@ export default function Finance() {
         </Typography>
       </CardContent>
       <CardActions sx={{ justifyContent: "center" }}>
-      <a href={'/HealthInsurance'}>
-        <ColorButton size="small" variant="contained">Know More</ColorButton>
-       </a>
+      
+        {/* <ColorButton size="small" variant="contained">Know More</ColorButton> */}
+       
       </CardActions>
-    </Card>
+    </Card></a>
     </Grid>
       <Grid item xs={12} sm={6} md={4}>
-      <Card sx={{ maxWidth: 345 }} class="card">
+      <a href={'/FinancialAid'}> <Card sx={{ maxWidth: 345 }} class="card">
       <CardContent align="center">
         <CreditScoreIcon sx={{ fontSize: 80, color: "white" }}/>
         <Typography gutterBottom variant="h5" component="div" color="common.white">
@@ -84,11 +84,11 @@ export default function Finance() {
         </Typography>
       </CardContent>
       <CardActions sx={{ justifyContent: "center" }}>
-      <a href={'/FinancialAid'}>
-        <ColorButton size="small" variant="contained">Know More</ColorButton>
-       </a>
+      
+        {/* <ColorButton size="small" variant="contained">Know More</ColorButton> */}
+       
       </CardActions>
-    </Card>
+    </Card></a>
     </Grid>
    
     

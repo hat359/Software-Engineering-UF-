@@ -32,15 +32,14 @@ function Copyright() {
   );
 }
 
-const steps = ['Bio', 'Courses', 'Username/Password'];
+const steps = ['Bio', 'Username/Password'];
 
 function getStepContent(step: number) {
   switch (step) {
     case 0:
       return <Bio/>;
+    
     case 1:
-      return <Courses/>;
-    case 2:
       return <Username/>;
     default:
       throw new Error('Wrong input');
