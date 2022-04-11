@@ -65,7 +65,7 @@ func extractUsersFromDatabase() ([]user, error) {
 // returning the user ID of the new entry
 func addUserToDatabase(usr user) (int64, error) {
 	connectDB()
-	result, err := db.Exec("INSERT INTO user VALUES (?, ?, ?)", usr.UserID, usr.Username, usr.Password)
+	result, err := db.Exec("INSERT INTO users VALUES (?, ?, ?)", usr.UserID, usr.Username, usr.Password)
 	if err != nil {
 		return 0, fmt.Errorf("addUser: %v", err)
 	}
