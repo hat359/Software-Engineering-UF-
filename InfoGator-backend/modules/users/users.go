@@ -16,7 +16,7 @@ type user struct {
 	Username  string `json:"Username"`
 	Password  string `json:"Password"`
 	FirstName string `json:"FirstName"`
-	LasttName string `json:"LastName"`
+	LastName  string `json:"LastName"`
 	Address   string `json:"Address"`
 	Email     string `json:"Email"`
 	Zipcode   string `json:"Zipcode"`
@@ -28,7 +28,7 @@ type allUsers []user
 var users = allUsers{
 	{
 		FirstName: "Anuj",
-		LasttName: "Tayal",
+		LastName:  "Tayal",
 		Address:   "1076 SW 14th Ave",
 		Email:     "xyz@abc.com",
 		Zipcode:   "32601",
@@ -39,7 +39,7 @@ var users = allUsers{
 	},
 	{
 		FirstName: "Harsh",
-		LasttName: "Athavale",
+		LastName:  "Athavale",
 		Address:   "1076 SW 14th Ave",
 		Email:     "abc@xyz.com",
 		Zipcode:   "32601",
@@ -63,7 +63,7 @@ func extractUsersFromDatabase() ([]user, error) {
 	// Loop through rows, using Scan to assign column data to struct fields.
 	for rows.Next() {
 		var usr user
-		if err := rows.Scan(&usr.UserID, &usr.Username, &usr.Password, &usr.FirstName, &usr.LasttName, &usr.Address, &usr.Email, &usr.Zipcode, &usr.Contact); err != nil {
+		if err := rows.Scan(&usr.UserID, &usr.Username, &usr.Password, &usr.FirstName, &usr.LastName, &usr.Address, &usr.Email, &usr.Zipcode, &usr.Contact); err != nil {
 			return nil,
 				fmt.Errorf("extracting users : %v", err)
 		}
@@ -83,7 +83,7 @@ func extractUsersFromDatabase() ([]user, error) {
 // returning the user ID of the new entry
 func addUserToDatabase(usr user) (int64, error) {
 	connectDB()
-	result, err := db.Exec("INSERT INTO users VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", usr.UserID, usr.Username, usr.Password, usr.FirstName, usr.LasttName, usr.Address, usr.Email, usr.Zipcode, usr.Contact)
+	result, err := db.Exec("INSERT INTO users VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", usr.UserID, usr.Username, usr.Password, usr.FirstName, usr.LastName, usr.Address, usr.Email, usr.Zipcode, usr.Contact)
 	if err != nil {
 		return 0, fmt.Errorf("addUser: %v", err)
 	}
