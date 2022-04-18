@@ -9,6 +9,9 @@ import Tab from '@mui/material/Tab';
 import Footer from "../rep-components/Footer"
 import Insurance from '../Insurance.png'
 import healthins from '../healthins.png'
+import Button from '@mui/material/Button';
+import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
+
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -80,13 +83,39 @@ export default function HealthInsurance() {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-      Graduate assistants may choose to participate in the GatorGradCare health plan, an injury and sickness insurance plan
+      <Typography sx={{ fontWeight: 400 }} variant="h6" align = "justify"> University of Florida graduate students on appointment as a Graduate Assistant, Teaching Assistant, or Research Assistant may choose to participate in the GatorGradCare health plan, an injury and sickness insurance plan. Some of the highlghts of this insurance program include free therapy sessions, wellness incentives, emergency and urgent care. </Typography>
+      <Typography sx={{ fontWeight: 400 }} variant="h6" align  = "justify"> Access the following detailed resource to learn more about the insurance program, plan your documents and contact the insurance representative. </Typography>
+    <div style={{ paddingTop: 50, paddingRight: 250, paddingLeft: 250}}>
+    <a href = "https://gatorcare.org/gatorgradcare/">
+      <Button variant="contained" endIcon={<LocalHospitalIcon />}>
+        Learn More
+      </Button>
+    </a>
+    </div>
       </TabPanel>
       <TabPanel value={value} index={1}>
-       University provides 2 enrollment options, United Healthcare Student resources and Scarborough insurance 
+      <Typography sx={{ fontWeight: 400 }} variant="h6" align = "justify"> University provides 2 enrollment options, United Healthcare Student resources and Scarborough insurance. Enrollment in the UF insurance plan is necessary within 31 days of losing your other coverage. </Typography>
+      <Typography sx={{ fontWeight: 400 }} variant="h6" align  = "justify"> Access the following official detailed resource to learn more about these insurance programs and directly contact the insurance representatives to clear your doubts and queries. </Typography>
+    <div style={{ paddingTop: 50, paddingRight: 250, paddingLeft: 250}}>
+    <a href = "https://shcc.ufl.edu/fees-and-insurance/health-insurance-options/uf-insurance-plan/">
+      <Button variant="contained" endIcon={<LocalHospitalIcon />}>
+        Learn More
+      </Button>
+    </a>
+    </div>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Insurance from other private organisations, meeting the compliance requirements provided by the university
+      
+      <Typography sx={{ fontWeight: 400 }} variant="h6" align = "justify"> Students can enroll in insurance plans from other private organisations, meeting the compliance requirements provided by the university. Clearly understand university's compliance requirements and steps of completing the insurance waiver while providing proof of comparable coverage. </Typography>
+      <Typography sx={{ fontWeight: 400 }} variant="h6" align  = "justify"> Access the following resource to learn more about compliance details, insurance waiver requests and directly contact the compliance office representatives to seek help. </Typography>
+    <div style={{ paddingTop: 50, paddingRight: 250, paddingLeft: 250}}>
+    <a href = "https://healthcompliance.shcc.ufl.edu/health-insurance-requirement/waiver/">
+      <Button variant="contained" endIcon={<LocalHospitalIcon />}>
+        Learn More
+      </Button>
+    </a>
+    </div>
+
       </TabPanel>
     </Box>
          <Typography sx={{ fontWeight: 500 }} variant="h5"></Typography>

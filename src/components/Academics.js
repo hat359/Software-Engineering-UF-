@@ -7,6 +7,7 @@ import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import SchoolIcon from '@mui/icons-material/School';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CastForEducationIcon from '@mui/icons-material/CastForEducation';
 import Box from '@mui/material/Box';
 import Footer from '../rep-components/Footer'
@@ -133,7 +134,8 @@ const theme = useTheme();
       </FormControl>
             </Grid>
             <Grid item id="bitem" md={6}>
-              <Button sx={{marginTop:'2vh'}} variant='outlined' id="jbutton">Join</Button>
+            <Button sx={{marginTop:'2vh'}} variant="contained" endIcon={<CheckCircleIcon />} id="jbutton">Join</Button>
+
 
 
             </Grid>

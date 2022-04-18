@@ -14,6 +14,7 @@ import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 
+
 const steps = [
   'Application Received',
   'Processing',
@@ -41,9 +42,9 @@ export default function BankAccount() {
           </Grid>
 
           <Grid sx={{marginTop:"10vh"}} item md={8}>
-            <Typography sx={{ fontWeight: 700 }} variant="h3">Book Your Appointment at Wells Fargo</Typography>
-            <br/>
-            <Typography sx={{ fontWeight: 500 }} variant="h5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu </Typography>
+          <Typography sx={{ fontWeight: 400 }} variant="h5" align = "justify">University of Florida and Wells Fargo have collaborated to provide banking facilities conveniently and feasibly to the students. Easily manage day-to-day financial needs on and off- campus with Wells Fargo account services. </Typography>
+            <Typography sx={{ fontWeight: 400 }} variant="h5" align = "justify">Schedule an appointment at a time that works for you. Tell the banker about what's important to you. Get help with various banking services, credit & debit card queries, account deposits, transactions, loans. </Typography>
+            <Typography sx={{ fontWeight: 400 }} variant="h5" align = "justify">Track real-time progress of your appointment request on our website.  </Typography>
 
           </Grid>
         </Grid>

@@ -9,6 +9,8 @@ import DialogActions from '@mui/material/DialogActions';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import {Typography,TextField} from '@mui/material';
+import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
+
 import axios from 'axios'
 import Bk from '../components/bankstep/BankApp'
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -109,8 +111,8 @@ export default function Modal(props) {
  
 
   return (
-    <div align="center">
-      <Button  variant="outlined" onClick={handleClickOpen}>
+    <div align = "center" >
+      <Button  variant="contained" endIcon={<AssignmentTurnedInIcon />} onClick={handleClickOpen}>
         Book an Appointment
       </Button>
       <Dialog
