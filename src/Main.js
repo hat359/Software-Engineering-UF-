@@ -1,23 +1,38 @@
-
+import React,{useEffect} from 'react'
 import Nav from './Nav'
 import Logo from './Logo.tsx'
 import FlightRoundedIcon from '@mui/icons-material/FlightRounded';
 import Footer from './rep-components/Footer'
 import { Grid, Card, Container } from '@mui/material'
-
+import { useNavigate } from "react-router-dom";
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import Answermodal from './rep-components/Answermodal';
+
+
 function Main() {
+  const navigate=useNavigate()
+
+useEffect(()=>{
+if(window.localStorage.getItem('username')){
+console.log('loggedin')
+
+}else{
+  navigate('/landing')
+}
+
+})
+
 
 
   return (
 
-
-
+    
+    
     <div >
+     
      {<Nav/>}
      
       <div class="logo">
@@ -94,9 +109,9 @@ function Main() {
       {<Footer />}
 
 
-    </div>
+  
 
-
+</div>
 
 
   )

@@ -13,7 +13,7 @@ import Signin from './components/Signin'
 import Landing from './components/Landing'
 import Map from './components/Maps'
 import Profs from './components/Profrating' 
-
+import Cameras from './components/Cameras';
 function App() {
   return (
     <BrowserRouter>
@@ -32,6 +32,7 @@ function App() {
    <Route  exact path="/signin" element={<Signin/>}/>
    <Route  exact path="/landing" element={<Landing/>}/>
    <Route  exact path="/academics/profs" element={<Profs/>}/>
+   <Route  exact path="/cameras" element={<Cameras/>}/>
 
   
    

@@ -61,7 +61,7 @@ function Travel() {
   }
 
   const handelpost=()=>{
-    axios.post("http://localhost:8080/travel/faq/question",variable)
+    axios.post("http://localhost:8080/info-gator-api/travel/faq/question",variable)
     .then(response=>{
       console.log(response.data)
       
@@ -210,9 +210,12 @@ function Travel() {
         <br/>
       </Container>
        <br/>
-      <Container className="Bacc" maxWidth="lg">
-          <br/><br/>
-
+      
+      <Container align="center"className="Bacc" maxWidth="lg">
+          <br/>
+          <a href="/map"><i style={{color:'green',marginBottom:'100px',display:'inline'}}class="fas fa-map-marked-alt fa-5x"></i></a><br/>
+              <Typography sx={{display:'inline'}}> <h3>Find out Bus stops, Dining Facilities, Libraries and much more </h3></Typography>
+              <br/>
       </Container>
 
       <Footer />

@@ -2,7 +2,7 @@ import React from 'react'
 import {Box,Grid,Divider} from '@mui/material'
 import gator from '../gator.png'
 
-export default function Footer(){
+export default function Footer(props){
 
 return(
 <Box align="center"

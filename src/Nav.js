@@ -15,7 +15,7 @@ const navigate=useNavigate()
 const username=window.localStorage.getItem('username')
 function logout(){
   window.localStorage.removeItem('username')
-  window.localStorage.removeItem('username')
+  window.localStorage.removeItem('uid')
   navigate('/landing')
 }    
 

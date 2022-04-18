@@ -190,9 +190,9 @@ const theme = useTheme();
 
 
         </Container><br/>
-        <Container className="Bacc" >
-        <i class="fas fa-stars fa-5x"  style={{color:'gold'}}> </i> <a href="/academics/profs"><i>Check Profesor Ratings</i></a>
-
+        <Container align="center" className="Bacc" >
+        <i class="fas fa-stars fa-5x"  style={{color:'gold',marginTop:'2%'}}> </i> <a href="/academics/profs"><i><h3>Check Professor Ratings</h3></i></a>
+            <br/>
         </Container>
 
 

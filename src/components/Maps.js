@@ -9,6 +9,8 @@ import MenuItem from '@mui/material/MenuItem';
 import {FormControl,Container} from '@mui/material';
 import Select from '@mui/material/Select';
 import Footer from '../rep-components/Footer'
+import MarkerClusterer from 'react-google-maps/lib/components/addons/MarkerClusterer'
+import { useLocation } from 'react-router-dom';
 
 function Map(props){
 
@@ -65,16 +67,32 @@ function Map(props){
 
 
 
-<GoogleMap defaultZoom={13.5} defaultCenter={{lat:29.643633,lng:-82.354927}}/>
+<GoogleMap defaultZoom={13.5} defaultCenter={{lat:29.643633,lng:-82.354927}}>
 
  { props.markdat.map(item=>(
-   <div>
+   
   
- <Marker position={{lat:item.geometry.coordinates[1],lng:item.geometry.coordinates[0]}}/>
-</div>
+ <Marker key={item.geometry.coordinates[0]} icon={{url:props.url,scaledSize:new window.google.maps.Size(30,30)}} position={{lat:item.geometry.coordinates[1],lng:item.geometry.coordinates[0]}}/>
+
+
 ))}
 
+<MarkerClusterer>
+{(clusterer)=>
+props.markdat.map(item=>(
+   
+  
+  <Marker key={item.geometry.coordinates[1]}  position={{lat:item.geometry.coordinates[1],lng:item.geometry.coordinates[0]}} clusterer={clusterer}/>
+ 
+ 
+ ))
 
+}
+
+
+</MarkerClusterer>
+
+</GoogleMap>
 {/*
 :props.dat=="library" ? library.features.map(item=>(
 
@@ -95,15 +113,20 @@ function Map(props){
 const WrappedMap=withScriptjs(withGoogleMap(Map))
 
 export default function Maps(){
+  const location = useLocation();  
     const [mapdata, setmapdata] = React.useState('d');
     const [stops,setstops]=useState([])
     const [library,setlib]=useState([])
     const [dining,setdining]=useState([])
+    const [url,seturl]=useState('')
+  
     const handleChange = (event) => {
+       
       setmapdata(event.target.value);
       if(event.target.value=='busstops'){
         axios.get("https://campusmap.ufl.edu/library/cmapjson/bus_stops.json").then(response=>{
           setstops(response.data.features)
+          seturl('https://www.pngfind.com/pngs/m/382-3822049_free-icons-png-bus-stop-icon-png-transparent.png')
          
          })
 
@@ -111,10 +134,26 @@ export default function Maps(){
         setstops([])
          axios.get("https://campusmap.ufl.edu/library/cmapjson/dining.json").then(response=>{
       setstops(response.data.features)
-     
+      seturl('https://mpng.subpng.com/20180315/cre/kisspng-tampa-restaurant-cuban-sandwich-cuban-cuisine-clip-airport-dinner-cliparts-5aab264a6c16f5.0036369615211658984427.jpg')
      })
       }
 
+      else if(event.target.value=='library'){
+        setstops([])
+         axios.get("https://campusmap.ufl.edu/library/cmapjson/library.json").then(response=>{
+      setstops(response.data.features)
+      
+      seturl('https://mpng.subpng.com/20180407/jpq/kisspng-book-flat-design-books-5ac984c5e9ef33.3004996215231561659582.jpg') 
+    })
+      }
+      else if(event.target.value=='recreation'){
+        setstops([])
+         axios.get("https://campusmap.ufl.edu/library/cmapjson/recfit.json").then(response=>{
+      setstops(response.data.features)
+      
+      seturl('https://myareanetwork-photos.s3.amazonaws.com/bizlist_photos/f/302341_1549026111.jpg?0') 
+    })
+      }
 
     };
    
@@ -157,7 +196,7 @@ return(
 
 <div className='map'>
 
-    {<Nav/>}
+    {<Nav />}
     <img src={mapimg}/>
     <Container className="Bacc" sx={{marginTop:'30vh'}}>
     <Box sx={{ minWidth: 120 }}>
@@ -175,11 +214,12 @@ return(
           <MenuItem value="busstops">Bus Stops</MenuItem>
           <MenuItem value="library">Library</MenuItem>
           <MenuItem value="dining">Dining</MenuItem>
+          <MenuItem value="recreation">Recreation</MenuItem>
         </Select>
       </FormControl>
     </Box>
     <br/>
-<div id="map" style={{width:'75vw',height:'80vh'}}><WrappedMap dat={mapdata} markdat={stops} googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyDqZ-yKISjABUPFR9IoijYebPdZEtAp-js`}
+<div id="map" style={{width:'75vw',height:'80vh'}}><WrappedMap url={url} dat={mapdata} markdat={stops} googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyDqZ-yKISjABUPFR9IoijYebPdZEtAp-js`}
     loadingElement={<div style={{height:'100%'}}/>}
     containerElement={<div style={{height:'100%'}}/>}
     mapElement={<div style={{height:'100%'}}/>}
@@ -187,7 +227,7 @@ return(
 
 <br/>
 </Container>
-{<Footer/>}
+{<Footer loc={location}/>}
 </div>
 )
 

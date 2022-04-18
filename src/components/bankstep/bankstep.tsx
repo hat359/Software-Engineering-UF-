@@ -88,7 +88,7 @@ export default function Signup(props) {
   const handleClick = () => {
     setOpen(true);
    const variable={
-  ID :'a1',        
+  ID :window.localStorage.getItem('uid'),        
 	FirstName:fname,     
 	LastName :lname,      
 	Email :email,         
