@@ -61,7 +61,7 @@ function Travel() {
   }
 
   const handelpost=()=>{
-    axios.post("http://localhost:8080/travel/faq/question",variable)
+    axios.post("http://localhost:8080/info-gator-api/travel/faq/question",variable)
     .then(response=>{
       console.log(response.data)
       

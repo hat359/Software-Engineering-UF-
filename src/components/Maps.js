@@ -146,6 +146,14 @@ export default function Maps(){
       seturl('https://mpng.subpng.com/20180407/jpq/kisspng-book-flat-design-books-5ac984c5e9ef33.3004996215231561659582.jpg') 
     })
       }
+      else if(event.target.value=='recreation'){
+        setstops([])
+         axios.get("https://campusmap.ufl.edu/library/cmapjson/recfit.json").then(response=>{
+      setstops(response.data.features)
+      
+      seturl('https://myareanetwork-photos.s3.amazonaws.com/bizlist_photos/f/302341_1549026111.jpg?0') 
+    })
+      }
 
     };
    
@@ -206,6 +214,7 @@ return(
           <MenuItem value="busstops">Bus Stops</MenuItem>
           <MenuItem value="library">Library</MenuItem>
           <MenuItem value="dining">Dining</MenuItem>
+          <MenuItem value="recreation">Recreation</MenuItem>
         </Select>
       </FormControl>
     </Box>

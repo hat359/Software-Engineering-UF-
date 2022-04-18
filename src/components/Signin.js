@@ -90,7 +90,7 @@ console.log(userdat)
       <Box sx={{  m: 1,fontSize: 'h3.fontSize' }} >Signin
       <br/><br/>
       <TextField sx={{width:'482px'}} className="email" id="outlined-basic" label=" Username*" name="username" onChange={handelchange} variant="outlined" />
-      <TextField sx={{width:'482px'}} className="pass" id="outlined-basic" label="Password*" name="password" onChange={handelchange} variant="outlined" />
+      <TextField type="password" sx={{width:'482px'}} className="pass" id="outlined-basic" label="Password*" name="password" onChange={handelchange} variant="outlined" />
       <Button variant="contained" onClick={handelclick}> Signin</Button>
       </Box>
       </Paper>

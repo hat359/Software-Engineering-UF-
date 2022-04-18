@@ -88,7 +88,7 @@ func addAnswerToDatabase(ans answer) (int64, error) {
 	if err != nil {
 		return 0, fmt.Errorf("addAnswer: %v", err)
 	}
-	db.Close()
+	// db.Close()
 	return id, nil
 }
 

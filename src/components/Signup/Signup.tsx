@@ -81,6 +81,12 @@ export default function Signup(props) {
 const userid = makeid(6)
     const username = useSelector(state=>state.Form.reguname)
     const password = useSelector(state=>state.Form.regpass)
+    const fname = useSelector(state=>state.Form.regfname)
+    const lname = useSelector(state=>state.Form.reglname)
+    const email = useSelector(state=>state.Form.regemail)
+    const address =useSelector(state=>state.Form.regaddress)
+    const zip = useSelector(state=>state.Form.regzip)
+    const contact = useSelector(state=>state.Form.regcontact)
 
 
   const handleClick = () => {
@@ -89,7 +95,13 @@ const userid = makeid(6)
     const variable={
       UserID:  userid, 
 	Username :username,
-  Password :password 
+  Password :password,
+  FirstName : fname,
+	LastName :lname,
+	Address   : address,
+	Email     : email,
+	Zipcode   : zip,
+	Contact   :contact
 
     }
 

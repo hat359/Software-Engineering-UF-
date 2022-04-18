@@ -91,10 +91,10 @@ const variable={
   AnswerID:ansid,
   QuestionID:props.id,
   Answer:ans,
-  AnswerByUserId:"Admin"
+  AnswerByUserId:window.localStorage.getItem('username')
 }
 
-axios.post("http://localhost:8080/travel/faq/answer",variable)
+axios.post("http://localhost:8080/info-gator-api/travel/faq/answer",variable)
 .then(response=>{
   console.log(response.data)
 })
