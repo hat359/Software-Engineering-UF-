@@ -42,9 +42,13 @@ export default function BankAccount() {
           </Grid>
 
           <Grid sx={{marginTop:"10vh"}} item md={8}>
-          <Typography sx={{ fontWeight: 400 }} variant="h5" align = "justify">University of Florida and Wells Fargo have collaborated to provide banking facilities conveniently and feasibly to the students. Easily manage day-to-day financial needs on and off- campus with Wells Fargo account services. </Typography>
+          <Typography sx={{ fontWeight: 600 }} variant="h4" align = "justify">Book your appointment at Wells Fargo</Typography>
+          <br/>
+          <Typography sx={{ fontWeight: 400 }} variant="h5" align = "justify">University of Florida and Wells Fargo have collaborated to provide banking facilities conveniently and feasibly to the students. Easily manage day-to-day financial needs on and off-campus with Wells Fargo account services. </Typography>
+          <br/>
             <Typography sx={{ fontWeight: 400 }} variant="h5" align = "justify">Schedule an appointment at a time that works for you. Tell the banker about what's important to you. Get help with various banking services, credit & debit card queries, account deposits, transactions, loans. </Typography>
-            <Typography sx={{ fontWeight: 400 }} variant="h5" align = "justify">Track real-time progress of your appointment request on our website.  </Typography>
+            <br/>
+            <Typography sx={{ fontWeight: 400 }} variant="h5" align = "justify">Follow-up and track real-time progress of your appointment request on our website.  </Typography>
 
           </Grid>
         </Grid>

@@ -11,6 +11,20 @@ import Insurance from '../Insurance.png'
 import healthins from '../healthins.png'
 import Button from '@mui/material/Button';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
+import { styled } from '@mui/material/styles';
+import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
+
+const LightTooltip = styled(({ className, ...props }) => (
+  <Tooltip {...props} classes={{ popper: className }} />
+))(({ theme }) => ({
+  [`& .${tooltipClasses.tooltip}`]: {
+    backgroundColor: theme.palette.common.white,
+    color: 'rgba(0, 0, 0, 0.87)',
+    boxShadow: theme.shadows[1],
+    fontSize: 11,
+  },
+}));
+
 
 
 function TabPanel(props) {
@@ -87,9 +101,11 @@ export default function HealthInsurance() {
       <Typography sx={{ fontWeight: 400 }} variant="h6" align  = "justify"> Access the following detailed resource to learn more about the insurance program, plan your documents and contact the insurance representative. </Typography>
     <div style={{ paddingTop: 50, paddingRight: 250, paddingLeft: 250}}>
     <a href = "https://gatorcare.org/gatorgradcare/">
+    <LightTooltip title="External link">
       <Button variant="contained" endIcon={<LocalHospitalIcon />}>
         Learn More
       </Button>
+      </LightTooltip>
     </a>
     </div>
       </TabPanel>
@@ -98,9 +114,11 @@ export default function HealthInsurance() {
       <Typography sx={{ fontWeight: 400 }} variant="h6" align  = "justify"> Access the following official detailed resource to learn more about these insurance programs and directly contact the insurance representatives to clear your doubts and queries. </Typography>
     <div style={{ paddingTop: 50, paddingRight: 250, paddingLeft: 250}}>
     <a href = "https://shcc.ufl.edu/fees-and-insurance/health-insurance-options/uf-insurance-plan/">
+    <LightTooltip title="External link">
       <Button variant="contained" endIcon={<LocalHospitalIcon />}>
         Learn More
       </Button>
+      </LightTooltip>
     </a>
     </div>
       </TabPanel>
@@ -110,9 +128,11 @@ export default function HealthInsurance() {
       <Typography sx={{ fontWeight: 400 }} variant="h6" align  = "justify"> Access the following resource to learn more about compliance details, insurance waiver requests and directly contact the compliance office representatives to seek help. </Typography>
     <div style={{ paddingTop: 50, paddingRight: 250, paddingLeft: 250}}>
     <a href = "https://healthcompliance.shcc.ufl.edu/health-insurance-requirement/waiver/">
+    <LightTooltip title="External link">
       <Button variant="contained" endIcon={<LocalHospitalIcon />}>
         Learn More
       </Button>
+      </LightTooltip>
     </a>
     </div>
 
