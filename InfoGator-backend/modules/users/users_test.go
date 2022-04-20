@@ -27,11 +27,4 @@ func TestHandler(t *testing.T) {
 		t.Errorf("Get Users returned wrong status code: got %v want %v",
 			status, http.StatusOK)
 	}
-
-	// // Check the response body is what we expect.
-	// expected := `Hello World!`
-	// actual := recorder.Body.String()
-	// if actual != expected {
-	// 	t.Errorf("handler returned unexpected body: got %v want %v", actual, expected)
-	// }
 }
