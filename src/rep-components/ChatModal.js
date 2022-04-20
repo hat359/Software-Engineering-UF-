@@ -8,7 +8,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import {Typography,TextField} from '@mui/material';
+import {Typography,TextField,Divider} from '@mui/material';
 import axios from 'axios'
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -60,19 +60,20 @@ export default function Modal(props) {
   
   const base = [...allCapsAlpha, ...allNumbers, ...allLowerAlpha, ...allUniqueChars];
   
-  const generator = (base, len) => {
-     return [...Array(len)]
-       .map(i => base[Math.random()*base.length|0])
-       .join('');
-  };
+  // const generator = (base, len) => {
+  //    return [...Array(len)]
+  //      .map(i => base[Math.random()*base.length|0])
+  //      .join('');
+  // };
   
-  var ansid = generator(base,6)
+  // var ansid = generator(base,6)
 
 
 
   const handleClickOpen = () => {
     setOpen(true);
-    axios.get(`http://localhost:8080/travel/faq/answers/${props.id}`)
+    console.log(props.cid)
+    axios.get(`http://localhost:8080/info-gator-api/academics/courses/chats/${props.cid}`)
   .then(response=>{
     setanswer(response.data)
   })
@@ -83,18 +84,31 @@ export default function Modal(props) {
   };
 
   const handelans=(event)=>{
+    console.log(event.target.value)
     setans(event.target.value)
 
   }
+  function makeid(length) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * 
+ charactersLength));
+   }
+   return result;
+}
+const chatid = makeid(6)
+
 const handelsubmitanswer=()=>{
 const variable={
-  AnswerID:ansid,
-  QuestionID:props.id,
-  Answer:ans,
-  AnswerByUserId:"Admin"
+  CourseID:props.cid,
+  UserID:window.localStorage.getItem('username'),
+  ChatID:chatid,
+  Message:ans
 }
 
-axios.post("http://localhost:8080/travel/faq/answer",variable)
+axios.post("http://localhost:8080/info-gator-api/academics/courses/chats",variable)
 .then(response=>{
   console.log(response.data)
 })
@@ -110,7 +124,7 @@ axios.post("http://localhost:8080/travel/faq/answer",variable)
   return (
     <div>
       <Button  variant="outlined" onClick={handleClickOpen}>
-        View Answers
+        View Chat
       </Button>
       <Dialog
         onClose={handleClose}
@@ -124,38 +138,44 @@ axios.post("http://localhost:8080/travel/faq/answer",variable)
         
       >
         <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
-          {props.user}
+          {props.course}
         </BootstrapDialogTitle>
         <DialogContent dividers>
-          <Typography variant="h3" gutterBottom>
-            {props.ques}
-          </Typography>
+      
           {answer.map(item=>(
               <div>
-                <Typography variant="h6">
-                  {item.Answer}
+                 <div className="answerbox">
+                <Typography sx={{fontWeight:'700',m:1,color:"green"}}>
+                  {item.UserID}
                 </Typography>
+                <Typography sx={{m:1}}variant="h6">
+                  {item.Message}
+                </Typography>
+                
+              </div>
+              <br/>
               </div>
 
           ))}
           <br/><br/><br/>
-          <Typography variant="h4">
-            Post an Answer 
+          <Divider/>
+          <Typography sx={{marginTop:'5%'}}variant="h4">
+            Post
           </Typography>
           <TextField sx={{ marginTop: '50px', width: '55%', paddingBottom: '50px' }}
                 id="outlined-multiline-static"
-                label="Answer"
+                label="Chat"
                 multiline
-                rows={4}
-                defaultValue="-"
+                rows={1}
+                
                 value={ans}
-                name={ans}
+                
                 onChange={handelans}
                 className="anstext"
 
               />
 
-              <Button variant="outlined" onClick={handelsubmitanswer}>Post </Button>
+              <Button id="postbut" variant="outlined" onClick={handelsubmitanswer}>Post </Button>
           
         </DialogContent>
         <DialogActions>
