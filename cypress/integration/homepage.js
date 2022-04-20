@@ -94,6 +94,10 @@ describe('Get started', () => {
       cy.visit('http://localhost:3000/signin')
     })
 
+    Cypress.on('uncaught:exception', (err, runnable) => {
+      return false;
+      });
+
     it('signs in correctly',()=>{
 
       cy.get('.email').should('be.visible').type('abc@xyz.com')

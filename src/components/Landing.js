@@ -57,7 +57,7 @@ export default function Landing() {
         <Grid container  >
           <Grid item md={6}>
             <Box sx={{ fontWeight: 'bold', marginTop: 5, fontSize: 'h3.fontSize',paddingLeft:'5vw' }}>Finance </Box>
-            <Typography  sx={{paddingLeft:'5vw'}}variant="body1" >
+            <Typography  sx={{paddingLeft:'5vw'}} variant="body1" align = "justify">
               We know that it can be difficult for students to create bank account and figure out insurance options.
               We help students to create a Bank Accounts with ease. Book an appointment at wells fargo within minutes.
               Get different health insurance options and know more about financial aid 
@@ -85,7 +85,7 @@ export default function Landing() {
           </Grid>
           <Grid item xs={6}>
             <Box sx={{ fontWeight: 'bold', marginTop: 5, fontSize: 'h3.fontSize',paddingLeft:'4vw' }}>Travel</Box>
-            <Typography sx={{paddingRight:'3vw',paddingLeft:'4vw'}}variant="body1" gutterBottom>
+            <Typography sx={{paddingRight:'3vw',paddingLeft:'4vw'}}variant="body1" gutterBottom align = "justify">
              We provide assistance with travelling. Incoming students can know about the best travelling options by 
              connecting with people. Students can also get to know about the different spots on campus by using our map feature.
             </Typography>
@@ -99,7 +99,7 @@ export default function Landing() {
         <Grid container >
           <Grid item md={6}>
             <Box sx={{ fontWeight: 'bold', marginTop: 5, fontSize: 'h3.fontSize',paddingLeft:'5vw' }}>Academics</Box>
-            <Typography sx={{ paddingLeft:'5vw' }} variant="body1" gutterBottom>
+            <Typography sx={{ paddingLeft:'5vw' }} variant="body1" gutterBottom align = "justify">
               Choosing a course can be challenging. With our platform students can connect with their peers and seniors and ask douts about classes, course selection
               and can see the ratings of professors to aid them to make an informed choice. 
             </Typography>

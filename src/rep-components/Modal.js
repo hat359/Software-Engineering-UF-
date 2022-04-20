@@ -83,7 +83,7 @@ It is also a good idea to make at least two sets of copies of these documents: o
 <li>Certificate of Eligibility for Nonimmigrant Student Status</li></ul>
           </Typography> : props.text == 'During Travel' ? <Typography gutterBottom align = "justify">
             As an international student, you'll want to make sure you've all the right documents required for immigration at the airport. Traveling through airport security and immigration can be stressful. If you remember to be patient, stay calm and not take anything personally in this final stage of your journey to the United States, you will be on your way to your exciting adventure studying at your new university.
-          </Typography>: <Typography gutterBottom align = "justify">
+          </Typography>:  <Typography gutterBottom align = "justify">
           If you arrive by a land port, you will receive a paper Form I-94. If you arrive at the port of entry by air or sea, an automated Form I-94 record will automatically be generated for you by U.S. Customs and Border Protection (CBP) officers. CBP will provide you with an admission stamp on your passport that is annotated with date of admission, class of admission and admitted-until date. The electronic arrival/departure record can be obtained at www.cbp.gov/I94.
           </Typography> }
           

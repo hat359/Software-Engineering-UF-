@@ -1,13 +1,21 @@
 describe('Bank',()=>{
     beforeEach(() => {
         cy.visit("/BankAccount") 
+      
+
       })
+     
       it('has an image div', () => {
        
         
         cy.get('.fin').find('img').should('be.visible').should('have.css','width')
         
        })
+
+       Cypress.on('uncaught:exception', (err, runnable) => {
+        return false;
+        });
+
 
        it('has a Container with class Bacc', () => {
        
@@ -20,7 +28,8 @@ describe('Bank',()=>{
         cy.get('#contain')
         .should('have.css','marginTop').get('#item')
         
-        cy.contains('Book Your Appointment at Wells Fargo')
+        cy.contains('Book your appointment at Wells Fargo')
+
 
         cy.contains('Book an Appointment')
         .click()
@@ -55,15 +64,11 @@ describe('Bank',()=>{
         .type('38746993')
 
         cy.contains("Next").click()
-        cy.contains("Next").click()
         cy.contains("Submit").click()
-
-
-
-
+        
     
     })
 
+  })
 
 
-    })

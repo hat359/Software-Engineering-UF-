@@ -1,31 +1,16 @@
-// describe('Academics',()=>{
-
-//       it('has 2 cards', () => {
-       
-        
-//         cy.get('.card').its('length').should('be.eq', 2)
-//        })
-
-
-//        it('goes to bank account section',()=>{
-//         cy.contains('').click()
-       
-
-//        })
-
-
-
-//     })
-
-
-describe('Academics',()=>{
+describe('Academics page',()=>{
   beforeEach(() => {
       cy.visit("/academics") 
     })
 
+
+    Cypress.on('uncaught:exception', (err, runnable) => {
+      return false;
+      });
+
+      
     it('has an image div', () => {
        
-        
       cy.get('.fin').find('img').should('be.visible').should('have.css','width')
       
      })
