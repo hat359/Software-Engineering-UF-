@@ -54,7 +54,9 @@ console.log(userdat)
    if(temp=='found'){
     window.localStorage.setItem('username',username)
     window.localStorage.setItem('uid',uid)
-    navigate('/')
+    setTimeout(() => {
+      navigate('/')
+    }, 1000);
 
    }
    else{

@@ -1,4 +1,4 @@
-import React ,{useEffect}from 'react';
+import React ,{useEffect,useState}from 'react';
 import Nav from '../Nav'
 import { Container, Paper,Box } from "@mui/material"
 
@@ -13,7 +13,7 @@ import BankModal from '../rep-components/Bankmodal'
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
-
+import axios from 'axios'
 
 const steps = [
   'Application Received',
@@ -22,7 +22,20 @@ const steps = [
 ];
 
 export default function BankAccount() {
+  let x=window.localStorage.getItem('uid')
+  const [appointment,setappointment]=useState([])
+// useEffect(()=>{
+//   console.log('hello')
+// axios.get(`http://localhost:8080/info-gator-api/finance/appointment/${x}`)
+// .then(response=>{
+// console.log('hello')
+// setappointment(response.data)
 
+// })
+
+
+
+// })
 
   return (
     <div>

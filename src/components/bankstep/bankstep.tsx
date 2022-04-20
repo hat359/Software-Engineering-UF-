@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React,{useEffect,useState} from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -62,8 +62,18 @@ export default function Signup(props) {
   const ufid=useSelector(state=>state.Form.baufid)
   const zip=useSelector(state=>state.Form.bazip)
   const contact=useSelector(state=>state.Form.bacontact)
+const x=window.localStorage.getItem('uid')
+
+// useEffect(()=>{
+// axios.get(`http://localhost:8080/info-gator-api/finance/appointment/${x}`).then(response=>{
+// console.log(response.data[0])
+// setcheck(response.data[0])
 
 
+// })
+
+
+// })
 
   
 
