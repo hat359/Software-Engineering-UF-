@@ -82,6 +82,35 @@ func extractAppointmentsFromDatabase() ([]appointment, error) {
 
 }
 
+func extractOneAppointmentFromDatabase(id string) ([]appointment, error) {
+
+	connectDB()
+
+	rows, err := db.Query("SELECT * FROM finance_appointment WHERE ID = ?", id)
+	if err != nil {
+		return nil, fmt.Errorf("extracting appointments: %v", err)
+	}
+	defer rows.Close()
+
+	// Loop through rows, using Scan to assign column data to struct fields.
+	for rows.Next() {
+		var ap appointment
+		if err := rows.Scan(&ap.ID, &ap.FirstName, &ap.LastName, &ap.Email, &ap.Address, &ap.PassportNumber, &ap.UFID, &ap.ZipCode, &ap.Contact, &ap.Status); err != nil {
+			return nil,
+				fmt.Errorf("extracting appointments : %v", err)
+		}
+		appointments = append(appointments, ap)
+	}
+
+	if err := rows.Err(); err != nil {
+		return nil,
+			fmt.Errorf("extracting appointments : %v", err)
+	}
+	db.Close()
+	return appointments, nil
+
+}
+
 // addAppointment adds the specified appointment to the database,
 // returning the appointment ID of the new entry
 func addAppointmentToDatabase(ap appointment) (int64, error) {
@@ -99,7 +128,7 @@ func addAppointmentToDatabase(ap appointment) (int64, error) {
 }
 
 func GetAppointments(w http.ResponseWriter, r *http.Request) {
-	// appointments = allAppointment{}
+	appointments = allAppointment{}
 
 	var newAppointment appointment
 	appointments, err := extractAppointmentsFromDatabase()
@@ -129,12 +158,35 @@ func AddAppointment(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(app)
 }
 
-func GetOneAppointment(w http.ResponseWriter, r *http.Request) {
-	appointmentID := mux.Vars(r)["id"]
+// func GetOneAppointment(w http.ResponseWriter, r *http.Request) {
+// 	appointmentID := mux.Vars(r)["id"]
 
-	for _, singleEvent := range appointments {
-		if singleEvent.ID == appointmentID {
-			json.NewEncoder(w).Encode(singleEvent)
-		}
+// 	for _, singleEvent := range appointments {
+// 		if singleEvent.ID == appointmentID {
+// 			json.NewEncoder(w).Encode(singleEvent)
+// 		}
+// 	}
+// }
+
+func GetOneAppointment(w http.ResponseWriter, r *http.Request) {
+	appointmentId := mux.Vars(r)["id"]
+
+	appointments = allAppointment{}
+
+	var newAppointment appointment
+	appointments, err := extractOneAppointmentFromDatabase(appointmentId)
+	if err != nil {
+		log.Fatal(err)
 	}
+	reqBody, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		fmt.Fprintf(w, "Kindly enter appointment data only")
+	}
+
+	json.Unmarshal(reqBody, &newAppointment)
+	appointments = append(appointments, newAppointment)
+	w.WriteHeader(http.StatusCreated)
+
+	json.NewEncoder(w).Encode(appointments)
+
 }
