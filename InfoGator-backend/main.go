@@ -47,6 +47,8 @@ func newRouter() *mux.Router {
 	router.HandleFunc("/info-gator-api/finance/appointment/{id}", finance.GetOneAppointment).Methods("GET")
 
 	router.HandleFunc("/info-gator-api/academics/courses", academics.GetCourses).Methods("GET")
+	router.HandleFunc("/info-gator-api/academics/courses/chats/{courseId}", academics.GetChats).Methods("GET")
+	router.HandleFunc("/info-gator-api/academics/courses/chats", academics.AddChat).Methods("POST")
 
 	router.HandleFunc("/info-gator-api/users", users.GetUsers).Methods("GET")
 	router.HandleFunc("/info-gator-api/users/add", users.AddUser).Methods("POST")
