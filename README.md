@@ -78,10 +78,10 @@ https://github.com/hat359/Software-Engineering-UF-/blob/main/Database-Documentat
 
 
 ## Link To Project Board
-Sprint 1 - https://github.com/hat359/Software-Engineering-UF-/projects/1
-Sprint 2 - https://github.com/hat359/Software-Engineering-UF-/projects/2
-Sprint 3 - https://github.com/hat359/Software-Engineering-UF-/projects/3
-Sprint 4 - https://github.com/hat359/Software-Engineering-UF-/projects/4
+Sprint 1: https://github.com/hat359/Software-Engineering-UF-/projects/1
+Sprint 2: https://github.com/hat359/Software-Engineering-UF-/projects/2
+Sprint 3: https://github.com/hat359/Software-Engineering-UF-/projects/3
+Sprint 4: https://github.com/hat359/Software-Engineering-UF-/projects/4
 
 ## Links to Sprint Deliverables 
 
