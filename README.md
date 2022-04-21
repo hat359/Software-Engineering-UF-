@@ -55,6 +55,10 @@ https://user-images.githubusercontent.com/48184672/164352404-4b278d37-7686-4a52-
 ## Cypress Test Video
 
 
+https://user-images.githubusercontent.com/48184672/164363854-1f9b9e87-76ec-4569-a718-0b29be17880b.mp4
+
+Follow this link for improved video quality - https://youtu.be/lZ4XBjVcshs
+
 ## Backend Unit Test Video
 
 
@@ -74,7 +78,10 @@ https://github.com/hat359/Software-Engineering-UF-/blob/main/Database-Documentat
 
 
 ## Link To Project Board
-
+Sprint 1 - https://github.com/hat359/Software-Engineering-UF-/projects/1
+Sprint 2 - https://github.com/hat359/Software-Engineering-UF-/projects/2
+Sprint 3 - https://github.com/hat359/Software-Engineering-UF-/projects/3
+Sprint 4 - https://github.com/hat359/Software-Engineering-UF-/projects/4
 
 ## Links to Sprint Deliverables 
 
