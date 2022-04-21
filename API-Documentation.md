@@ -233,7 +233,6 @@ ZipCode: string		     // required
 Contact: string		     // required
 Status: string		     // required
 
-
 Example Response:
 
 [
@@ -247,21 +246,133 @@ Example Response:
         UFID:           "ABCDEFG",
         ZipCode:        "32601",
         Contact:        "1234567890",
-        Status:         "Scheduled",
+        Status:         "scheduled"
     }
 ]
 
 
+## Get Users
+
+This API returns details of all the users.
+
+GET: /users
+
+Response Scheme:
+
+	UserID     //string 
+	Username   //string 
+	Password   //string 
+	FirstName  //string 
+	LastName   //string 
+	Address    //string 
+	Email      //string 
+	Zipcode    //string 
+	Contact    //string 
+    
+Example Response:
+
+[
+    {
+        UserID:         "a1",
+        Username:       "anuj.t21",
+        FirstName:      "Anuj",
+        LastName:       "Tayal",
+        Email:          "anujj.t21@gmail.com",
+        Address:        "Gainesville",
+        ZipCode:        "32601",
+        Contact:        "1234567890",
+        Password:       "*********",
+    }
+]
+
+
+## Post Users
+
+This API accepts the user schema in body and adds it to database. The API also returns the successfully added user in form of response.
+
+POST: /users/add
+
+Body Scheme:
+
+	UserID     : string 
+	Username   : string 
+	Password   : string 
+	FirstName  : string 
+	LastName   : string 
+	Address    : string 
+	Email      : string 
+	Zipcode    : string 
+	Contact    : string 
+    
+    
+## Get Courses
+
+This API return the details of all the courses.
+
+GET: /academics/courses
+
+Response Scheme:
+
+	CourseID           //string 
+	CourseName         //string 
+	CourseDepartment   //string 
+
+Example Response:
+
+[
+    {
+        CourseID:            "Course1",
+        CourseName:          "Software Engineering",
+        CourseDepartment:    "Computer Science"
+    }
+]
+
+## Get Course Forum Chats
+
+This API can be called for the chats in the particular course forum section. It accepts Course ID as argument.
+
+GET: /academics/courses/chats/{courseId}
+
+Parameter:
+
+courseId  : string      //required
+
+
+Body Scheme:
+
+	CourseID   //string 
+	UserID     //string 
+	ChatID     //string 
+	Message    //string
+    
+Response Scheme:
+
+[
+    {
+        CourseID:        "Course1",
+        UserId:          "User123",
+        ChatId:          "Chat010",
+        Message:         "Hey! Which Professor is taking the course this sem?"
+    }
+]
+    
+    
+## Post Chats in Course Forum
+
+This API accepts the chat schema in body and adds it to database. The API also returns the successfully added chats in form of response.
+
+POST: /academics/courses/chats
+
+Body Scheme:
+    
+	CourseID   //string 
+	UserID     //string 
+	ChatID     //string 
+	Message    //string
+    
+    
 ## STATUS CODE SUMMARY:
 
-200 - OK	Everything worked as expected.
-400 - Bad Request	The request was unacceptable, often due to missing a required parameter.
-401 - Unauthorized	No valid API key provided.
-402 - Request Failed	The parameters were valid but the request failed.
-403 - Forbidden	The API key doesn't have permissions to perform the request.
-404 - Not Found	The requested resource doesn't exist.
-409 - Conflict	The request conflicts with another request (perhaps due to using the same idempotent key).
-429 - Too Many Requests	Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.
-500, 502, 503, 504 - Server Errors	Something went wrong on Stripe's end. (These are rare.)
+![Screenshot 2022-04-20 at 9 06 09 PM](https://user-images.githubusercontent.com/52398324/164351325-e307f800-063d-456f-972a-8af5ee6b90ad.png)
 
 
