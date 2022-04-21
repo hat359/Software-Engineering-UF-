@@ -13,12 +13,15 @@ We intend to develop a web application in order to aid and assist an incoming in
 * Travel
   * Campus Navigation
   * Providing travel resources
+  * Ask travel related queries
 * Academics
   * Course resources 
   * Course assistance
+  * Check Professor ratings
 * Finance
   * Financial aid assistance
   * Feasible banking options
+  * Health Insurance resources
 
 # Team Members
 | Members                 | Github ID     |
