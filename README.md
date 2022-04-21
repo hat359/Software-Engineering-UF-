@@ -57,11 +57,13 @@ https://user-images.githubusercontent.com/48184672/164352404-4b278d37-7686-4a52-
 
 https://user-images.githubusercontent.com/52398324/164352784-56e8fc05-bcfd-4255-9977-4bc5294ca6ce.mp4
 
+(Note: For keeping the video duration short, all the backend tests has been performed by keeping the functions in a single file. Though in the video, we have taken you through the entire testing code.)
 
 ## Link to API Documentation
 
-https://github.com/hat359/Software-Engineering-UF-/blob/main/API-Documentation.md
+MD File: https://github.com/hat359/Software-Engineering-UF-/blob/main/API-Documentation.md
 
+PDF: https://drive.google.com/file/d/1u0G7UBhU-CzZez60mOW1GIxQusOmx_0n/view?usp=sharing
 
 ## Link to Database Documentation
 
